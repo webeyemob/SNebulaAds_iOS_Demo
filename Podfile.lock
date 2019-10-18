@@ -11,6 +11,9 @@ PODS:
   - Flurry-iOS-SDK/FlurryAds (10.0.2):
     - Flurry-iOS-SDK/FlurrySDK (~> 10.0.2)
   - Flurry-iOS-SDK/FlurrySDK (10.0.2)
+  - GDTMobSDK (4.10.14):
+    - GDTMobSDK/GDTMobSDK (= 4.10.14)
+  - GDTMobSDK/GDTMobSDK (4.10.14)
   - Google-Mobile-Ads-SDK (7.50.0):
     - GoogleAppMeasurement (~> 6.0)
   - GoogleAppMeasurement (6.1.3):
@@ -77,6 +80,9 @@ PODS:
     - Flurry-iOS-SDK/FlurryAds (= 10.0.2)
     - Flurry-iOS-SDK/FlurrySDK (= 10.0.2)
     - TaurusXAds
+  - TaurusXAdMediation_GDT (4.10.13.1):
+    - GDTMobSDK (~> 4.10.13)
+    - TaurusXAds
   - TaurusXAdMediation_GoogleAds (7.50.0.0):
     - Google-Mobile-Ads-SDK (~> 7.50.0)
     - TaurusXAds
@@ -101,7 +107,7 @@ PODS:
   - TaurusXAdMediation_Vungle (6.4.5.0):
     - TaurusXAds
     - VungleSDK-iOS (~> 6.4.5)
-  - TaurusXAds (1.3.5)
+  - TaurusXAds (1.3.6)
   - UnityAds (3.3.0)
   - VungleSDK-iOS (6.4.5)
 
@@ -114,6 +120,7 @@ DEPENDENCIES:
   - TaurusXAdMediation_Chartboost
   - TaurusXAdMediation_Facebook
   - TaurusXAdMediation_Flurry
+  - TaurusXAdMediation_GDT
   - TaurusXAdMediation_GoogleAds
   - TaurusXAdMediation_IronSource
   - TaurusXAdMediation_Maio
@@ -135,6 +142,7 @@ SPEC REPOS:
     - FBAudienceNetwork
     - FBSDKCoreKit
     - Flurry-iOS-SDK
+    - GDTMobSDK
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleUtilities
@@ -151,6 +159,7 @@ SPEC REPOS:
     - TaurusXAdMediation_Chartboost
     - TaurusXAdMediation_Facebook
     - TaurusXAdMediation_Flurry
+    - TaurusXAdMediation_GDT
     - TaurusXAdMediation_GoogleAds
     - TaurusXAdMediation_IronSource
     - TaurusXAdMediation_Maio
@@ -173,6 +182,7 @@ SPEC CHECKSUMS:
   FBAudienceNetwork: 783ff4808b0b59d0eb294dd94eb251f46e0ce5c9
   FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
   Flurry-iOS-SDK: 71da0ebf2088b15d8899da71050efc8b33bfd21f
+  GDTMobSDK: b974c327ab530e5fbc165cf4a44466f58110bfac
   Google-Mobile-Ads-SDK: d48dbaf5bae1ab7a94a9786f493c26c454bc6f16
   GoogleAppMeasurement: 434cc7be25e71dc04b8d0e3079125127b330e84a
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
@@ -189,6 +199,7 @@ SPEC CHECKSUMS:
   TaurusXAdMediation_Chartboost: 775eed1fd566f8925ea9f19c7c7ba4e24eebcd33
   TaurusXAdMediation_Facebook: 807ce0211c6d2e11169c2c6270c85940f6390f07
   TaurusXAdMediation_Flurry: 718b7595bb2f63667534a666d476893775d2ef7a
+  TaurusXAdMediation_GDT: 7842c71b23ae4504af788ca0af7cf4ee83c4ccbb
   TaurusXAdMediation_GoogleAds: 019cb1b366e2137df0ac4c425739f11873a9ed81
   TaurusXAdMediation_IronSource: ed2d91da202c889f4b84919860e3532ba7c474e0
   TaurusXAdMediation_Maio: 4f8b11b06e95e366dbf67da5199eed2e16a1da79
@@ -197,10 +208,10 @@ SPEC CHECKSUMS:
   TaurusXAdMediation_TikTok: 9178a305485df0b1ebf554a2fe23606cac39ce9e
   TaurusXAdMediation_UnityAds: e8e8613908f0dce460074b430e45f5639970c9c0
   TaurusXAdMediation_Vungle: c79b2a38bb4191331742f5626f9ae0e4b5d7351f
-  TaurusXAds: 30e3000996d3fe36f140db0f717ea025944f08fb
+  TaurusXAds: 6afdc43c2f7a10ed40e1c585e6c8ab7298f5719a
   UnityAds: 0b7ecf8df83e8a3d62122a3fcf61e47c8e848f3c
   VungleSDK-iOS: 8951559521dd73c3f947757e9a4c4bbfd8645b7f
 
-PODFILE CHECKSUM: 87f1f0a944114f9778c402eadc146760c06fd6b3
+PODFILE CHECKSUM: c47955ab2989311d0d61d9d872252faa2dfa7ef6
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

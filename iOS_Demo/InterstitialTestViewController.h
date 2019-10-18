@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface InterstitialTestViewController : UIViewController
 
 @property (nonatomic, strong) NSString *adUnitID;
+@property (nonatomic, strong) NSString *titleStr;
 
 @end
 

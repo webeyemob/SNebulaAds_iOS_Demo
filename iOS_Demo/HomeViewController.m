@@ -73,13 +73,13 @@
 }
 
 - (void) testBase {
-    [TXAD initWithAppId:@"1e68d89e-ee81-47bc-ab4b-f79c09e5c561"];
+    [TXAD initWithAppId:@"0f483e96-1ca5-4c46-aff0-109b97563d72"];
     [TXAD setGdprConsent:true];
     [TXAD setTestMode:YES];
     [TXAD setLogEnable:YES];
     
     AdTypeViewController *vc = [[AdTypeViewController alloc] init];
-    NSArray *ads = @[@[@"Banner", @"57be18f5-7030-4a46-8fc9-49b4abbd2438"], @[@"Interstitial", @"57be18f5-7030-4a46-8fc9-49b4abbd2438"], @[@"Native", @"3f733527-5202-4869-b148-73962fadbb88"], @[@"RewardedVideo", @"f5f0cdb5-b18f-4e56-82f4-00d5238b31b0"]];
+    NSArray *ads = @[@[@"Banner", @"19883768-3c51-4957-91cb-ce786350c869"], @[@"Interstitial", @"ee0edf7d-4daa-4576-b633-d40bddcd8794"], @[@"Native", @"46a98b93-fa84-44c2-b465-dd1a88d7cbc2"], @[@"RewardedVideo", @"0fcda4e7-3134-4014-9631-e695b3db38b1"]];
     vc.adsDic = ads;
     vc.titleStr = @"Basic Test";
     vc.modalPresentationStyle = 0;
@@ -87,7 +87,7 @@
 }
 
 - (void) testNetwork {
-    [TXAD initWithAppId:@"85f1d986-88e3-42f5-bd55-ffedea562215"];
+    [TXAD initWithAppId:@"9dc8fab8-32d5-4d6f-b224-8f0a9b55547f"];
     [TXAD setGdprConsent:true];
     [TXAD setTestMode:YES];
     [TXAD setLogEnable:YES];
@@ -98,7 +98,7 @@
 }
 
 - (void) testMediation {
-    [TXAD initWithAppId:@"fc0840a5-64f5-44a2-8067-1e66643c37fb"];
+    [TXAD initWithAppId:@"9dc8fab8-32d5-4d6f-b224-8f0a9b55547f"];
     [TXAD setGdprConsent:true];
     [TXAD setTestMode:YES];
     [TXAD setLogEnable:YES];

@@ -27,4 +27,5 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_TikTok'
     pod 'TaurusXAdMediation_UnityAds'
     pod 'TaurusXAdMediation_Vungle'
+    pod 'TaurusXAdMediation_GDT'
 end

@@ -34,6 +34,15 @@
         make.bottom.equalTo(self.view.mas_top).offset(kTopBarSafeHeight+20);
     }];
     
+    UILabel *titleLab =  [[UILabel alloc]init];
+    titleLab.text = self.titleStr;
+    [titleLab setTextAlignment:NSTextAlignmentCenter];
+    [header addSubview:titleLab];
+    [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(header);
+        make.width.equalTo(@(250));
+    }];
+    
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [header addSubview:backBtn];
     
@@ -47,7 +56,7 @@
     }];
     
     UIButton *testloadIntBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    testloadIntBtn.frame = CGRectMake(20, kTopBarSafeHeight+20, 150, 30);
+    testloadIntBtn.frame = CGRectMake(20, kTopBarSafeHeight+50, 150, 30);
     [self.view addSubview:testloadIntBtn];
     [testloadIntBtn setTitle:@"load Intersitial" forState:UIControlStateNormal];
     //[testloadIntBtn setBackgroundColor:[UIColor blueColor]];
@@ -58,7 +67,7 @@
     
     CGFloat left = ScreenWidth - 150 - 20;
     UIButton *testshowIntBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    testshowIntBtn.frame = CGRectMake(left, kTopBarSafeHeight+20, 150, 30);
+    testshowIntBtn.frame = CGRectMake(left, kTopBarSafeHeight+50, 150, 30);
     [self.view addSubview:testshowIntBtn];
     [testshowIntBtn setTitle:@"show Intersitial" forState:UIControlStateNormal];
     //[testshowIntBtn setBackgroundColor:[UIColor blueColor]];

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NativeTestViewController : UIViewController
 
 @property (nonatomic, strong) NSString *adUnitID;
+@property (nonatomic, strong) NSString *titleStr;
 
 @end
 

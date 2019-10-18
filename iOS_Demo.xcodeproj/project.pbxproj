@@ -34,9 +34,8 @@
 		D436D02523572B7600981CBD /* LoadModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D436D02423572B7600981CBD /* LoadModelViewController.m */; };
 		D47CDE6122DF1A5F001357E1 /* Resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47CDE6022DF1A5F001357E1 /* Resource.xcassets */; };
 		D480FB34233DF07900C6ACD2 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D480FB33233DF07900C6ACD2 /* HomeViewController.m */; };
-		D480FB38233DF17900C6ACD2 /* TestAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D480FB37233DF17900C6ACD2 /* TestAdsViewController.m */; };
 		D480FB3B233DF3ED00C6ACD2 /* NetworkTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D480FB39233DF3ED00C6ACD2 /* NetworkTestViewController.m */; };
-		D4F03A15231CF30E00FD8433 /* MediationTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F03A13231CF30D00FD8433 /* MediationTestViewController.m */; };
+		D48826F62359C2BD00C1C15F /* FeedListTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48826F42359C2BD00C1C15F /* FeedListTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,12 +85,10 @@
 		D480FB32233DF07900C6ACD2 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D480FB33233DF07900C6ACD2 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D480FB35233DF15F00C6ACD2 /* macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = macro.h; sourceTree = "<group>"; };
-		D480FB36233DF17900C6ACD2 /* TestAdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAdsViewController.h; sourceTree = "<group>"; };
-		D480FB37233DF17900C6ACD2 /* TestAdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAdsViewController.m; sourceTree = "<group>"; };
 		D480FB39233DF3ED00C6ACD2 /* NetworkTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTestViewController.m; sourceTree = "<group>"; };
 		D480FB3A233DF3ED00C6ACD2 /* NetworkTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTestViewController.h; sourceTree = "<group>"; };
-		D4F03A13231CF30D00FD8433 /* MediationTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediationTestViewController.m; sourceTree = "<group>"; };
-		D4F03A14231CF30E00FD8433 /* MediationTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediationTestViewController.h; sourceTree = "<group>"; };
+		D48826F42359C2BD00C1C15F /* FeedListTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedListTestViewController.m; sourceTree = "<group>"; };
+		D48826F52359C2BD00C1C15F /* FeedListTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedListTestViewController.h; sourceTree = "<group>"; };
 		D6B6BC5C45A90A26F65E84DB /* Pods-AdLime_iOS_AutoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLime_iOS_AutoTest.debug.xcconfig"; path = "Target Support Files/Pods-AdLime_iOS_AutoTest/Pods-AdLime_iOS_AutoTest.debug.xcconfig"; sourceTree = "<group>"; };
 		FEA695B2D77A7AE17EBEE925 /* Pods-AdLime_iOS_AutoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLime_iOS_AutoTest.release.xcconfig"; path = "Target Support Files/Pods-AdLime_iOS_AutoTest/Pods-AdLime_iOS_AutoTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,10 +160,6 @@
 				D418954E22D57B7E005A046F /* AppDelegate.h */,
 				D418954F22D57B7E005A046F /* AppDelegate.m */,
 				D418955422D57B7E005A046F /* Main.storyboard */,
-				D480FB36233DF17900C6ACD2 /* TestAdsViewController.h */,
-				D480FB37233DF17900C6ACD2 /* TestAdsViewController.m */,
-				D4F03A14231CF30E00FD8433 /* MediationTestViewController.h */,
-				D4F03A13231CF30D00FD8433 /* MediationTestViewController.m */,
 				D418955722D57B80005A046F /* Assets.xcassets */,
 				D418955922D57B80005A046F /* LaunchScreen.storyboard */,
 				D418955C22D57B80005A046F /* Info.plist */,
@@ -184,6 +177,8 @@
 				D436D01B23571CEA00981CBD /* InterstitialTestViewController.m */,
 				D436D01D23571E6600981CBD /* NativeTestViewController.h */,
 				D436D01E23571E6600981CBD /* NativeTestViewController.m */,
+				D48826F52359C2BD00C1C15F /* FeedListTestViewController.h */,
+				D48826F42359C2BD00C1C15F /* FeedListTestViewController.m */,
 				D436D02023571EA700981CBD /* RewardedVideoTestViewController.h */,
 				D436D02123571EA700981CBD /* RewardedVideoTestViewController.m */,
 				D436D02323572B7600981CBD /* LoadModelViewController.h */,
@@ -347,7 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D480FB3B233DF3ED00C6ACD2 /* NetworkTestViewController.m in Sources */,
-				D4F03A15231CF30E00FD8433 /* MediationTestViewController.m in Sources */,
 				D436D01923571B9F00981CBD /* BannerTestViewController.m in Sources */,
 				D436D01F23571E6600981CBD /* NativeTestViewController.m in Sources */,
 				D436D02523572B7600981CBD /* LoadModelViewController.m in Sources */,
@@ -355,7 +349,7 @@
 				D418955E22D57B80005A046F /* main.m in Sources */,
 				D436D016235718F200981CBD /* AdTypeViewController.m in Sources */,
 				D418955022D57B7E005A046F /* AppDelegate.m in Sources */,
-				D480FB38233DF17900C6ACD2 /* TestAdsViewController.m in Sources */,
+				D48826F62359C2BD00C1C15F /* FeedListTestViewController.m in Sources */,
 				D436D01C23571CEA00981CBD /* InterstitialTestViewController.m in Sources */,
 				D480FB34233DF07900C6ACD2 /* HomeViewController.m in Sources */,
 			);

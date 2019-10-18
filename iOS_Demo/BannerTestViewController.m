@@ -34,6 +34,15 @@
         make.bottom.equalTo(self.view.mas_top).offset(kTopBarSafeHeight+20);
     }];
     
+    UILabel *titleLab =  [[UILabel alloc]init];
+    titleLab.text = self.titleStr;
+    [titleLab setTextAlignment:NSTextAlignmentCenter];
+    [header addSubview:titleLab];
+    [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(header);
+        make.width.equalTo(@(250));
+    }];
+    
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [header addSubview:backBtn];
     
@@ -47,7 +56,7 @@
     }];
     
     UIButton *testBannerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    testBannerBtn.frame = CGRectMake((ScreenWidth-200)/2, kTopBarSafeHeight+20, 200, 30);
+    testBannerBtn.frame = CGRectMake((ScreenWidth-200)/2, kTopBarSafeHeight+50, 200, 30);
     [self.view addSubview:testBannerBtn];
     [testBannerBtn setTitle:@"load banner" forState:UIControlStateNormal];
     [testBannerBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0] forState:UIControlStateNormal];

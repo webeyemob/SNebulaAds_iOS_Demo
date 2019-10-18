@@ -12,6 +12,7 @@
 #import "InterstitialTestViewController.h"
 #import "NativeTestViewController.h"
 #import "RewardedVideoTestViewController.h"
+#import "FeedListTestViewController.h"
 #import "macro.h"
 
 @interface AdTypeViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -109,23 +110,34 @@
         BannerTestViewController *adsTestVc = [[BannerTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
         adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        adsTestVc.titleStr = self.titleStr;
         [self presentViewController:adsTestVc animated:YES completion:nil];
         
     } else if ([_adsDic[indexPath.row][0] isEqualToString:@"Interstitial"]) {
         InterstitialTestViewController *adsTestVc = [[InterstitialTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
         adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        adsTestVc.titleStr = self.titleStr;
         [self presentViewController:adsTestVc animated:YES completion:nil];
         
     } else if ([_adsDic[indexPath.row][0] isEqualToString:@"Native"]) {
         NativeTestViewController *adsTestVc = [[NativeTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
         adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        adsTestVc.titleStr = self.titleStr;
         [self presentViewController:adsTestVc animated:YES completion:nil];
         
     } else if ([_adsDic[indexPath.row][0] isEqualToString:@"RewardedVideo"]) {
         RewardedVideoTestViewController *adsTestVc = [[RewardedVideoTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
+        adsTestVc.titleStr = self.titleStr;
+        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        [self presentViewController:adsTestVc animated:YES completion:nil];
+        
+    } else if ([_adsDic[indexPath.row][0] isEqualToString:@"FeedList"]) {
+        FeedListTestViewController *adsTestVc = [[FeedListTestViewController alloc] init];
+        adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
+        adsTestVc.titleStr = self.titleStr;
         adsTestVc.adUnitID = _adsDic[indexPath.row][1];
         [self presentViewController:adsTestVc animated:YES completion:nil];
         

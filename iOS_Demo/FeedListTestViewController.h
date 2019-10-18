@@ -1,5 +1,5 @@
 //
-//  RewardedVideoTestViewController.h
+//  FeedListTestViewController.h
 //  iOS_AutoTest
 //
 //  Created by 汤正 on 2019/10/16.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RewardedVideoTestViewController : UIViewController
+@interface FeedListTestViewController : UIViewController
 
 @property (nonatomic, strong) NSString *adUnitID;
 @property (nonatomic, strong) NSString *titleStr;

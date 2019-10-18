@@ -1,27 +1,25 @@
 //
-//  NativeTestViewController.m
+//  FeedListTestViewController.m
 //  iOS_AutoTest
 //
 //  Created by 汤正 on 2019/10/16.
 //  Copyright © 2019 we. All rights reserved.
 //
 
-#import "NativeTestViewController.h"
+#import "FeedListTestViewController.h"
 @import TaurusXAds;
 #import "Masonry.h"
 #import "macro.h"
 
-@interface NativeTestViewController () <TXADNativeAdDelegate>
+@interface FeedListTestViewController () <TXADFeedListDelegate>
 
-@property (nonatomic, strong) TXADNativeAd *nativeAd;
-@property (nonatomic, strong) UIView *nativeAdView;
+@property (nonatomic, strong) TXADFeedList *feedListAd;
 
-@property (nonatomic, strong) UIButton *showNativeBtn;
 @property (nonatomic, strong) TXADNativeAdLayout *nativeLayout;
 
 @end
 
-@implementation NativeTestViewController
+@implementation FeedListTestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,47 +57,23 @@
     }];
     
     UIButton *loadNativeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    loadNativeBtn.frame = CGRectMake(20, kTopBarSafeHeight+50, 150, 30);
+    loadNativeBtn.frame = CGRectMake((ScreenWidth-200)/2, kTopBarSafeHeight+50, 200, 30);
     [self.view addSubview:loadNativeBtn];
-    [loadNativeBtn setTitle:@"load Native" forState:UIControlStateNormal];
+    [loadNativeBtn setTitle:@"load FeedList" forState:UIControlStateNormal];
     //[loadNativeBtn setBackgroundColor:[UIColor blueColor]];
     [loadNativeBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]  forState:UIControlStateNormal];
     [loadNativeBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
     [loadNativeBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
     [loadNativeBtn addTarget:self action:@selector(loadNative) forControlEvents:UIControlEventTouchUpInside];
-    
-    CGFloat left = ScreenWidth - 150 - 20;
-    UIButton *showNativeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    showNativeBtn.frame = CGRectMake(left, kTopBarSafeHeight+50, 150, 30);
-    [self.view addSubview:showNativeBtn];
-    [showNativeBtn setTitle:@"show Native" forState:UIControlStateNormal];
-    //[showNativeBtn setBackgroundColor:[UIColor blueColor]];
-    [showNativeBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]  forState:UIControlStateNormal];
-    [showNativeBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
-    [showNativeBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
-    [showNativeBtn addTarget:self action:@selector(showNative) forControlEvents:UIControlEventTouchUpInside];
-    showNativeBtn.enabled = NO;
-    self.showNativeBtn = showNativeBtn;
-    
-     [self createNativeAd];
+        
+     [self createFeedList];
 }
 
 - (void) closePage {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)createNativeAd {
-    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(10, kTopBarSafeHeight+80, ScreenWidth-20, 250)];
-    
-    [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
-    [self.view addSubview:adView];
-    adView.layer.borderColor = [UIColor colorWithRed:36.0/255.0 green:189.0/255.0 blue:155.0/255.0 alpha:1].CGColor;
-    adView.layer.cornerRadius = 10;
-    adView.layer.borderWidth = 2;
-    self.nativeAdView = adView;
-    
-    adView.hidden = YES;
-    
+- (void)createFeedList {
     UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 250)];
     
     UIView *mediaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 150)];
@@ -135,47 +109,55 @@
 }
 
 - (void) loadNative {
-    self.nativeAd = [[TXADNativeAd alloc] initWithAdUnitId:self.adUnitID];
-    self.nativeAd.delegate = self;
-    [self.nativeAd setNativeAdLayout:self.nativeLayout];
-    
-    [self.nativeAd loadAd];
+    self.feedListAd = [[TXADFeedList alloc] initWithAdUnitId:self.adUnitID];
+    self.feedListAd.delegate = self;
+    [self.feedListAd setCount:3];
+    [self.feedListAd loadAd];
     
 }
 
-- (void)showNative {
-    if (self.nativeAd.isReady) {
-        UIView *adView = [self.nativeAd getAdView];
-        [self.nativeAdView addSubview:adView];
-        self.nativeAdView.hidden = NO;
-    }
+- (void)showFeed :(TXADFeed *)feed{
+
+    // 布置展示广告素材的 UIViews，可以通过新建 xib 文件或自定义 UIView 的子类
+    UIView *adView = [feed getAdView:self.nativeLayout];
+    adView.frame = CGRectMake(10, kTopBarSafeHeight+80, ScreenWidth-20, 250);
+    // 展示广告
+    [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
+    [self.view addSubview:adView];
+    adView.layer.borderColor = [UIColor colorWithRed:36.0/255.0 green:189.0/255.0 blue:155.0/255.0 alpha:1].CGColor;
+    adView.layer.cornerRadius = 10;
+    adView.layer.borderWidth = 2;
 }
 
 #pragma mark <TXADInnerNativeAdDelegate>
-- (void)txAdNativeAdDidReceiveAd:(TXADNativeAd *)nativeAd {
-    NSLog(@"TXADNativeAd txAdNativeAdDidReceiveAd, nativeAd.adUnitId is %@", nativeAd.adUnitId);
-    [self showNative];
-    self.showNativeBtn.enabled = YES;
+- (void)txAdFeedListDidReceiveAd:(TXADFeedList *)feedList {
+    NSLog(@"txAdFeedListDidReceiveAd");
+    NSMutableArray<TXADFeed *> *feedArray = [feedList getFeedArray];
+
+    // 获取第一个广告并展示
+    TXADFeed *feed = feedArray[0];
+    [self showFeed:feed];
 }
 
-
-- (void)txAdNativeAd:(TXADNativeAd *)nativeAd didFailToReceiveAdWithError:(TXADAdError *)adError{
-    NSLog(@"TXADNativeAd didFailToReceiveAdWithError %d", (int)[adError getCode]);
+/// 广告加载失败
+- (void)txAdFeedList:(TXADFeedList *)feedList didFailToReceiveAdWithError:(TXADAdError *)adError {
+    NSLog(@"txAdFeedList:didFailToReceiveAdWithError, errorCode is %ld, errorMessage is %@",
+          adError.getCode, adError.description);
 }
 
-
-- (void)txAdNativeAdWillPresentScreen:(TXADNativeAd *)nativeAd{
-    NSLog(@"TXADNativeAd txAdNativeAdWillPresentScreen, nativeAd adUnitId is %@", nativeAd.adUnitId);
+/// 广告展示；如果一次加载多个广告，此回调会触发多次
+- (void)txAdFeedListWillPresentScreen:(TXADFeedList *)feedList feed:(TXADFeed *)feed {
+    NSLog(@"txAdFeedListWillPresentScreen");
 }
 
-
-- (void)txAdNativeAdDidDismissScreen:(TXADNativeAd *)nativeAd{
-    NSLog(@"TXADNativeAd txAdNativeAdDidDismissScreen, nativeAd adUnitId is %@", nativeAd.adUnitId);
+/// 点击广告；如果一次加载多个广告，此回调会触发多次
+- (void)txAdFeedListWillLeaveApplication:(TXADFeedList *)feedList feed:(TXADFeed *)feed {
+    NSLog(@"txAdFeedListWillLeaveApplication");
 }
 
-
-- (void)txAdNativeAdWillLeaveApplication:(TXADNativeAd *)nativeAd {
-    NSLog(@"TXADNativeAd txAdNativeAdWillLeaveApplication, nativeAd adUnitId is %@", nativeAd.adUnitId);
+/// 点击广告后关闭落地页
+- (void)txAdFeedListDidDismissScreen:(TXADFeedList *)feedList feed:(TXADFeed *)feed {
+    NSLog(@"txAdFeedListDidDismissScreen");
 }
 
 

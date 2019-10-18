@@ -34,6 +34,15 @@
         make.bottom.equalTo(self.view.mas_top).offset(kTopBarSafeHeight+20);
     }];
     
+    UILabel *titleLab =  [[UILabel alloc]init];
+    titleLab.text = self.titleStr;
+    [titleLab setTextAlignment:NSTextAlignmentCenter];
+    [header addSubview:titleLab];
+    [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(header);
+        make.width.equalTo(@(250));
+    }];
+    
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [header addSubview:backBtn];
     
@@ -47,7 +56,7 @@
     }];
     
     UIButton *loadRewardBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    loadRewardBtn.frame = CGRectMake(20, kTopBarSafeHeight+20, 150, 30);
+    loadRewardBtn.frame = CGRectMake(20, kTopBarSafeHeight+50, 150, 30);
     [self.view addSubview:loadRewardBtn];
     [loadRewardBtn setTitle:@"load Reward" forState:UIControlStateNormal];
     //[loadRewardBtn setBackgroundColor:[UIColor blueColor]];
@@ -58,7 +67,7 @@
     
     CGFloat left = ScreenWidth - 150 - 20;
     UIButton *rewardShowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rewardShowBtn.frame = CGRectMake(left, kTopBarSafeHeight+20, 150, 30);
+    rewardShowBtn.frame = CGRectMake(left, kTopBarSafeHeight+50, 150, 30);
     [self.view addSubview:rewardShowBtn];
     [rewardShowBtn setTitle:@"show Reward" forState:UIControlStateNormal];
     //[rewardShowBtn setBackgroundColor:[UIColor blueColor]];
@@ -66,6 +75,8 @@
     [rewardShowBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
     [rewardShowBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
     [rewardShowBtn addTarget:self action:@selector(showReward) forControlEvents:UIControlEventTouchUpInside];
+    self.showRewardBtn = rewardShowBtn;
+    self.showRewardBtn.enabled = NO;
 }
 
 - (void) closePage {
