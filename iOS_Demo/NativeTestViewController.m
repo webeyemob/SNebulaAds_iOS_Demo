@@ -81,8 +81,8 @@
     showNativeBtn.enabled = NO;
     self.showNativeBtn = showNativeBtn;
     
-     [self createNativeAd];    // nativeLayout
-     //[self createDefaultNativeAd]; //get default NativeLayout
+     //[self createNativeAd];    // nativeLayout
+     [self createDefaultNativeAd]; //get default NativeLayout
 }
 
 - (void) closePage {
@@ -90,7 +90,7 @@
 }
 
 - (void)createNativeAd {
-    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 430)];
+    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 270)];
     
     [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
     [self.view addSubview:adView];
@@ -105,6 +105,8 @@
 
     UIView *mediaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 150)];
     [rootView addSubview:mediaView];
+    
+    
 
     UIView *icon = [[UIView alloc] initWithFrame:CGRectMake(5, 160, 60, 60)];
     [rootView addSubview:icon];
@@ -124,12 +126,16 @@
     btn.frame = CGRectMake(200, desc.frame.origin.y + 40, 100, 20);
     [rootView addSubview:btn];
     
+    UIView *adChoiceView = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth-80, 230, 10, 10)];
+    [rootView addSubview:adChoiceView];
+    
     TXADNativeAdLayout *layout = [[TXADNativeAdLayout alloc] init];
     layout.rootView = rootView;
     layout.titleLabel = title;
     layout.bodyLabel = desc;
     layout.mediaView = mediaView;
     layout.callToActionView = btn;
+    layout.adChoicesView = adChoiceView;
     layout.iconView = icon;
         
     self.nativeLayout = layout;
@@ -137,6 +143,7 @@
 
 - (void)createDefaultNativeAd {
     UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 430)];
+    //UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
         
     [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
     [self.view addSubview:adView];
@@ -167,6 +174,7 @@
         self.nativeAdView.hidden = NO;
     }
 }
+
 
 #pragma mark <TXADInnerNativeAdDelegate>
 - (void)txAdNativeAdDidReceiveAd:(TXADNativeAd *)nativeAd {
