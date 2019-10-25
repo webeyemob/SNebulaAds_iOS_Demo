@@ -14,6 +14,7 @@
 @interface NetworkTestViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSDictionary *netWorksDic;
+@property (nonatomic, strong) NSArray *sortedArray;
 @property (nonatomic, strong) NSMutableArray *adsArr;
 @end
 
@@ -23,7 +24,7 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     // Do any additional setup after loading the view.
-    NSDictionary * dic = @{@"AdColony": @[@"", @"b03fecaf-69e2-4b76-b81d-d2ce2428ea49",
+    _netWorksDic = @{@"AdColony": @[@"", @"b03fecaf-69e2-4b76-b81d-d2ce2428ea49",
                                           @"", @"18fca7ad-eaa5-49a7-a9c8-1c860af54fb8", @""],
                            @"Admob": @[@"260a7430-acd9-4dec-a4f2-e24a08855212", @"833c620a-4fb3-4268-a733-88cb30f5eb90", @"9007ea51-bb55-4e6d-b57c-ba3924ba4a1e", @"b6e0a185-3738-470a-a1dd-aa9c9db3fbe0", @""],
                            @"AdGeneration": @[@"8544f540-bc56-4177-b4c8-6f4daf18e06c", @"e34bbdba-6c36-4d1e-a4a8-fe2c787b498b", @"5b465d9f-dcba-47d2-81ae-3ace1e905f33", @"", @""],
@@ -45,7 +46,13 @@
                            @"Unity Ads": @[@"58f48a0c-371a-492a-bf71-31df58e161f4", @"b1384aa1-9391-453b-93e8-5228730a4bed", @"", @"6f4e0465-969c-49fd-8dfb-832b5548c09b", @""],
                            @"Vungle": @[@"e8fbe4f1-5fab-4abc-ba51-747f26246df1", @"3f5a47fa-57ab-4d7f-a57c-6b53eb11410b", @"", @"5c4daea1-ea30-419d-a4d5-3f72f1748998", @""]
                            };
-    _netWorksDic = [[NSDictionary alloc] initWithDictionary:dic];
+    //get all key in dic
+     NSArray *keyArray = [_netWorksDic allKeys];
+         
+     //order key
+    _sortedArray = [keyArray sortedArrayUsingComparator:^NSComparisonResult(id obj1,id obj2) {
+             return[obj1 compare:obj2 options:NSNumericSearch];
+     }];
     
     UIView *header = [[UIView alloc] init];
     header.backgroundColor = [UIColor whiteColor];
@@ -120,7 +127,7 @@
         cell = [[UITableViewCell alloc] init];
     }
     
-    cell.textLabel.text = _netWorksDic.allKeys[indexPath.row];
+    cell.textLabel.text = _sortedArray[indexPath.row];
     [cell.textLabel setTextColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]];
     return cell;
 }
@@ -128,8 +135,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AdTypeViewController *adsTestVc = [[AdTypeViewController alloc] init];
     adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
-    NSString *key = _netWorksDic.allKeys[indexPath.row];
-    adsTestVc.titleStr =  _netWorksDic.allKeys[indexPath.row];
+    NSString *key = _sortedArray[indexPath.row];
+    adsTestVc.titleStr =  key;
     NSArray *ads = _netWorksDic[key];
     NSMutableArray *adTypes =  [NSMutableArray new];
     if (![ads[0] isEqualToString:@""]) {

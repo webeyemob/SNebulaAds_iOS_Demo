@@ -81,7 +81,8 @@
     showNativeBtn.enabled = NO;
     self.showNativeBtn = showNativeBtn;
     
-     [self createNativeAd];
+     [self createNativeAd];    // nativeLayout
+     //[self createDefaultNativeAd]; //get default NativeLayout
 }
 
 - (void) closePage {
@@ -89,7 +90,7 @@
 }
 
 - (void)createNativeAd {
-    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(10, kTopBarSafeHeight+80, ScreenWidth-20, 250)];
+    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 430)];
     
     [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
     [self.view addSubview:adView];
@@ -101,23 +102,23 @@
     adView.hidden = YES;
     
     UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 250)];
-    
+
     UIView *mediaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 150)];
     [rootView addSubview:mediaView];
-    
+
     UIView *icon = [[UIView alloc] initWithFrame:CGRectMake(5, 160, 60, 60)];
     [rootView addSubview:icon];
-    
+
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(80, 160, ScreenWidth-20-80, 20)];
     title.numberOfLines = 1;
     [title setTextColor:[UIColor greenColor]];
     [rootView addSubview:title];
-    
+
     UILabel *desc = [[UILabel alloc] initWithFrame:CGRectMake(80, 180, ScreenWidth-20-80, 40)];
     [desc setTextColor:[UIColor grayColor]];
     desc.numberOfLines = 2;
     [rootView addSubview:desc];
-    
+
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setBackgroundColor:[UIColor redColor]];
     btn.frame = CGRectMake(200, desc.frame.origin.y + 40, 100, 20);
@@ -130,8 +131,23 @@
     layout.mediaView = mediaView;
     layout.callToActionView = btn;
     layout.iconView = icon;
-    
+        
     self.nativeLayout = layout;
+}
+
+- (void)createDefaultNativeAd {
+    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 430)];
+        
+    [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
+    [self.view addSubview:adView];
+    adView.layer.borderColor = [UIColor colorWithRed:36.0/255.0 green:189.0/255.0 blue:155.0/255.0 alpha:1].CGColor;
+    adView.layer.cornerRadius = 10;
+    adView.layer.borderWidth = 2;
+    self.nativeAdView = adView;
+    
+    adView.hidden = YES;
+    
+    self.nativeLayout = [TXADNativeAdLayout getLargeLayout4WithWidth:ScreenWidth-10];
 }
 
 - (void) loadNative {
@@ -147,6 +163,7 @@
     if (self.nativeAd.isReady) {
         UIView *adView = [self.nativeAd getAdView];
         [self.nativeAdView addSubview:adView];
+        
         self.nativeAdView.hidden = NO;
     }
 }
