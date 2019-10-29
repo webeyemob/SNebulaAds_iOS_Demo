@@ -22,6 +22,7 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_IronSource'
     pod 'TaurusXAdMediation_Maio'
     pod 'TaurusXAdMediation_Flurry'
+    pod 'TaurusXAdMediation_DUADPlatform'
     pod 'TaurusXAdMediation_Fyber'
     pod 'TaurusXAdMediation_MoPub'
     pod 'TaurusXAdMediation_Nend'
