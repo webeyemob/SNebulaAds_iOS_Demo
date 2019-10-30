@@ -4,6 +4,7 @@ project 'iOS_Demo.xcodeproj'
 platform :ios, '10.0'
 
 inhibit_all_warnings!
+install!'cocoapods',:deterministic_uuids=>false
 
 target 'iOS_Demo' do
 
@@ -22,7 +23,8 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_IronSource'
     pod 'TaurusXAdMediation_Maio'
     pod 'TaurusXAdMediation_Flurry'
-    pod 'TaurusXAdMediation_DUADPlatform'
+    pod 'TaurusXAdMediation_Five'
+    pod 'TaurusXAdMediation_DUAdPlatform'
     pod 'TaurusXAdMediation_Fyber'
     pod 'TaurusXAdMediation_MoPub'
     pod 'TaurusXAdMediation_Nend'
