@@ -70,39 +70,28 @@
         make.height.equalTo(@(30));
     }];
     
-}
-
-- (void) testBase {
-    [TXAD initWithAppId:@"0f483e96-1ca5-4c46-aff0-109b97563d72"];
+    [TXAD initWithAppId:@"9dc8fab8-32d5-4d6f-b224-8f0a9b55547f"];
     [TXAD setGdprConsent:true];
     [TXAD setTestMode:YES];
     [TXAD setLogEnable:YES];
-    
+}
+
+- (void) testBase {
     AdTypeViewController *vc = [[AdTypeViewController alloc] init];
-    NSArray *ads = @[@[@"Banner", @"19883768-3c51-4957-91cb-ce786350c869"], @[@"Interstitial", @"ee0edf7d-4daa-4576-b633-d40bddcd8794"], @[@"Native", @"46a98b93-fa84-44c2-b465-dd1a88d7cbc2"], @[@"RewardedVideo", @"0fcda4e7-3134-4014-9631-e695b3db38b1"]];
+    NSArray *ads = @[@[@"Banner", @"5eb89e74-b9c8-43ca-afee-84255744b012"], @[@"Interstitial", @"3ed5613b-2854-44c8-9994-893c5c4d6f00"], @[@"Native", @"d657a4ac-67b8-4779-ae70-598e14c22bec"], @[@"RewardedVideo", @"c81d7147-d0a9-4116-9306-f5b6c6d78167"]];
     vc.adsDic = ads;
     vc.titleStr = @"Basic Test";
     vc.modalPresentationStyle = 0;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
-- (void) testNetwork {
-    [TXAD initWithAppId:@"9dc8fab8-32d5-4d6f-b224-8f0a9b55547f"];
-    [TXAD setGdprConsent:true];
-    [TXAD setTestMode:YES];
-    [TXAD setLogEnable:YES];
-    
+- (void) testNetwork {    
     NetworkTestViewController *vc = [[NetworkTestViewController alloc] init];
     vc.modalPresentationStyle = 0;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void) testMediation {
-    [TXAD initWithAppId:@"9dc8fab8-32d5-4d6f-b224-8f0a9b55547f"];
-    [TXAD setGdprConsent:true];
-    [TXAD setTestMode:YES];
-    [TXAD setLogEnable:YES];
-    
     LoadModelViewController *vc = [[LoadModelViewController alloc] init];
     vc.modalPresentationStyle = 0;
     [self presentViewController:vc animated:YES completion:nil];
