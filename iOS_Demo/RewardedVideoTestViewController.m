@@ -90,34 +90,47 @@
 }
 
 - (void)showReward {
-    if (self.rewardAd.isReady)
-    {
+    if (self.rewardAd.isReady) {
         [self.rewardAd showFromViewController:self];
     }
 }
 
 - (void)txAdRewardedVideoDidReceiveAd:(TXADRewardedVideoAd *)rewardedVideoAd {
-    NSLog(@"txAdRewardedVideo txAdRewardedVideoDidReceiveAd, rewardedVideoAd.adUnitId is %@", rewardedVideoAd.adUnitId);
+    NSLog(@"txAdRewardedVideoDidReceiveAd, adUnitId is %@", rewardedVideoAd.adUnitId);
     self.showRewardBtn.enabled = YES;
 }
 
-
 - (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didFailToReceiveAdWithError:(TXADAdError *)adError {
-    NSLog(@"txAdRewardedVideo didFailToReceiveAdWithError %d",(int)[adError getCode]);
+    NSLog(@"didFailToReceiveAdWithError %d",(int)[adError getCode]);
+}
+
+- (void)txAdRewardedVideoDidOpen:(TXADRewardedVideoAd *)rewardedVideoAd {
+    NSLog(@"txAdRewardedVideoDidOpen, adUnitId is %@", rewardedVideoAd.adUnitId);
+}
+
+- (void)txAdRewardedVideoWillLeaveApplication:(TXADRewardedVideoAd *)rewardedVideoAd {
+    NSLog(@"txAdRewardedVideoWillLeaveApplication, adUnitId is %@", rewardedVideoAd.adUnitId);
 }
 
 - (void)txAdRewardedVideoDidStart:(TXADRewardedVideoAd *)rewardedVideoAd {
-    NSLog(@"txAdRewardedVideo txAdRewardedVideoDidStart, rewardedVideoAd adUnitId is %@", rewardedVideoAd.adUnitId);
+    NSLog(@"txAdRewardedVideoDidStart, adUnitId is %@", rewardedVideoAd.adUnitId);
+}
+
+- (void)txAdRewardedVideoDidComplete:(TXADRewardedVideoAd *)rewardedVideoAd {
+    NSLog(@"txAdRewardedVideoDidComplete, adUnitId is %@", rewardedVideoAd.adUnitId);
 }
 
 - (void)txAdRewardedVideoDidClose:(TXADRewardedVideoAd *)rewardedVideoAd{
-    NSLog(@"txAdRewardedVideo txAdRewardedVideoDidComplete, rewardedVideoAd adUnitId is %@", rewardedVideoAd.adUnitId);
+    NSLog(@"txAdRewardedVideoDidClose, adUnitId is %@", rewardedVideoAd.adUnitId);
 }
 
 - (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didReward:(TXADRewardItem *)item {
-    NSLog(@"txAdRewardedVideo did reward, rewardedVideoAd adUnitId is %@", rewardedVideoAd.adUnitId);
+    NSLog(@"txAdRewardedVideo didReward, adUnitId is %@, RewardItem is: %@", rewardedVideoAd.adUnitId, item);
 }
 
+- (void)txAdRewardedVideoDidFailedToReward:(TXADRewardedVideoAd *)rewardedVideoAd {
+    NSLog(@"txAdRewardedVideoDidFailedToReward, adUnitId is %@", rewardedVideoAd.adUnitId);
+}
 
 /*
 #pragma mark - Navigation
