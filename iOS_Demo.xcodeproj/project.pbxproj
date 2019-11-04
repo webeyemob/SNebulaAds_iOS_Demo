@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22983B3C236ED35D0092C4A1 /* TaurusXAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22983B3B236ED35D0092C4A1 /* TaurusXAds.framework */; };
-		22983B3E236ED3960092C4A1 /* TaurusXAds.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22983B3D236ED3960092C4A1 /* TaurusXAds.bundle */; };
 		22FC0EAF236EC736004594C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0EAE236EC736004594C1 /* AppDelegate.m */; };
 		22FC0EB5236EC736004594C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FC0EB3236EC736004594C1 /* Main.storyboard */; };
 		22FC0EBA236EC739004594C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22FC0EB9236EC739004594C1 /* Assets.xcassets */; };
@@ -24,13 +22,9 @@
 		22FC0EFF236ECAFF004594C1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0EF3236ECAFD004594C1 /* HomeViewController.m */; };
 		22FC0F00236ECAFF004594C1 /* AdTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0EF5236ECAFE004594C1 /* AdTypeViewController.m */; };
 		22FC0F01236ECAFF004594C1 /* FeedListTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0EF6236ECAFE004594C1 /* FeedListTestViewController.m */; };
-		7773DA8D587FB047E46C3A72 /* Pods_iOS_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A902A5EC6EAD1EC6319D063 /* Pods_iOS_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A902A5EC6EAD1EC6319D063 /* Pods_iOS_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		22983B3B236ED35D0092C4A1 /* TaurusXAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TaurusXAds.framework; path = Pods/TaurusXAds.framework; sourceTree = "<group>"; };
-		22983B3D236ED3960092C4A1 /* TaurusXAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TaurusXAds.bundle; path = Pods/TaurusXAds.bundle; sourceTree = "<group>"; };
 		22FC0EAA236EC736004594C1 /* iOS_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FC0EAD236EC736004594C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22FC0EAE236EC736004594C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,8 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22983B3C236ED35D0092C4A1 /* TaurusXAds.framework in Frameworks */,
-				7773DA8D587FB047E46C3A72 /* Pods_iOS_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +71,6 @@
 		22FC0EA1236EC736004594C1 = {
 			isa = PBXGroup;
 			children = (
-				22983B3D236ED3960092C4A1 /* TaurusXAds.bundle */,
 				22FC0EAC236EC736004594C1 /* iOS_Demo */,
 				22FC0EAB236EC736004594C1 /* Products */,
 				FE8288F0692BE382A228FD88 /* Frameworks */,
@@ -141,8 +132,6 @@
 		FE8288F0692BE382A228FD88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				22983B3B236ED35D0092C4A1 /* TaurusXAds.framework */,
-				1A902A5EC6EAD1EC6319D063 /* Pods_iOS_Demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,7 +195,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22983B3E236ED3960092C4A1 /* TaurusXAds.bundle in Resources */,
 				22FC0EBD236EC739004594C1 /* LaunchScreen.storyboard in Resources */,
 				22FC0EFD236ECAFF004594C1 /* Resource.xcassets in Resources */,
 				22FC0EBA236EC739004594C1 /* Assets.xcassets in Resources */,
