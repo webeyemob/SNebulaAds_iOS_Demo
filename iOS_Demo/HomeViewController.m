@@ -2,7 +2,7 @@
 //  HomeViewController.m
 //  AdLime_iOS_AutoTest
 //
-//  Created by 汤正 on 2019/9/27.
+//  Created by TaurusXAd on 2019/9/27.
 //  Copyright © 2019 we. All rights reserved.
 //
 
@@ -78,7 +78,7 @@
 
 - (void) testBase {
     AdTypeViewController *vc = [[AdTypeViewController alloc] init];
-    NSArray *ads = @[@[@"Banner", @"5eb89e74-b9c8-43ca-afee-84255744b012"], @[@"Interstitial", @"3ed5613b-2854-44c8-9994-893c5c4d6f00"], @[@"Native", @"d657a4ac-67b8-4779-ae70-598e14c22bec"], @[@"RewardedVideo", @"c81d7147-d0a9-4116-9306-f5b6c6d78167"]];
+    NSArray *ads = @[@[@"Banner", @"5eb89e74-b9c8-43ca-afee-84255744b012"], @[@"Interstitial", @"3ed5613b-2854-44c8-9994-893c5c4d6f00"], @[@"Native", @"d657a4ac-67b8-4779-ae70-598e14c22bec"], @[@"RewardedVideo", @"c81d7147-d0a9-4116-9306-f5b6c6d78167"], @[@"MixView", @"b60d7dfd-7f9e-4948-b372-008065039026"], @[@"MixFullScreen", @"101ee091-3638-4cdf-9083-148179f108c1"]];
     vc.adsDic = ads;
     vc.titleStr = @"Basic Test";
     vc.modalPresentationStyle = 0;

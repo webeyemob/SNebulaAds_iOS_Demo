@@ -2,7 +2,7 @@
 //  macro.h
 //  AdLime_iOS_TestApp
 //
-//  Created by 汤正 on 2019/9/25.
+//  Created by TaurusXAd on 2019/9/25.
 //  Copyright © 2019 we. All rights reserved.
 //
 

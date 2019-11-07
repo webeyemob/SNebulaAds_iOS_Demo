@@ -1,16 +1,257 @@
 PODS:
+  - AdColony (4.1.2)
+  - AdGeneration (2.16.4)
+  - AmazonAdSDK (2.0.16)
+  - AppLovinSDK (6.9.5)
+  - Bytedance-UnionAD (2.5.1.2)
+  - ChartboostSDK (8.0.3)
+  - FBAudienceNetwork (5.6.0):
+    - FBSDKCoreKit/Basics (>= 5.6.0)
+  - FBSDKCoreKit/Basics (5.8.0)
+  - Flurry-iOS-SDK/FlurryAds (10.0.2):
+    - Flurry-iOS-SDK/FlurrySDK (~> 10.0.2)
+  - Flurry-iOS-SDK/FlurrySDK (10.0.2)
+  - Fyber_Marketplace_SDK (7.4.1):
+    - Fyber_Marketplace_SDK/IASDKCore (= 7.4.1)
+    - Fyber_Marketplace_SDK/IASDKMRAID (= 7.4.1)
+    - Fyber_Marketplace_SDK/IASDKNative (= 7.4.1)
+    - Fyber_Marketplace_SDK/IASDKVideo (= 7.4.1)
+  - Fyber_Marketplace_SDK/IASDKCore (7.4.1)
+  - Fyber_Marketplace_SDK/IASDKMRAID (7.4.1):
+    - Fyber_Marketplace_SDK/IASDKCore
+  - Fyber_Marketplace_SDK/IASDKNative (7.4.1):
+    - Fyber_Marketplace_SDK/IASDKCore
+    - Fyber_Marketplace_SDK/IASDKVideo
+  - Fyber_Marketplace_SDK/IASDKVideo (7.4.1):
+    - Fyber_Marketplace_SDK/IASDKCore
+  - GDTMobSDK (4.10.19):
+    - GDTMobSDK/GDTMobSDK (= 4.10.19)
+  - GDTMobSDK/GDTMobSDK (4.10.19)
+  - Google-Mobile-Ads-SDK (7.52.0):
+    - GoogleAppMeasurement (~> 6.0)
+  - GoogleAppMeasurement (6.1.5):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (= 0.3.9011)
+  - GoogleUtilities/AppDelegateSwizzler (6.3.1):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.3.1)
+  - GoogleUtilities/Logger (6.3.1):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.3.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.3.1):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.3.1)"
+  - GoogleUtilities/Reachability (6.3.1):
+    - GoogleUtilities/Logger
+  - IronSourceSDK (6.10.0.0)
+  - MaioSDK (1.4.8)
   - Masonry (1.1.0)
+  - mopub-ios-sdk (5.10.0):
+    - mopub-ios-sdk/MoPubSDK (= 5.10.0)
+  - mopub-ios-sdk/Avid (5.10.0):
+    - mopub-ios-sdk/Core
+  - mopub-ios-sdk/Core (5.10.0)
+  - mopub-ios-sdk/Moat (5.10.0):
+    - mopub-ios-sdk/Core
+  - mopub-ios-sdk/MoPubSDK (5.10.0):
+    - mopub-ios-sdk/Avid
+    - mopub-ios-sdk/Core
+    - mopub-ios-sdk/Moat
+  - nanopb (0.3.9011):
+    - nanopb/decode (= 0.3.9011)
+    - nanopb/encode (= 0.3.9011)
+  - nanopb/decode (0.3.9011)
+  - nanopb/encode (0.3.9011)
+  - NendSDK_iOS (5.3.1)
+  - TapjoySDK (12.3.4)
+  - TaurusXAdMediation_AdColony (4.1.2.0):
+    - AdColony (~> 4.1.2)
+    - TaurusXAds
+  - TaurusXAdMediation_AdGeneration (2.16.4.0):
+    - AdGeneration (~> 2.16.4)
+    - TaurusXAds
+  - TaurusXAdMediation_Amazon (2.2.17.2):
+    - AmazonAdSDK (= 2.0.16)
+    - TaurusXAds
+  - TaurusXAdMediation_AppLovin (6.9.4.0):
+    - AppLovinSDK (~> 6.9.4)
+    - TaurusXAds
+  - TaurusXAdMediation_Chartboost (8.0.3.0):
+    - ChartboostSDK (~> 8.0.3)
+    - TaurusXAds
+  - TaurusXAdMediation_DUAdPlatform (1.1.4.0):
+    - TaurusXAds
+  - TaurusXAdMediation_Facebook (5.6.0.0):
+    - FBAudienceNetwork (~> 5.6.0)
+    - TaurusXAds
+  - TaurusXAdMediation_Five (20191016.0):
+    - TaurusXAds
+  - TaurusXAdMediation_Flurry (10.0.2.0):
+    - Flurry-iOS-SDK/FlurryAds (= 10.0.2)
+    - Flurry-iOS-SDK/FlurrySDK (= 10.0.2)
+    - TaurusXAds
+  - TaurusXAdMediation_Fyber (7.4.1.0):
+    - Fyber_Marketplace_SDK (= 7.4.1)
+    - TaurusXAds
+  - TaurusXAdMediation_GDT (4.10.19.0):
+    - GDTMobSDK (~> 4.10.19)
+    - TaurusXAds
+  - TaurusXAdMediation_GoogleAds (7.52.0.0):
+    - Google-Mobile-Ads-SDK (~> 7.52.0)
+    - TaurusXAds
+  - TaurusXAdMediation_IronSource (6.10.0.0.0):
+    - IronSourceSDK (~> 6.10.0.0)
+    - TaurusXAds
+  - TaurusXAdMediation_Maio (1.4.8.0):
+    - MaioSDK (~> 1.4.8)
+    - TaurusXAds
+  - TaurusXAdMediation_MoPub (5.10.0.0):
+    - mopub-ios-sdk (~> 5.10.0)
+    - TaurusXAds
+  - TaurusXAdMediation_Nend (5.3.0.0):
+    - NendSDK_iOS (~> 5.3.0)
+    - TaurusXAds
+  - TaurusXAdMediation_Tapjoy (12.3.4.0):
+    - TapjoySDK (~> 12.3.4)
+    - TaurusXAds
+  - TaurusXAdMediation_TikTok (2.5.1.2.0):
+    - Bytedance-UnionAD (~> 2.5.1.2)
+    - TaurusXAds
+  - TaurusXAdMediation_UnityAds (3.3.0.0):
+    - TaurusXAds
+    - UnityAds (~> 3.3.0)
+  - TaurusXAdMediation_Vungle (6.4.5.1):
+    - TaurusXAds
+    - VungleSDK-iOS (~> 6.4.5)
+  - TaurusXAds (1.4.2)
+  - UnityAds (3.3.0)
+  - VungleSDK-iOS (6.4.5)
 
 DEPENDENCIES:
   - Masonry
+  - TaurusXAdMediation_AdColony
+  - TaurusXAdMediation_AdGeneration
+  - TaurusXAdMediation_Amazon
+  - TaurusXAdMediation_AppLovin
+  - TaurusXAdMediation_Chartboost
+  - TaurusXAdMediation_DUAdPlatform
+  - TaurusXAdMediation_Facebook
+  - TaurusXAdMediation_Five
+  - TaurusXAdMediation_Flurry
+  - TaurusXAdMediation_Fyber
+  - TaurusXAdMediation_GDT
+  - TaurusXAdMediation_GoogleAds
+  - TaurusXAdMediation_IronSource
+  - TaurusXAdMediation_Maio
+  - TaurusXAdMediation_MoPub
+  - TaurusXAdMediation_Nend
+  - TaurusXAdMediation_Tapjoy
+  - TaurusXAdMediation_TikTok
+  - TaurusXAdMediation_UnityAds
+  - TaurusXAdMediation_Vungle
+  - TaurusXAds
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
+    - AdColony
+    - AdGeneration
+    - AmazonAdSDK
+    - AppLovinSDK
+    - Bytedance-UnionAD
+    - ChartboostSDK
+    - FBAudienceNetwork
+    - FBSDKCoreKit
+    - Flurry-iOS-SDK
+    - Fyber_Marketplace_SDK
+    - GDTMobSDK
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - IronSourceSDK
+    - MaioSDK
     - Masonry
+    - mopub-ios-sdk
+    - nanopb
+    - NendSDK_iOS
+    - TapjoySDK
+    - TaurusXAdMediation_AdColony
+    - TaurusXAdMediation_AdGeneration
+    - TaurusXAdMediation_Amazon
+    - TaurusXAdMediation_AppLovin
+    - TaurusXAdMediation_Chartboost
+    - TaurusXAdMediation_DUAdPlatform
+    - TaurusXAdMediation_Facebook
+    - TaurusXAdMediation_Five
+    - TaurusXAdMediation_Flurry
+    - TaurusXAdMediation_Fyber
+    - TaurusXAdMediation_GDT
+    - TaurusXAdMediation_GoogleAds
+    - TaurusXAdMediation_IronSource
+    - TaurusXAdMediation_Maio
+    - TaurusXAdMediation_MoPub
+    - TaurusXAdMediation_Nend
+    - TaurusXAdMediation_Tapjoy
+    - TaurusXAdMediation_TikTok
+    - TaurusXAdMediation_UnityAds
+    - TaurusXAdMediation_Vungle
+    - TaurusXAds
+    - UnityAds
+    - VungleSDK-iOS
 
 SPEC CHECKSUMS:
+  AdColony: 0a1e13349ce430ce29374c665611013fd78f792c
+  AdGeneration: 96b6f8c0bd086a900e4df8076c860ee1af5aa5e6
+  AmazonAdSDK: d904f74444fa9bbf671ced9cf5abc9d9de41cdc5
+  AppLovinSDK: 15268696b789c0954520ca95022fe2453bc41291
+  Bytedance-UnionAD: 81eb4b3cfbe66e22b44ddc33c05073334f3eefdf
+  ChartboostSDK: 9ae93ff13e960a9a48bc5ee553ec2e30fbbb152a
+  FBAudienceNetwork: 1ea63543665445a3a5b4a059e8210a343b6ab3c1
+  FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
+  Flurry-iOS-SDK: 71da0ebf2088b15d8899da71050efc8b33bfd21f
+  Fyber_Marketplace_SDK: 53dd4482f7f21a2b2ddc8258fa9b5a0e2251bc4a
+  GDTMobSDK: 7cadef357ef98125c5fb4e3cb9e50f3afe7801f4
+  Google-Mobile-Ads-SDK: 62f6244637306cb60a1b4adda067f53224c7a860
+  GoogleAppMeasurement: 037f46d1d8ae8b312720f1042585ab961a1289e3
+  GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
+  IronSourceSDK: 5848e9831f2f83529d19c64eb8d22e3afb9ec3e6
+  MaioSDK: 739514080b0d9c3b3e3457c90b53fec2ee1d5cc2
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  mopub-ios-sdk: 3d65133b95b6498aa871a66818a11a5ba307e565
+  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  NendSDK_iOS: b74e0a6408e4c9c1c0b653ca9a55762e315949f2
+  TapjoySDK: 4325bc3c42ae91fed30929792a71d380c63a3c6c
+  TaurusXAdMediation_AdColony: 4fe7d7b452b11423388febd0be61b048d6ee5856
+  TaurusXAdMediation_AdGeneration: 032021cd92c3d4c980d4f7f2b97cb630c4841e98
+  TaurusXAdMediation_Amazon: 018059c12021fc86d8a57046a85990ee78599afd
+  TaurusXAdMediation_AppLovin: a2ce37172c8abf86e2659a6d75946963e0a82a82
+  TaurusXAdMediation_Chartboost: 4301087c8ff7c3bb57b1167a711b6ecfcdf17ee3
+  TaurusXAdMediation_DUAdPlatform: bb96d54c74b8d26fff3b696e332ddad073e9a713
+  TaurusXAdMediation_Facebook: eda0184d1f7a659755be6fe74995ba9afe934652
+  TaurusXAdMediation_Five: c092efa80f0c88881fcf9e67947cd7ebf7869782
+  TaurusXAdMediation_Flurry: 718b7595bb2f63667534a666d476893775d2ef7a
+  TaurusXAdMediation_Fyber: 530b01cafc738fb82ea2547b33d3808a26b78776
+  TaurusXAdMediation_GDT: ff69071c4b3187eb146b200ffcc7117086116962
+  TaurusXAdMediation_GoogleAds: 3dc57641603eb6c46bb226a86cc5e5dc16c9c51d
+  TaurusXAdMediation_IronSource: 77dd5b38daac60e476ca77ad8aae8cc30316a575
+  TaurusXAdMediation_Maio: 4f8b11b06e95e366dbf67da5199eed2e16a1da79
+  TaurusXAdMediation_MoPub: 8eb0526e6201337cd6452d50620b7eb60b430e4e
+  TaurusXAdMediation_Nend: 54af0b696a863a660dfdbc9c6c28da8f23f11c99
+  TaurusXAdMediation_Tapjoy: e51cda4350130e033c8ca1f03f9b5e7d14ea03da
+  TaurusXAdMediation_TikTok: 481bd062487e58776267fb5808d507dd559f4f0e
+  TaurusXAdMediation_UnityAds: e8e8613908f0dce460074b430e45f5639970c9c0
+  TaurusXAdMediation_Vungle: 3c0b5341b06376809c0c65d441e4e9ce237a611a
+  TaurusXAds: 5ce3f26e2159ed1d7eda1813eeb736fc2ddc989b
+  UnityAds: 0b7ecf8df83e8a3d62122a3fcf61e47c8e848f3c
+  VungleSDK-iOS: 8951559521dd73c3f947757e9a4c4bbfd8645b7f
 
-PODFILE CHECKSUM: 855cbaaff66e1c2231651a37808b9d61d06af718
+PODFILE CHECKSUM: c38ad73c04ce988dd6933837d2d3abcd7e8991b9
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

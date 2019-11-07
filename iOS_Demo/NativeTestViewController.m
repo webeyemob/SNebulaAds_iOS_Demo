@@ -2,7 +2,7 @@
 //  NativeTestViewController.m
 //  iOS_AutoTest
 //
-//  Created by 汤正 on 2019/10/16.
+//  Created by TaurusXAd on 2019/10/16.
 //  Copyright © 2019 we. All rights reserved.
 //
 
@@ -10,6 +10,8 @@
 @import TaurusXAds;
 #import "Masonry.h"
 #import "macro.h"
+#import <TaurusXAdMediation_Vungle/TaurusXAdMediation_Vungle.h>
+#import "NativeAdView.h"
 
 @interface NativeTestViewController () <TXADNativeAdDelegate>
 
@@ -83,10 +85,49 @@
     
      //[self createNativeAd];    // nativeLayout
      [self createDefaultNativeAd]; //get default NativeLayout
+    //[self createxibLayout];
 }
 
 - (void) closePage {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)createxibLayout {
+    NSArray *nibViewArray = [[NSBundle mainBundle] loadNibNamed:@"NativeAdView" owner:nil options:nil];
+    NativeAdView *nativeAdView = nibViewArray.firstObject;
+    
+    // 设置 TXADNativeAdLayout 元素
+    TXADNativeAdLayout *layout = [[TXADNativeAdLayout alloc] init];
+    layout.rootView = nativeAdView;
+    layout.titleLabel = nativeAdView.titleLabel;
+    layout.bodyLabel = nativeAdView.bodyLabel;
+    layout.advertiserLabel = nativeAdView.advertiserLabel;
+    layout.callToActionView = nativeAdView.callToActionLabel;
+    layout.mediaView = nativeAdView.mediaView;
+    layout.iconView = nativeAdView.iconView;
+    layout.adChoicesView = nativeAdView.adChoicesView;
+    layout.ratingLabel = nativeAdView.ratingLabel;
+    layout.ratingCallback = ^(double rating) {
+    if (rating > 0) {
+            // 用五角星图片展示评分
+        } else {
+            // 不展示评分
+        }
+    };
+    
+    self.nativeLayout = layout;
+    
+    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 430)];
+    //UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        
+    [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
+    [self.view addSubview:adView];
+    adView.layer.borderColor = [UIColor colorWithRed:36.0/255.0 green:189.0/255.0 blue:155.0/255.0 alpha:1].CGColor;
+    adView.layer.cornerRadius = 10;
+    adView.layer.borderWidth = 2;
+    self.nativeAdView = adView;
+    
+    adView.hidden = YES;
 }
 
 - (void)createNativeAd {
@@ -158,8 +199,17 @@
 }
 
 - (void) loadNative {
+    TXADNetworkConfigs *configs = [[TXADNetworkConfigs alloc] init];
+    
+    TXADVungleInFeedConfig *config = [[TXADVungleInFeedConfig alloc] init];
+        // 设置宽度充满屏幕，高度固定。
+    [config setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 500)];
+    [configs addConfig:config];
+    
+    
     self.nativeAd = [[TXADNativeAd alloc] initWithAdUnitId:self.adUnitID];
     self.nativeAd.delegate = self;
+    [self.nativeAd setNetworkConfigs:configs];
     [self.nativeAd setNativeAdLayout:self.nativeLayout];
     
     [self.nativeAd loadAd];
@@ -169,7 +219,7 @@
 - (void)showNative {
     if (self.nativeAd.isReady) {
         UIView *adView = [self.nativeAd getAdView];
-        [self.nativeAdView addSubview:adView];
+        [self.view addSubview:adView];
         
         self.nativeAdView.hidden = NO;
     }

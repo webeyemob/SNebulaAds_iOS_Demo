@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,11 @@
 		22FC0EFF236ECAFF004594C1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0EF3236ECAFD004594C1 /* HomeViewController.m */; };
 		22FC0F00236ECAFF004594C1 /* AdTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0EF5236ECAFE004594C1 /* AdTypeViewController.m */; };
 		22FC0F01236ECAFF004594C1 /* FeedListTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0EF6236ECAFE004594C1 /* FeedListTestViewController.m */; };
+		AD64AE647E3217659E798C19 /* Pods_iOS_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28CBE24AE6A398163BF142C /* Pods_iOS_Demo.framework */; };
+		D4019A342371A9E40076FDF2 /* NativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4019A312371A9E30076FDF2 /* NativeAdView.m */; };
+		D4019A352371A9E40076FDF2 /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4019A322371A9E30076FDF2 /* NativeAdView.xib */; };
+		D45FE417237116D600995A0D /* MixViewTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45FE415237116D500995A0D /* MixViewTestViewController.m */; };
+		D45FE41A2371170600995A0D /* MixFullScreenTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45FE4192371170600995A0D /* MixFullScreenTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +60,14 @@
 		22FC0EF7236ECAFE004594C1 /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macro.h; sourceTree = "<group>"; };
 		5F13980F7C674F28D054E36C /* Pods-iOS_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Demo.release.xcconfig"; path = "Target Support Files/Pods-iOS_Demo/Pods-iOS_Demo.release.xcconfig"; sourceTree = "<group>"; };
 		86306F28B1683D80B35B203D /* Pods-iOS_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Demo.debug.xcconfig"; path = "Target Support Files/Pods-iOS_Demo/Pods-iOS_Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		B28CBE24AE6A398163BF142C /* Pods_iOS_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4019A312371A9E30076FDF2 /* NativeAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeAdView.m; sourceTree = "<group>"; };
+		D4019A322371A9E30076FDF2 /* NativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
+		D4019A332371A9E30076FDF2 /* NativeAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeAdView.h; sourceTree = "<group>"; };
+		D45FE415237116D500995A0D /* MixViewTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixViewTestViewController.m; sourceTree = "<group>"; };
+		D45FE416237116D500995A0D /* MixViewTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixViewTestViewController.h; sourceTree = "<group>"; };
+		D45FE4182371170600995A0D /* MixFullScreenTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixFullScreenTestViewController.h; sourceTree = "<group>"; };
+		D45FE4192371170600995A0D /* MixFullScreenTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixFullScreenTestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD64AE647E3217659E798C19 /* Pods_iOS_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,11 +112,18 @@
 				22FC0EEB236ECAFC004594C1 /* BannerTestViewController.m */,
 				22FC0EF2236ECAFD004594C1 /* FeedListTestViewController.h */,
 				22FC0EF6236ECAFE004594C1 /* FeedListTestViewController.m */,
+				D45FE416237116D500995A0D /* MixViewTestViewController.h */,
+				D45FE415237116D500995A0D /* MixViewTestViewController.m */,
 				22FC0EED236ECAFC004594C1 /* HomeViewController.h */,
 				22FC0EF3236ECAFD004594C1 /* HomeViewController.m */,
 				22FC0EBE236EC739004594C1 /* Info.plist */,
+				D4019A332371A9E30076FDF2 /* NativeAdView.h */,
+				D4019A312371A9E30076FDF2 /* NativeAdView.m */,
+				D4019A322371A9E30076FDF2 /* NativeAdView.xib */,
 				22FC0EEA236ECAFB004594C1 /* InterstitialTestViewController.h */,
 				22FC0EE6236ECAFB004594C1 /* InterstitialTestViewController.m */,
+				D45FE4182371170600995A0D /* MixFullScreenTestViewController.h */,
+				D45FE4192371170600995A0D /* MixFullScreenTestViewController.m */,
 				22FC0EBB236EC739004594C1 /* LaunchScreen.storyboard */,
 				22FC0EF4236ECAFE004594C1 /* LoadModelViewController.h */,
 				22FC0EF1236ECAFD004594C1 /* LoadModelViewController.m */,
@@ -132,6 +153,7 @@
 		FE8288F0692BE382A228FD88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B28CBE24AE6A398163BF142C /* Pods_iOS_Demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,6 +170,7 @@
 				22FC0EA7236EC736004594C1 /* Frameworks */,
 				22FC0EA8236EC736004594C1 /* Resources */,
 				F8FF5CFD21A5216A1DEE6417 /* [CP] Embed Pods Frameworks */,
+				29F4EE45CF03B12CE23F3833 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,6 +220,7 @@
 			files = (
 				22FC0EBD236EC739004594C1 /* LaunchScreen.storyboard in Resources */,
 				22FC0EFD236ECAFF004594C1 /* Resource.xcassets in Resources */,
+				D4019A352371A9E40076FDF2 /* NativeAdView.xib in Resources */,
 				22FC0EBA236EC739004594C1 /* Assets.xcassets in Resources */,
 				22FC0EB5236EC736004594C1 /* Main.storyboard in Resources */,
 			);
@@ -205,6 +229,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		29F4EE45CF03B12CE23F3833 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_Demo/Pods-iOS_Demo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_Demo/Pods-iOS_Demo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_Demo/Pods-iOS_Demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E72B549A036325BCB7400354 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,7 +269,13 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_Demo/Pods-iOS_Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_Demo/Pods-iOS_Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_Demo/Pods-iOS_Demo-frameworks.sh\"\n";
@@ -251,6 +298,9 @@
 				22FC0EAF236EC736004594C1 /* AppDelegate.m in Sources */,
 				22FC0EFC236ECAFF004594C1 /* NetworkTestViewController.m in Sources */,
 				22FC0EF8236ECAFF004594C1 /* InterstitialTestViewController.m in Sources */,
+				D4019A342371A9E40076FDF2 /* NativeAdView.m in Sources */,
+				D45FE417237116D600995A0D /* MixViewTestViewController.m in Sources */,
+				D45FE41A2371170600995A0D /* MixFullScreenTestViewController.m in Sources */,
 				22FC0EFA236ECAFF004594C1 /* BannerTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4EE26T2DW6;
+				DEVELOPMENT_TEAM = M4YN27W2S8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods",
@@ -425,7 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4EE26T2DW6;
+				DEVELOPMENT_TEAM = M4YN27W2S8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods",

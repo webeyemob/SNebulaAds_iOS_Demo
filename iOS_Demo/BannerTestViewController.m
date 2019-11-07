@@ -2,7 +2,7 @@
 //  BannerTestViewController.m
 //  iOS_AutoTest
 //
-//  Created by 汤正 on 2019/10/16.
+//  Created by TaurusXAd on 2019/10/16.
 //  Copyright © 2019 we. All rights reserved.
 //
 
@@ -71,7 +71,7 @@
     [banner mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(testBannerBtn.mas_bottom).offset(80);
-        make.height.equalTo(@(50));
+        make.height.equalTo(@(250));
     }];
     
     self.banner = banner;
@@ -102,8 +102,8 @@
 //    bannerView.frame = CGRectMake(x, 10, 320, 50);
     [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.banner);
-        make.width.equalTo(@(320));
-        make.height.equalTo(@(50));
+        make.width.equalTo(@(300));
+        make.height.equalTo(@(250));
     }];
 }
 

@@ -2,7 +2,7 @@
 //  InterstitialTestViewController.m
 //  iOS_AutoTest
 //
-//  Created by 汤正 on 2019/10/16.
+//  Created by TaurusXAd on 2019/10/16.
 //  Copyright © 2019 we. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 @import TaurusXAds;
 #import "Masonry.h"
 #import "macro.h"
+#import <TaurusXAdMediation_GDT/TaurusXAdMediation_GDT.h>
 
 @interface InterstitialTestViewController () <TXADInterstitialAdDelegate>
 
@@ -86,7 +87,16 @@
 
 #pragma  mark intersitial
 - (void) loadInteristial {
+    TXADNetworkConfigs *configs = [[TXADNetworkConfigs alloc] init];
+    
+    TXADGDTInterstitial2_0Config *config = [[TXADGDTInterstitial2_0Config alloc] init];
+    config.maxVideoDuration = 70;
+    [configs addConfig:config];
+    
+    
     self.interstitalAd = [[TXADInterstitialAd alloc] initWithAdUnitId:self.adUnitID];
+    
+    [self.interstitalAd setNetworkConfigs:configs];
     self.interstitalAd.delegate = self;
     [self.interstitalAd loadAd];
 }

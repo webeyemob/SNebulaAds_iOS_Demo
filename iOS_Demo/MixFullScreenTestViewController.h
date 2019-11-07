@@ -1,5 +1,5 @@
 //
-//  BannerTestViewController.h
+//  MixFullScreenTestViewController.h
 //  iOS_AutoTest
 //
 //  Created by TaurusXAd on 2019/10/16.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BannerTestViewController : UIViewController
+@interface MixFullScreenTestViewController : UIViewController
 
 @property (nonatomic, strong) NSString *adUnitID;
 @property (nonatomic, strong) NSString *titleStr;

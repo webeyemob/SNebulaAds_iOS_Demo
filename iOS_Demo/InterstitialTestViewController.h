@@ -2,7 +2,7 @@
 //  InterstitialTestViewController.h
 //  iOS_AutoTest
 //
-//  Created by 汤正 on 2019/10/16.
+//  Created by TaurusXAd on 2019/10/16.
 //  Copyright © 2019 we. All rights reserved.
 //
 

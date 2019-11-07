@@ -2,7 +2,7 @@
 //  AdTypeViewController.m
 //  iOS_AutoTest
 //
-//  Created by 汤正 on 2019/10/16.
+//  Created by TaurusXAd on 2019/10/16.
 //  Copyright © 2019 we. All rights reserved.
 //
 
@@ -13,6 +13,8 @@
 #import "NativeTestViewController.h"
 #import "RewardedVideoTestViewController.h"
 #import "FeedListTestViewController.h"
+#import "MixViewTestViewController.h"
+#import "MixFullScreenTestViewController.h"
 #import "macro.h"
 
 @interface AdTypeViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -141,8 +143,20 @@
         adsTestVc.adUnitID = _adsDic[indexPath.row][1];
         [self presentViewController:adsTestVc animated:YES completion:nil];
         
+    } else if ([_adsDic[indexPath.row][0] isEqualToString:@"MixView"]) {
+        MixViewTestViewController *adsTestVc = [[MixViewTestViewController alloc] init];
+        adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
+        adsTestVc.titleStr = self.titleStr;
+        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        [self presentViewController:adsTestVc animated:YES completion:nil];
     }
-    
+    else if ([_adsDic[indexPath.row][0] isEqualToString:@"MixFullScreen"]) {
+        MixFullScreenTestViewController *adsTestVc = [[MixFullScreenTestViewController alloc] init];
+        adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
+        adsTestVc.titleStr = self.titleStr;
+        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        [self presentViewController:adsTestVc animated:YES completion:nil];
+    }
 }
 
 /*
