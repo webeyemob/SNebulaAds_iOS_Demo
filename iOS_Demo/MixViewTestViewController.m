@@ -10,6 +10,7 @@
 @import TaurusXAds;
 #import "Masonry.h"
 #import "macro.h"
+#import "UIView+Toast.h"
 
 @interface MixViewTestViewController () <TXADMixViewAdDelegate>
 
@@ -145,6 +146,8 @@
 - (void)txAdMixViewAd:(TXADMixViewAd *)mixViewAd didFailToReceiveAdWithError:(TXADAdError *)adError {
     NSLog(@"txAdMixView:didFailToReceiveAdWithError, errorCode is %ld, errorMessage is %@",
           adError.getCode, adError.description);
+    
+    [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
 /// 广告展示；如果一次加载多个广告，此回调会触发多次

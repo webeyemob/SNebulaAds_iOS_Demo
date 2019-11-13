@@ -10,12 +10,21 @@
 @import TaurusXAds;
 #import "Masonry.h"
 #import "macro.h"
+#import "UIView+Toast.h"
 
 @interface FeedListTestViewController () <TXADFeedListDelegate>
 
 @property (nonatomic, strong) TXADFeedList *feedListAd;
 
 @property (nonatomic, strong) TXADNativeAdLayout *nativeLayout;
+
+@property (nonatomic) int currentIndex;
+
+@property (nonatomic, strong) NSTimer *timer;
+
+@property (nonatomic, strong) NSMutableArray<TXADFeed *> *feedArray;
+
+@property (nonatomic, strong) UIView *adContainer;
 
 @end
 
@@ -67,6 +76,17 @@
     [loadNativeBtn addTarget:self action:@selector(loadNative) forControlEvents:UIControlEventTouchUpInside];
         
      [self createFeedList];
+    
+    UIView *adView = [[UIView alloc] init];
+    adView.frame = CGRectMake(10, kTopBarSafeHeight+80, ScreenWidth-20, 500);
+    // 展示广告
+    [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
+    [self.view addSubview:adView];
+    adView.layer.borderColor = [UIColor colorWithRed:36.0/255.0 green:189.0/255.0 blue:155.0/255.0 alpha:1].CGColor;
+    adView.layer.cornerRadius = 10;
+    adView.layer.borderWidth = 2;
+    
+    self.adContainer = adView;
 }
 
 - (void) closePage {
@@ -116,33 +136,45 @@
     
 }
 
-- (void)showFeed :(TXADFeed *)feed{
-
-    // 布置展示广告素材的 UIViews，可以通过新建 xib 文件或自定义 UIView 的子类
-    UIView *adView = [feed getAdView:self.nativeLayout];
-    adView.frame = CGRectMake(10, kTopBarSafeHeight+80, ScreenWidth-20, 250);
-    // 展示广告
-    [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
-    [self.view addSubview:adView];
-    adView.layer.borderColor = [UIColor colorWithRed:36.0/255.0 green:189.0/255.0 blue:155.0/255.0 alpha:1].CGColor;
-    adView.layer.cornerRadius = 10;
-    adView.layer.borderWidth = 2;
+- (void)showFeed{
+    
+    if (self.currentIndex < self.feedArray.count) {
+        TXADFeed *feed = self.feedArray[self.currentIndex];
+        // 布置展示广告素材的 UIViews，可以通过新建 xib 文件或自定义 UIView 的子类
+        UIView *adView = [feed getAdView:self.nativeLayout];
+        
+        for (UIView *subView in self.adContainer.subviews) {
+            [subView removeFromSuperview];
+        }
+        
+        [self.adContainer addSubview:adView];
+        
+        self.currentIndex++;
+        
+        if (self.currentIndex < self.feedArray.count) {
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(showFeed) userInfo:nil repeats:NO];
+        }
+    }
 }
 
 #pragma mark <TXADInnerNativeAdDelegate>
 - (void)txAdFeedListDidReceiveAd:(TXADFeedList *)feedList {
     NSLog(@"txAdFeedListDidReceiveAd");
-    NSMutableArray<TXADFeed *> *feedArray = [feedList getFeedArray];
-
+    self.feedArray = [feedList getFeedArray];
+    self.currentIndex = 0;
+    if (self.timer != nil) {
+        [self.timer invalidate];
+    }
     // 获取第一个广告并展示
-    TXADFeed *feed = feedArray[0];
-    [self showFeed:feed];
+    [self showFeed];
 }
 
 /// 广告加载失败
 - (void)txAdFeedList:(TXADFeedList *)feedList didFailToReceiveAdWithError:(TXADAdError *)adError {
     NSLog(@"txAdFeedList:didFailToReceiveAdWithError, errorCode is %ld, errorMessage is %@",
           adError.getCode, adError.description);
+    
+    [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
 /// 广告展示；如果一次加载多个广告，此回调会触发多次

@@ -10,6 +10,7 @@
 @import TaurusXAds;
 #import "Masonry.h"
 #import "macro.h"
+#import "UIView+Toast.h"
 
 @interface BannerTestViewController () <TXADBannerViewDelegate>
 
@@ -109,6 +110,7 @@
 
 - (void)txAdBanner:(TXADBannerView *)bannerView didFailToReceiveAdWithError:(TXADAdError *)adError {
     NSLog(@"TXADBannerView didFailToReceiveAdWithError %d, adunitID: %@" , (int)[adError getCode], bannerView.adUnitId);
+    [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
 - (void)txAdBannerWillPresentScreen:(TXADBannerView *)bannerView {

@@ -15,6 +15,7 @@
 #import "FeedListTestViewController.h"
 #import "MixViewTestViewController.h"
 #import "MixFullScreenTestViewController.h"
+#import "SplashTestViewController.h"
 #import "macro.h"
 
 @interface AdTypeViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -152,6 +153,13 @@
     }
     else if ([_adsDic[indexPath.row][0] isEqualToString:@"MixFullScreen"]) {
         MixFullScreenTestViewController *adsTestVc = [[MixFullScreenTestViewController alloc] init];
+        adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
+        adsTestVc.titleStr = self.titleStr;
+        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        [self presentViewController:adsTestVc animated:YES completion:nil];
+    }
+    else if ([_adsDic[indexPath.row][0] isEqualToString:@"Splash"]) {
+        SplashTestViewController *adsTestVc = [[SplashTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
         adsTestVc.titleStr = self.titleStr;
         adsTestVc.adUnitID = _adsDic[indexPath.row][1];

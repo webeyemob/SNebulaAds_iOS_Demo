@@ -17,6 +17,7 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_AppLovin'
     pod 'TaurusXAdMediation_AdColony'
     pod 'TaurusXAdMediation_AdGeneration'
+    pod 'TaurusXAdMediation_Baidu'
     pod 'TaurusXAdMediation_Facebook'
     pod 'TaurusXAdMediation_Chartboost'
     pod 'TaurusXAdMediation_Flurry'

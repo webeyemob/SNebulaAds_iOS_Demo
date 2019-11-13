@@ -25,8 +25,10 @@
 		AD64AE647E3217659E798C19 /* Pods_iOS_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28CBE24AE6A398163BF142C /* Pods_iOS_Demo.framework */; };
 		D4019A342371A9E40076FDF2 /* NativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4019A312371A9E30076FDF2 /* NativeAdView.m */; };
 		D4019A352371A9E40076FDF2 /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4019A322371A9E30076FDF2 /* NativeAdView.xib */; };
+		D427F69F237BBD6900FB927A /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = D427F69E237BBD6800FB927A /* UIView+Toast.m */; };
 		D45FE417237116D600995A0D /* MixViewTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45FE415237116D500995A0D /* MixViewTestViewController.m */; };
 		D45FE41A2371170600995A0D /* MixFullScreenTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45FE4192371170600995A0D /* MixFullScreenTestViewController.m */; };
+		D4C0217D237BA20600ED91C7 /* SplashTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C0217C237BA20500ED91C7 /* SplashTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,10 +66,14 @@
 		D4019A312371A9E30076FDF2 /* NativeAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeAdView.m; sourceTree = "<group>"; };
 		D4019A322371A9E30076FDF2 /* NativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
 		D4019A332371A9E30076FDF2 /* NativeAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeAdView.h; sourceTree = "<group>"; };
+		D427F69D237BBD6800FB927A /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		D427F69E237BBD6800FB927A /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		D45FE415237116D500995A0D /* MixViewTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixViewTestViewController.m; sourceTree = "<group>"; };
 		D45FE416237116D500995A0D /* MixViewTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixViewTestViewController.h; sourceTree = "<group>"; };
 		D45FE4182371170600995A0D /* MixFullScreenTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixFullScreenTestViewController.h; sourceTree = "<group>"; };
 		D45FE4192371170600995A0D /* MixFullScreenTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixFullScreenTestViewController.m; sourceTree = "<group>"; };
+		D4C0217B237BA20500ED91C7 /* SplashTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashTestViewController.h; sourceTree = "<group>"; };
+		D4C0217C237BA20500ED91C7 /* SplashTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashTestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 		22FC0EAC236EC736004594C1 /* iOS_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				D427F6A0237BBD7200FB927A /* util */,
 				22FC0EEF236ECAFC004594C1 /* AdTypeViewController.h */,
 				22FC0EF5236ECAFE004594C1 /* AdTypeViewController.m */,
 				22FC0EAD236EC736004594C1 /* AppDelegate.h */,
@@ -122,12 +129,13 @@
 				D4019A322371A9E30076FDF2 /* NativeAdView.xib */,
 				22FC0EEA236ECAFB004594C1 /* InterstitialTestViewController.h */,
 				22FC0EE6236ECAFB004594C1 /* InterstitialTestViewController.m */,
+				D4C0217B237BA20500ED91C7 /* SplashTestViewController.h */,
+				D4C0217C237BA20500ED91C7 /* SplashTestViewController.m */,
 				D45FE4182371170600995A0D /* MixFullScreenTestViewController.h */,
 				D45FE4192371170600995A0D /* MixFullScreenTestViewController.m */,
 				22FC0EBB236EC739004594C1 /* LaunchScreen.storyboard */,
 				22FC0EF4236ECAFE004594C1 /* LoadModelViewController.h */,
 				22FC0EF1236ECAFD004594C1 /* LoadModelViewController.m */,
-				22FC0EF7236ECAFE004594C1 /* macro.h */,
 				22FC0EBF236EC739004594C1 /* main.m */,
 				22FC0EB3236EC736004594C1 /* Main.storyboard */,
 				22FC0EE4236ECAFA004594C1 /* NativeTestViewController.h */,
@@ -148,6 +156,16 @@
 				5F13980F7C674F28D054E36C /* Pods-iOS_Demo.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D427F6A0237BBD7200FB927A /* util */ = {
+			isa = PBXGroup;
+			children = (
+				D427F69D237BBD6800FB927A /* UIView+Toast.h */,
+				D427F69E237BBD6800FB927A /* UIView+Toast.m */,
+				22FC0EF7236ECAFE004594C1 /* macro.h */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 		FE8288F0692BE382A228FD88 /* Frameworks */ = {
@@ -295,6 +313,8 @@
 				22FC0EC0236EC739004594C1 /* main.m in Sources */,
 				22FC0EFF236ECAFF004594C1 /* HomeViewController.m in Sources */,
 				22FC0F01236ECAFF004594C1 /* FeedListTestViewController.m in Sources */,
+				D4C0217D237BA20600ED91C7 /* SplashTestViewController.m in Sources */,
+				D427F69F237BBD6900FB927A /* UIView+Toast.m in Sources */,
 				22FC0EAF236EC736004594C1 /* AppDelegate.m in Sources */,
 				22FC0EFC236ECAFF004594C1 /* NetworkTestViewController.m in Sources */,
 				22FC0EF8236ECAFF004594C1 /* InterstitialTestViewController.m in Sources */,

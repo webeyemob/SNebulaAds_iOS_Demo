@@ -10,6 +10,7 @@
 @import TaurusXAds;
 #import "Masonry.h"
 #import "macro.h"
+#import "UIView+Toast.h"
 
 @interface MixFullScreenTestViewController () <TXADMixFullScreenAdDelegate>
 
@@ -151,6 +152,8 @@
 
 - (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd didFailToReceiveAdWithError:(TXADAdError *)adError{
     NSLog(@"TXADMixFullScreenAdAd didFailToReceiveAdWithError %d", (int)[adError getCode]);
+    
+    [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
 - (void)txAdMixFullScreenAdWillPresentScreen:(TXADMixFullScreenAd *)mixFullScreenAd {

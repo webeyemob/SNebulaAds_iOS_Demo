@@ -12,6 +12,7 @@
 #import "macro.h"
 #import <TaurusXAdMediation_Vungle/TaurusXAdMediation_Vungle.h>
 #import "NativeAdView.h"
+#import "UIView+Toast.h"
 
 @interface NativeTestViewController () <TXADNativeAdDelegate>
 
@@ -183,7 +184,7 @@
 }
 
 - (void)createDefaultNativeAd {
-    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 430)];
+    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 500)];
     //UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
         
     [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
@@ -194,7 +195,7 @@
     self.nativeAdView = adView;
     
     adView.hidden = YES;
-    
+
     self.nativeLayout = [TXADNativeAdLayout getLargeLayout4WithWidth:ScreenWidth-10];
 }
 
@@ -219,8 +220,8 @@
 - (void)showNative {
     if (self.nativeAd.isReady) {
         UIView *adView = [self.nativeAd getAdView];
-        [self.view addSubview:adView];
-        
+        [self.nativeAdView addSubview:adView];
+                
         self.nativeAdView.hidden = NO;
     }
 }
@@ -236,6 +237,7 @@
 
 - (void)txAdNativeAd:(TXADNativeAd *)nativeAd didFailToReceiveAdWithError:(TXADAdError *)adError{
     NSLog(@"TXADNativeAd didFailToReceiveAdWithError %d", (int)[adError getCode]);
+    [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
 

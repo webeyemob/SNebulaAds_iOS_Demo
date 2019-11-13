@@ -10,6 +10,7 @@
 @import TaurusXAds;
 #import "Masonry.h"
 #import "macro.h"
+#import "UIView+Toast.h"
 #import <TaurusXAdMediation_GDT/TaurusXAdMediation_GDT.h>
 
 @interface InterstitialTestViewController () <TXADInterstitialAdDelegate>
@@ -116,6 +117,7 @@
 
 - (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd didFailToReceiveAdWithError:(TXADAdError *)adError{
     NSLog(@"TXADInterstitialAd didFailToReceiveAdWithError %d", (int)[adError getCode]);
+    [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
 - (void)txAdInterstitialWillPresentScreen:(TXADInterstitialAd *)interstitialAd {

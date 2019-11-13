@@ -10,6 +10,7 @@
 @import TaurusXAds;
 #import "Masonry.h"
 #import "macro.h"
+#import "UIView+Toast.h"
 
 @interface RewardedVideoTestViewController () <TXADRewardedVideoAdDelegate>
 
@@ -102,6 +103,7 @@
 
 - (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didFailToReceiveAdWithError:(TXADAdError *)adError {
     NSLog(@"didFailToReceiveAdWithError %d",(int)[adError getCode]);
+    [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
 - (void)txAdRewardedVideoDidOpen:(TXADRewardedVideoAd *)rewardedVideoAd {
