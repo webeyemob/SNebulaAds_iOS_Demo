@@ -162,6 +162,7 @@
 
 - (void)txAdMixFullScreenAdDidDismissScreen:(TXADMixFullScreenAd *)mixFullScreenAd {
     NSLog(@"TXADMixFullScreenAdAd txAdMixFullScreenAdDidDismissScreen, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
+    self.showIntBtn.enabled = NO;
 }
 
 - (void)txAdMixFullScreenAdWillLeaveApplication:(TXADMixFullScreenAd *)mixFullScreenAd {

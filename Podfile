@@ -28,6 +28,7 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_DUAdPlatform'
     pod 'TaurusXAdMediation_Fyber'
     pod 'TaurusXAdMediation_MoPub'
+    pod 'TaurusXAdMediation_Mobvista'
     pod 'TaurusXAdMediation_Nend'
     pod 'TaurusXAdMediation_Tapjoy'
     pod 'TaurusXAdMediation_TikTok'

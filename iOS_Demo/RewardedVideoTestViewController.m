@@ -124,6 +124,7 @@
 
 - (void)txAdRewardedVideoDidClose:(TXADRewardedVideoAd *)rewardedVideoAd{
     NSLog(@"txAdRewardedVideoDidClose, adUnitId is %@", rewardedVideoAd.adUnitId);
+    self.showRewardBtn.enabled = NO;
 }
 
 - (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didReward:(TXADRewardItem *)item {

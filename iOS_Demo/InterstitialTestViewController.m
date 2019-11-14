@@ -126,6 +126,7 @@
 
 - (void)txAdInterstitialDidDismissScreen:(TXADInterstitialAd *)interstitialAd {
     NSLog(@"TXADInterstitialAd txAdInterstitialDidDismissScreen, interstitialAd adUnitId is %@", interstitialAd.adUnitId);
+    self.showIntBtn.enabled = NO;
 }
 
 - (void)txAdInterstitialWillLeaveApplication:(TXADInterstitialAd *)interstitialAd {
