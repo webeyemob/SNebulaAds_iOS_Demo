@@ -115,10 +115,12 @@
 }
 
 - (void) loadMixView {
-    self.mixViewAd = [[TXADMixViewAd alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
-    self.mixViewAd.delegate = self;
-    //[self.mixViewAd setCount:3];
-    [self.mixViewAd setNativeAdLayout:self.nativeLayout];
+    if (self.mixViewAd == nil) {
+        self.mixViewAd = [[TXADMixViewAd alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
+        self.mixViewAd.delegate = self;
+        //[self.mixViewAd setCount:3];
+        [self.mixViewAd setNativeAdLayout:self.nativeLayout];
+    }
     [self.mixViewAd loadAd];
     
 }

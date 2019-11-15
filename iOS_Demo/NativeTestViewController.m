@@ -84,9 +84,11 @@
     showNativeBtn.enabled = NO;
     self.showNativeBtn = showNativeBtn;
     
-     //[self createNativeAd];    // nativeLayout
-     [self createDefaultNativeAd]; //get default NativeLayout
+     //[self createNativeLayout];    // nativeLayout
+     [self createDefaultLayout]; //get default NativeLayout
     //[self createxibLayout];
+    
+     [self createNative];
 }
 
 - (void) closePage {
@@ -131,7 +133,7 @@
     adView.hidden = YES;
 }
 
-- (void)createNativeAd {
+- (void)createNativeLayout {
     UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 270)];
     
     [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
@@ -183,7 +185,7 @@
     self.nativeLayout = layout;
 }
 
-- (void)createDefaultNativeAd {
+- (void)createDefaultLayout {
     UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 500)];
     //UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
         
@@ -199,7 +201,10 @@
     self.nativeLayout = [TXADNativeAdLayout getLargeLayout4WithWidth:ScreenWidth-10];
 }
 
-- (void) loadNative {
+- (void) createNative {
+    self.nativeAd = [[TXADNativeAd alloc] initWithAdUnitId:self.adUnitID];
+    self.nativeAd.delegate = self;
+    
     TXADNetworkConfigs *configs = [[TXADNetworkConfigs alloc] init];
     
     TXADVungleInFeedConfig *config = [[TXADVungleInFeedConfig alloc] init];
@@ -207,14 +212,14 @@
     [config setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 500)];
     [configs addConfig:config];
     
-    
-    self.nativeAd = [[TXADNativeAd alloc] initWithAdUnitId:self.adUnitID];
-    self.nativeAd.delegate = self;
     [self.nativeAd setNetworkConfigs:configs];
     [self.nativeAd setNativeAdLayout:self.nativeLayout];
-    
-    [self.nativeAd loadAd];
-    
+}
+
+- (void) loadNative {
+    if(self.nativeAd != nil) {
+        [self.nativeAd loadAd];
+    }
 }
 
 - (void)showNative {

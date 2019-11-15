@@ -85,12 +85,14 @@
 
 
 - (void)testBanner {
-    TXADBannerView *bannerView = [[TXADBannerView alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
-    bannerView.delegate = self;
+    if (self.bannerAd == nil) {
+        self.bannerAd = [[TXADBannerView alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
+        self.bannerAd.delegate = self;
+        
+        [self.banner addSubview:self.bannerAd];
+    }
     
-    [self.banner addSubview:bannerView];
-    
-    [bannerView loadAd];
+    [self.bannerAd loadAd];
 }
 
 #pragma mark TXADBannerViewDelegate
@@ -98,7 +100,6 @@
     NSLog(@"TXADBannerView txAdBannerDidReceiveAd, bannerView.adUnitId is %@", bannerView.adUnitId);
     self.banner.hidden = NO;
     
-    self.bannerAd = bannerView;
 //    CGFloat x = (ScreenWidth-320)/2;
 //    bannerView.frame = CGRectMake(x, 10, 320, 50);
     [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -129,9 +129,11 @@
 }
 
 - (void) loadNative {
-    self.feedListAd = [[TXADFeedList alloc] initWithAdUnitId:self.adUnitID];
-    self.feedListAd.delegate = self;
-    [self.feedListAd setCount:3];
+    if (self.feedListAd == nil) {
+        self.feedListAd = [[TXADFeedList alloc] initWithAdUnitId:self.adUnitID];
+        self.feedListAd.delegate = self;
+        [self.feedListAd setCount:3];
+    }
     [self.feedListAd loadAd];
     
 }

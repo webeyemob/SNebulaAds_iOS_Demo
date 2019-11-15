@@ -79,15 +79,15 @@
     [testshowIntBtn addTarget:self action:@selector(showInterstitial) forControlEvents:UIControlEventTouchUpInside];
     testshowIntBtn.enabled = NO;
     self.showIntBtn = testshowIntBtn;
+    
+    [self createInterstitial];
 }
 
 - (void) closePage {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-#pragma  mark intersitial
-- (void) loadInteristial {
+- (void) createInterstitial {
     TXADNetworkConfigs *configs = [[TXADNetworkConfigs alloc] init];
     
     TXADGDTInterstitial2_0Config *config = [[TXADGDTInterstitial2_0Config alloc] init];
@@ -99,7 +99,13 @@
     
     [self.interstitalAd setNetworkConfigs:configs];
     self.interstitalAd.delegate = self;
-    [self.interstitalAd loadAd];
+}
+
+#pragma  mark intersitial
+- (void) loadInteristial {
+    if (self.interstitalAd != nil) {
+        [self.interstitalAd loadAd];
+    }
 }
 
 - (void)showInterstitial {

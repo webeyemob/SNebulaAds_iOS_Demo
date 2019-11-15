@@ -71,7 +71,7 @@
     }];
     
     [TXAD initWithAppId:@"9dc8fab8-32d5-4d6f-b224-8f0a9b55547f"];
-    [TXAD setGdprConsent:true];
+    //[TXAD setGdprConsent:true];
     [TXAD setTestMode:YES];
     [TXAD setLogEnable:YES];
 }

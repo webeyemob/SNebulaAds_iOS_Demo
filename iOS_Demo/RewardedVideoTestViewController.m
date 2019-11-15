@@ -78,6 +78,9 @@
     [rewardShowBtn addTarget:self action:@selector(showReward) forControlEvents:UIControlEventTouchUpInside];
     self.showRewardBtn = rewardShowBtn;
     self.showRewardBtn.enabled = NO;
+    
+    self.rewardAd = [[TXADRewardedVideoAd alloc] initWithAdUnitId:self.adUnitID];
+    self.rewardAd.delegate = self;
 }
 
 - (void) closePage {
@@ -85,8 +88,6 @@
 }
 
 - (void)loadReward {
-    self.rewardAd = [[TXADRewardedVideoAd alloc] initWithAdUnitId:self.adUnitID];
-    self.rewardAd.delegate = self;
     [self.rewardAd loadAd];
 }
 

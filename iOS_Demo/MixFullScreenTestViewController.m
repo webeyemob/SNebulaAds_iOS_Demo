@@ -83,6 +83,8 @@
     
     //[self createLayout];
     [self createDefaultLayout];
+    
+    [self createMixFullScreenAd];
 }
 
 - (void) closePage {
@@ -128,13 +130,17 @@
     self.nativeLayout = [TXADNativeAdLayout getFullLayout1];
 }
 
-
-#pragma  mark intersitial
-- (void) loadMixFullScreenAd {
+- (void) createMixFullScreenAd {
     self.mixFullScreenAd = [[TXADMixFullScreenAd alloc] initWithAdUnitId:self.adUnitID];
     self.mixFullScreenAd.delegate = self;
     [self.mixFullScreenAd setNativeAdLayout:self.nativeLayout];
-    [self.mixFullScreenAd loadAd];
+}
+
+#pragma  mark intersitial
+- (void) loadMixFullScreenAd {
+    if (self.mixFullScreenAd != nil) {
+        [self.mixFullScreenAd loadAd];
+    }
 }
 
 - (void)showMixFullScreenAd {
