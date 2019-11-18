@@ -24,14 +24,14 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     // Do any additional setup after loading the view.
-    _netWorksDic = @{@"AdColony": @[@"", @"b03fecaf-69e2-4b76-b81d-d2ce2428ea49",
+    _netWorksDic = @{@"AdColony": @[@"f0963a3d-6f80-4ac0-8414-f9005de4e525", @"b03fecaf-69e2-4b76-b81d-d2ce2428ea49",
                                           @"", @"18fca7ad-eaa5-49a7-a9c8-1c860af54fb8", @"", @"", @"",@""],
                            @"Admob": @[@"260a7430-acd9-4dec-a4f2-e24a08855212", @"833c620a-4fb3-4268-a733-88cb30f5eb90", @"9007ea51-bb55-4e6d-b57c-ba3924ba4a1e", @"b6e0a185-3738-470a-a1dd-aa9c9db3fbe0", @"", @"381d5515-c86c-4e42-865b-d348e740ab6f", @"3266a141-8771-428d-bd56-ff8b0076ea9b",@""],
                            @"AdGeneration": @[@"8544f540-bc56-4177-b4c8-6f4daf18e06c", @"e34bbdba-6c36-4d1e-a4a8-fe2c787b498b", @"5b465d9f-dcba-47d2-81ae-3ace1e905f33", @"", @"", @"1d591af3-7184-49f6-a6d0-5eef158b8504", @"babb0ddb-88b7-430c-be93-291ee223c52b",@""],
                            @"Amazon": @[@"b6f1b556-846c-4b83-bdc1-d7f2483e55c1", @"a2b17126-0b61-4e61-be08-32fefa9fa355", @"", @"", @"", @"", @"",@""],
                            @"AppLovin": @[@"5a4ec11a-517b-47f5-86ce-a85b56fa8aea", @"7bacc417-e6cb-4893-9606-7746e608424b", @"2ffa7e68-2615-4ee0-b693-6b44199bcc58", @"5c7a2b41-5a44-4924-ac81-c711096fedf6", @"", @"cbed7422-8ed8-4b24-b78e-009ec47aceda", @"86029578-83ce-41ba-a047-41d442c8854f",@""],
                            @"Baidu": @[@"482b2551-68fc-4f66-bcf7-34f6fd5886fa", @"9b8ec564-8f6e-4718-a422-edfe721e6deb", @"fd1dfc46-1994-4dbc-b524-186aa69ddb9d", @"13833c8d-e4f1-4bce-94e6-91c1ba32e3d1", @"e69df2ed-406c-4a87-a791-7045bec52f6d", @"6eae4ec7-4255-4a40-8d9a-691acf859e50", @"0443c180-8414-406b-9b81-373b0fbc5c93", @"9bee7b8b-60c4-4e75-8a49-e6e405bc9893"],
-                           @"Chartboost": @[@"", @"f8ae6d45-dfb0-4779-b886-f972c57e7fa8", @"", @"7f4fc9c0-c73d-46bd-bbb2-893366d731b2", @"", @"", @"",@""],
+                           @"Chartboost": @[@"85a6b55c-5ca3-410d-b674-3d94dfa33577", @"f8ae6d45-dfb0-4779-b886-f972c57e7fa8", @"", @"7f4fc9c0-c73d-46bd-bbb2-893366d731b2", @"", @"", @"",@""],
                            @"Criteo": @[@"08047dd3-8259-4f4c-9542-e4c1c770465d", @"3aae3e21-37b9-4717-a844-69c8895684a3", @"", @"", @"", @"", @"",@""],
                            @"DFP": @[@"74e81da4-e35d-4ab3-9594-49d45f31baef", @"e3bdf261-5f5c-4373-9be3-8a33f5d90cdb", @"374fec30-1e64-4bce-80f0-52ade0e1b4fa", @"a90612c7-f0e9-4f0d-bf0a-1a0da044eee4", @"", @"d2ba90e3-8978-4a10-829e-a71d9f95c834", @"43309363-b2e0-4674-9599-b428e80f30ca",@""],
                            @"DisplayIO": @[@"cb4d50e6-c830-4d7e-b33c-db6040447fe9", @"9c870974-4b79-400b-9c06-77a43745e145", @"", @"", @"", @"", @"",@""],
