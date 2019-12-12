@@ -2,9 +2,11 @@ PODS:
   - AdColony (4.1.2)
   - AdGeneration (2.16.4)
   - AmazonAdSDK (2.0.16)
-  - AppLovinSDK (6.9.5)
+  - AppLovinSDK (6.10.1)
   - Bytedance-UnionAD (2.5.1.5)
-  - ChartboostSDK (8.0.3)
+  - ChartboostSDK (8.0.4)
+  - CriteoPublisherSdk (3.2.0)
+  - DIOSDK (2.8.0)
   - FBAudienceNetwork (5.6.0):
     - FBSDKCoreKit/Basics (>= 5.6.0)
   - FBSDKCoreKit/Basics (5.11.1)
@@ -52,6 +54,7 @@ PODS:
   - GoogleUtilities/Reachability (6.3.2):
     - GoogleUtilities/Logger
   - IronSourceSDK (6.10.0.0)
+  - KSAdSDK (2.3.9)
   - MaioSDK (1.4.8)
   - Masonry (1.1.0)
   - MintegralAdSDK (5.8.4.0):
@@ -94,15 +97,18 @@ PODS:
   - TaurusXAdMediation_Amazon (2.2.17.2):
     - AmazonAdSDK (= 2.0.16)
     - TaurusXAds
-  - TaurusXAdMediation_AppLovin (6.9.4.0):
-    - AppLovinSDK (~> 6.9.4)
+  - TaurusXAdMediation_AppLovin (6.10.1.0):
+    - AppLovinSDK (~> 6.10.1)
     - TaurusXAds
-  - TaurusXAdMediation_Baidu (4.67.1):
+  - TaurusXAdMediation_Baidu (4.67.3):
     - TaurusXAds
   - TaurusXAdMediation_Chartboost (8.0.3.1):
     - ChartboostSDK (~> 8.0.3)
     - TaurusXAds
-  - TaurusXAdMediation_DUAdPlatform (1.1.4.0):
+  - TaurusXAdMediation_Criteo (3.2.0.0):
+    - CriteoPublisherSdk (~> 3.2.0)
+    - TaurusXAds
+  - TaurusXAdMediation_DUAdPlatform (1.1.4.1):
     - TaurusXAds
   - TaurusXAdMediation_Facebook (5.6.0.0):
     - FBAudienceNetwork (~> 5.6.0)
@@ -116,19 +122,22 @@ PODS:
   - TaurusXAdMediation_Fyber (7.4.1.0):
     - Fyber_Marketplace_SDK (= 7.4.1)
     - TaurusXAds
-  - TaurusXAdMediation_GDT (4.10.19.0):
+  - TaurusXAdMediation_GDT (4.10.19.1):
     - GDTMobSDK (~> 4.10.19)
     - TaurusXAds
-  - TaurusXAdMediation_GoogleAds (7.52.0.0):
+  - TaurusXAdMediation_GoogleAds (7.52.0.1):
     - Google-Mobile-Ads-SDK (~> 7.52.0)
     - TaurusXAds
   - TaurusXAdMediation_IronSource (6.10.0.0.0):
     - IronSourceSDK (~> 6.10.0.0)
     - TaurusXAds
+  - TaurusXAdMediation_KuaiShou (2.3.9.0):
+    - KSAdSDK (~> 2.3.9)
+    - TaurusXAds
   - TaurusXAdMediation_Maio (1.4.8.0):
     - MaioSDK (~> 1.4.8)
     - TaurusXAds
-  - TaurusXAdMediation_Mobvista (5.8.4.0.2):
+  - TaurusXAdMediation_Mobvista (5.8.4.0.3):
     - MintegralAdSDK (~> 5.8.4.0)
     - MintegralAdSDK/BannerAd (~> 5.8.4.0)
     - MintegralAdSDK/InterActiveAd (~> 5.8.4.0)
@@ -136,7 +145,7 @@ PODS:
     - MintegralAdSDK/InterstitialVideoAd (~> 5.8.4.0)
     - MintegralAdSDK/RewardVideoAd (~> 5.8.4.0)
     - TaurusXAds
-  - TaurusXAdMediation_MoPub (5.10.0.1):
+  - TaurusXAdMediation_MoPub (5.10.0.2):
     - mopub-ios-sdk (~> 5.10.0)
     - TaurusXAds
   - TaurusXAdMediation_Nend (5.3.0.0):
@@ -145,8 +154,8 @@ PODS:
   - TaurusXAdMediation_Tapjoy (12.3.4.0):
     - TapjoySDK (~> 12.3.4)
     - TaurusXAds
-  - TaurusXAdMediation_TikTok (2.5.1.2.0):
-    - Bytedance-UnionAD (~> 2.5.1.2)
+  - TaurusXAdMediation_TikTok (2.5.1.5.1):
+    - Bytedance-UnionAD (~> 2.5.1.5)
     - TaurusXAds
   - TaurusXAdMediation_UnityAds (3.3.0.0):
     - TaurusXAds
@@ -154,11 +163,12 @@ PODS:
   - TaurusXAdMediation_Vungle (6.4.5.1):
     - TaurusXAds
     - VungleSDK-iOS (~> 6.4.5)
-  - TaurusXAds (1.5.0)
+  - TaurusXAds (1.5.2)
   - UnityAds (3.3.0)
-  - VungleSDK-iOS (6.4.5)
+  - VungleSDK-iOS (6.4.6)
 
 DEPENDENCIES:
+  - DIOSDK
   - Masonry
   - TaurusXAdMediation_AdColony
   - TaurusXAdMediation_AdGeneration
@@ -166,6 +176,7 @@ DEPENDENCIES:
   - TaurusXAdMediation_AppLovin
   - TaurusXAdMediation_Baidu
   - TaurusXAdMediation_Chartboost
+  - TaurusXAdMediation_Criteo
   - TaurusXAdMediation_DUAdPlatform
   - TaurusXAdMediation_Facebook
   - TaurusXAdMediation_Five
@@ -174,6 +185,7 @@ DEPENDENCIES:
   - TaurusXAdMediation_GDT
   - TaurusXAdMediation_GoogleAds
   - TaurusXAdMediation_IronSource
+  - TaurusXAdMediation_KuaiShou
   - TaurusXAdMediation_Maio
   - TaurusXAdMediation_Mobvista
   - TaurusXAdMediation_MoPub
@@ -192,6 +204,8 @@ SPEC REPOS:
     - AppLovinSDK
     - Bytedance-UnionAD
     - ChartboostSDK
+    - CriteoPublisherSdk
+    - DIOSDK
     - FBAudienceNetwork
     - FBSDKCoreKit
     - Flurry-iOS-SDK
@@ -201,6 +215,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - IronSourceSDK
+    - KSAdSDK
     - MaioSDK
     - Masonry
     - MintegralAdSDK
@@ -214,6 +229,7 @@ SPEC REPOS:
     - TaurusXAdMediation_AppLovin
     - TaurusXAdMediation_Baidu
     - TaurusXAdMediation_Chartboost
+    - TaurusXAdMediation_Criteo
     - TaurusXAdMediation_DUAdPlatform
     - TaurusXAdMediation_Facebook
     - TaurusXAdMediation_Five
@@ -222,6 +238,7 @@ SPEC REPOS:
     - TaurusXAdMediation_GDT
     - TaurusXAdMediation_GoogleAds
     - TaurusXAdMediation_IronSource
+    - TaurusXAdMediation_KuaiShou
     - TaurusXAdMediation_Maio
     - TaurusXAdMediation_Mobvista
     - TaurusXAdMediation_MoPub
@@ -238,9 +255,11 @@ SPEC CHECKSUMS:
   AdColony: 0a1e13349ce430ce29374c665611013fd78f792c
   AdGeneration: 96b6f8c0bd086a900e4df8076c860ee1af5aa5e6
   AmazonAdSDK: d904f74444fa9bbf671ced9cf5abc9d9de41cdc5
-  AppLovinSDK: 15268696b789c0954520ca95022fe2453bc41291
+  AppLovinSDK: ebc27a9dfeb1f73b9eb0c4f37d76b279198abf5f
   Bytedance-UnionAD: 7705ad5c88472c13b503c45d5ecc09114f063913
-  ChartboostSDK: 9ae93ff13e960a9a48bc5ee553ec2e30fbbb152a
+  ChartboostSDK: 53030515811fcd99848244c2c2ff2031079d541b
+  CriteoPublisherSdk: 4697cb44768aa99aa0347d920826a1d24a9e044f
+  DIOSDK: a87c14789d32d6d42680d8dcc314918cad5fa2ea
   FBAudienceNetwork: 1ea63543665445a3a5b4a059e8210a343b6ab3c1
   FBSDKCoreKit: 5aada61a229054694810f3cee231f986004b3c49
   Flurry-iOS-SDK: 71da0ebf2088b15d8899da71050efc8b33bfd21f
@@ -250,6 +269,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: dfe55efa543e899d906309eaaac6ca26d249862f
   GoogleUtilities: 547a86735c6f0ee30ad17e94df4fc21f616b71cb
   IronSourceSDK: 5848e9831f2f83529d19c64eb8d22e3afb9ec3e6
+  KSAdSDK: 67f61f800594ef0c91ff49b31df389444aedd038
   MaioSDK: 739514080b0d9c3b3e3457c90b53fec2ee1d5cc2
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MintegralAdSDK: f26898e40a1676b53508ea4aa145ce70a897fc46
@@ -260,29 +280,31 @@ SPEC CHECKSUMS:
   TaurusXAdMediation_AdColony: b5754aa167bb34cc13782b4514e46ee2b232fe48
   TaurusXAdMediation_AdGeneration: 2a2b53887c8c104c09f8d83dfe9159081abf6625
   TaurusXAdMediation_Amazon: 018059c12021fc86d8a57046a85990ee78599afd
-  TaurusXAdMediation_AppLovin: a2ce37172c8abf86e2659a6d75946963e0a82a82
-  TaurusXAdMediation_Baidu: 67ea1b9defddf02bebd1d6013156a267a2cd8b5e
+  TaurusXAdMediation_AppLovin: 67af916c81e3443daf2d35c87dd3e592e512b59c
+  TaurusXAdMediation_Baidu: ff4ed51f2961e3069582d00479c6252df489a37c
   TaurusXAdMediation_Chartboost: 24d7dba88d3fe3bb8d5fd28cc246a0d7979fc68d
-  TaurusXAdMediation_DUAdPlatform: bb96d54c74b8d26fff3b696e332ddad073e9a713
+  TaurusXAdMediation_Criteo: cc5d742d729db6d87ea8ddb62d9f90dbdc72bd51
+  TaurusXAdMediation_DUAdPlatform: d989bbe0c134c8cd5a7051f5ff94d8787b9307ee
   TaurusXAdMediation_Facebook: eda0184d1f7a659755be6fe74995ba9afe934652
   TaurusXAdMediation_Five: c092efa80f0c88881fcf9e67947cd7ebf7869782
   TaurusXAdMediation_Flurry: 718b7595bb2f63667534a666d476893775d2ef7a
   TaurusXAdMediation_Fyber: 530b01cafc738fb82ea2547b33d3808a26b78776
-  TaurusXAdMediation_GDT: ff69071c4b3187eb146b200ffcc7117086116962
-  TaurusXAdMediation_GoogleAds: 3dc57641603eb6c46bb226a86cc5e5dc16c9c51d
+  TaurusXAdMediation_GDT: 599d9c3aaaf694d01f658cab3bde2d52c549c40b
+  TaurusXAdMediation_GoogleAds: 8706b050c3ded4fef6660e7d9e7adce37f8fccc9
   TaurusXAdMediation_IronSource: 77dd5b38daac60e476ca77ad8aae8cc30316a575
+  TaurusXAdMediation_KuaiShou: 30861bdf43a147c7b9305ec9271029e3a2979244
   TaurusXAdMediation_Maio: 4f8b11b06e95e366dbf67da5199eed2e16a1da79
-  TaurusXAdMediation_Mobvista: 3951b4116658db00e88d4aff14ec33ea6d1ced90
-  TaurusXAdMediation_MoPub: 418397ef7ba118597bbb64825bb5505130466f9b
+  TaurusXAdMediation_Mobvista: 5c6079062ad8de2a2587dbb2e5b2447886ed9d6f
+  TaurusXAdMediation_MoPub: 28a05ca9fef0f9ac644bce390cbb1b237524216f
   TaurusXAdMediation_Nend: 54af0b696a863a660dfdbc9c6c28da8f23f11c99
   TaurusXAdMediation_Tapjoy: e51cda4350130e033c8ca1f03f9b5e7d14ea03da
-  TaurusXAdMediation_TikTok: 481bd062487e58776267fb5808d507dd559f4f0e
+  TaurusXAdMediation_TikTok: 3654577acd47fd19146db82f820a85316fdb05b0
   TaurusXAdMediation_UnityAds: e8e8613908f0dce460074b430e45f5639970c9c0
   TaurusXAdMediation_Vungle: 3c0b5341b06376809c0c65d441e4e9ce237a611a
-  TaurusXAds: 1a009cb0083686fff036e7c64cc10cebcf7f142b
+  TaurusXAds: 3bca457007b9c6108d999aae3ba688e748af1d3b
   UnityAds: 0b7ecf8df83e8a3d62122a3fcf61e47c8e848f3c
-  VungleSDK-iOS: 8951559521dd73c3f947757e9a4c4bbfd8645b7f
+  VungleSDK-iOS: 6bf8b4fef32afc169acbc1291485560c81ceb293
 
-PODFILE CHECKSUM: b679129cc0d774c1b6b91f222063a34109d75297
+PODFILE CHECKSUM: 068003d0899ae3a7ba106a699af2492b04b78dd4
 
 COCOAPODS: 1.8.4

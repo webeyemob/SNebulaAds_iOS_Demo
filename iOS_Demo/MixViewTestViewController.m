@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) TXADNativeAdLayout *nativeLayout;
 
+@property (nonatomic, strong) UIView *adView;
+
 @end
 
 @implementation MixViewTestViewController
@@ -58,7 +60,6 @@
     }];
     
     UIButton *loadNativeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    loadNativeBtn.frame = CGRectMake((ScreenWidth-200)/2, kTopBarSafeHeight+50, 200, 30);
     [self.view addSubview:loadNativeBtn];
     [loadNativeBtn setTitle:@"load MixView" forState:UIControlStateNormal];
     //[loadNativeBtn setBackgroundColor:[UIColor blueColor]];
@@ -66,9 +67,31 @@
     [loadNativeBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
     [loadNativeBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
     [loadNativeBtn addTarget:self action:@selector(loadMixView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [loadNativeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(header.mas_bottom).offset(10);
+        make.centerX.equalTo(self.view);
+        make.width.equalTo(@(200));
+        make.height.equalTo(@(20));
+    }];
         
      //[self createLayout];
     [self createDefaultLayout];
+    
+    _adView = [[UIView alloc] init];
+    
+    [_adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
+    [self.view addSubview:_adView];
+    _adView.layer.borderColor = [UIColor colorWithRed:36.0/255.0 green:189.0/255.0 blue:155.0/255.0 alpha:1].CGColor;
+    _adView.layer.cornerRadius = 10;
+    _adView.layer.borderWidth = 2;
+    
+    [_adView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(10);
+        make.right.equalTo(self.view).offset(-10);
+        make.top.equalTo(loadNativeBtn.mas_bottom).offset(10);
+        make.height.equalTo(@(450));
+    }];
 }
 
 - (void) closePage {
@@ -108,6 +131,8 @@
     layout.iconView = icon;
     
     self.nativeLayout = layout;
+    
+   
 }
 
 - (void)createDefaultLayout {
@@ -118,7 +143,6 @@
     if (self.mixViewAd == nil) {
         self.mixViewAd = [[TXADMixViewAd alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
         self.mixViewAd.delegate = self;
-        //[self.mixViewAd setCount:3];
         [self.mixViewAd setNativeAdLayout:self.nativeLayout];
     }
     [self.mixViewAd loadAd];
@@ -128,14 +152,14 @@
 - (void)showMixView {
 
     // 布置展示广告素材的 UIViews，可以通过新建 xib 文件或自定义 UIView 的子类
-    UIView *adView = [self.mixViewAd getAdView];
-    adView.frame = CGRectMake(10, kTopBarSafeHeight+80, ScreenWidth-20, 450);
-    // 展示广告
-    [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
-    [self.view addSubview:adView];
-    adView.layer.borderColor = [UIColor colorWithRed:36.0/255.0 green:189.0/255.0 blue:155.0/255.0 alpha:1].CGColor;
-    adView.layer.cornerRadius = 10;
-    adView.layer.borderWidth = 2;
+    UIView *mixView = [self.mixViewAd getAdView];
+    
+    for (UIView *temp in self.adView.subviews) {
+        [temp removeFromSuperview];
+    }
+    
+    [self.adView addSubview:mixView];
+    mixView.center= CGPointMake(self.adView.bounds.size.width/2, self.adView.bounds.size.height/2);
 }
 
 #pragma mark <TXADMixViewAdDelegate>

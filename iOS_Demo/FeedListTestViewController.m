@@ -66,7 +66,6 @@
     }];
     
     UIButton *loadNativeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    loadNativeBtn.frame = CGRectMake((ScreenWidth-200)/2, kTopBarSafeHeight+50, 200, 30);
     [self.view addSubview:loadNativeBtn];
     [loadNativeBtn setTitle:@"load FeedList" forState:UIControlStateNormal];
     //[loadNativeBtn setBackgroundColor:[UIColor blueColor]];
@@ -74,11 +73,17 @@
     [loadNativeBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
     [loadNativeBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
     [loadNativeBtn addTarget:self action:@selector(loadNative) forControlEvents:UIControlEventTouchUpInside];
+    
+    [loadNativeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(header.mas_bottom).offset(10);
+        make.centerX.equalTo(self.view);
+        make.width.equalTo(@(200));
+        make.height.equalTo(@(20));
+    }];
         
      [self createFeedList];
     
     UIView *adView = [[UIView alloc] init];
-    adView.frame = CGRectMake(10, kTopBarSafeHeight+80, ScreenWidth-20, 500);
     // 展示广告
     [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
     [self.view addSubview:adView];
@@ -87,6 +92,13 @@
     adView.layer.borderWidth = 2;
     
     self.adContainer = adView;
+    
+    [adView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(loadNativeBtn.mas_bottom).offset(10);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.height.equalTo(@(450));
+    }];
 }
 
 - (void) closePage {
@@ -94,9 +106,9 @@
 }
 
 - (void)createFeedList {
-    UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 250)];
+    UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 250)];
     
-    UIView *mediaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 150)];
+    UIView *mediaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 150)];
     [rootView addSubview:mediaView];
     
     UIView *icon = [[UIView alloc] initWithFrame:CGRectMake(5, 160, 60, 60)];
@@ -154,7 +166,7 @@
         self.currentIndex++;
         
         if (self.currentIndex < self.feedArray.count) {
-            self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(showFeed) userInfo:nil repeats:NO];
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(showFeed) userInfo:nil repeats:NO];
         }
     }
 }

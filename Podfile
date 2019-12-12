@@ -20,6 +20,7 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_Baidu'
     pod 'TaurusXAdMediation_Facebook'
     pod 'TaurusXAdMediation_Chartboost'
+    pod 'TaurusXAdMediation_Criteo'
     pod 'TaurusXAdMediation_Flurry'
     pod 'TaurusXAdMediation_IronSource'
     pod 'TaurusXAdMediation_Maio'
@@ -36,4 +37,5 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_UnityAds'
     pod 'TaurusXAdMediation_Vungle'
     pod 'TaurusXAdMediation_GDT'
+    pod 'DIOSDK'
 end

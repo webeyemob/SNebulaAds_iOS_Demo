@@ -57,7 +57,6 @@
     }];
     
     UIButton *loadRewardBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    loadRewardBtn.frame = CGRectMake(20, kTopBarSafeHeight+50, 150, 30);
     [self.view addSubview:loadRewardBtn];
     [loadRewardBtn setTitle:@"load Reward" forState:UIControlStateNormal];
     //[loadRewardBtn setBackgroundColor:[UIColor blueColor]];
@@ -68,7 +67,6 @@
     
     CGFloat left = ScreenWidth - 150 - 20;
     UIButton *rewardShowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rewardShowBtn.frame = CGRectMake(left, kTopBarSafeHeight+50, 150, 30);
     [self.view addSubview:rewardShowBtn];
     [rewardShowBtn setTitle:@"show Reward" forState:UIControlStateNormal];
     //[rewardShowBtn setBackgroundColor:[UIColor blueColor]];
@@ -78,6 +76,20 @@
     [rewardShowBtn addTarget:self action:@selector(showReward) forControlEvents:UIControlEventTouchUpInside];
     self.showRewardBtn = rewardShowBtn;
     self.showRewardBtn.enabled = NO;
+    
+    [loadRewardBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(header.mas_bottom).offset(10);
+        make.left.equalTo(self.view).offset(30);
+        make.width.equalTo(@(120));
+        make.height.equalTo(@(20));
+    }];
+    
+    [rewardShowBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(header.mas_bottom).offset(10);
+        make.right.equalTo(self.view).offset(-30);
+        make.width.equalTo(@(120));
+        make.height.equalTo(@(20));
+    }];
     
     self.rewardAd = [[TXADRewardedVideoAd alloc] initWithAdUnitId:self.adUnitID];
     self.rewardAd.delegate = self;

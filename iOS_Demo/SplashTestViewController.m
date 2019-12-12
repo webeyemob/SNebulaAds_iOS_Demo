@@ -55,7 +55,7 @@
     }];
     
     UIButton *splashLoadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    splashLoadBtn.frame = CGRectMake((ScreenWidth-200)/2, kTopBarSafeHeight+50, 200, 30);
+    
     [splashLoadBtn setTitle:@"load Splash" forState:UIControlStateNormal];
     //[splashLoadBtn setBackgroundColor:[UIColor blueColor]];
     [splashLoadBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]  forState:UIControlStateNormal];
@@ -64,6 +64,13 @@
     [splashLoadBtn addTarget:self action:@selector(loadSplash) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:splashLoadBtn];
+    
+    [splashLoadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(header.mas_bottom).offset(10);
+        make.centerX.equalTo(self.view);
+        make.width.equalTo(@(200));
+        make.height.equalTo(@(30));
+    }];
 }
 
 - (void) closePage {

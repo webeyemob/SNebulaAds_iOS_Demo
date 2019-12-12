@@ -57,13 +57,19 @@
     }];
     
     UIButton *testBannerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    testBannerBtn.frame = CGRectMake((ScreenWidth-200)/2, kTopBarSafeHeight+50, 200, 30);
     [self.view addSubview:testBannerBtn];
     [testBannerBtn setTitle:@"load banner" forState:UIControlStateNormal];
     [testBannerBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     [testBannerBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
     [testBannerBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
     [testBannerBtn addTarget:self action:@selector(testBanner) forControlEvents:UIControlEventTouchUpInside];
+    
+    [testBannerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(header.mas_bottom).offset(10);
+        make.centerX.equalTo(self.view);
+        make.width.equalTo(@(200));
+        make.height.equalTo(@(20));
+    }];
     
     UIView *banner = [[UIView alloc] init];
     [banner setBackgroundColor:[UIColor clearColor]];
@@ -89,7 +95,7 @@
         self.bannerAd = [[TXADBannerView alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
         self.bannerAd.delegate = self;
         
-        [self.banner addSubview:self.bannerAd];
+        
     }
     
     [self.bannerAd loadAd];
@@ -99,6 +105,11 @@
 - (void)txAdBannerDidReceiveAd:(TXADBannerView *)bannerView{
     NSLog(@"TXADBannerView txAdBannerDidReceiveAd, bannerView.adUnitId is %@", bannerView.adUnitId);
     self.banner.hidden = NO;
+    
+    for (UIView *temp in self.banner.subviews) {
+        [temp removeFromSuperview];
+    }
+    [self.banner addSubview:bannerView];
     
 //    CGFloat x = (ScreenWidth-320)/2;
 //    bannerView.frame = CGRectMake(x, 10, 320, 50);
@@ -116,6 +127,7 @@
 
 - (void)txAdBannerWillPresentScreen:(TXADBannerView *)bannerView {
     NSLog(@"TXADBannerView txAdBannerWillPresentScreen, adUnitId is %@", bannerView.adUnitId);
+
 }
 
 - (void)txAdBannerDidDismissScreen:(TXADBannerView *)bannerView {

@@ -59,7 +59,6 @@
     }];
     
     UIButton *testloadIntBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    testloadIntBtn.frame = CGRectMake(20, kTopBarSafeHeight+50, 150, 30);
     [self.view addSubview:testloadIntBtn];
     [testloadIntBtn setTitle:@"load mixfullscreen" forState:UIControlStateNormal];
     //[testloadIntBtn setBackgroundColor:[UIColor blueColor]];
@@ -70,7 +69,6 @@
     
     CGFloat left = ScreenWidth - 150 - 20;
     UIButton *testshowIntBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    testshowIntBtn.frame = CGRectMake(left, kTopBarSafeHeight+50, 150, 30);
     [self.view addSubview:testshowIntBtn];
     [testshowIntBtn setTitle:@"show mixfullscreen" forState:UIControlStateNormal];
     //[testshowIntBtn setBackgroundColor:[UIColor blueColor]];
@@ -80,6 +78,20 @@
     [testshowIntBtn addTarget:self action:@selector(showMixFullScreenAd) forControlEvents:UIControlEventTouchUpInside];
     testshowIntBtn.enabled = NO;
     self.showIntBtn = testshowIntBtn;
+    
+    [testloadIntBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(header.mas_bottom).offset(10);
+        make.left.equalTo(self.view).offset(30);
+        make.width.equalTo(@(120));
+        make.height.equalTo(@(20));
+    }];
+    
+    [testshowIntBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(header.mas_bottom).offset(10);
+        make.right.equalTo(self.view).offset(-30);
+        make.width.equalTo(@(120));
+        make.height.equalTo(@(20));
+    }];
     
     //[self createLayout];
     [self createDefaultLayout];

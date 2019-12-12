@@ -62,7 +62,6 @@
     }];
     
     UIButton *loadNativeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    loadNativeBtn.frame = CGRectMake(20, kTopBarSafeHeight+50, 150, 30);
     [self.view addSubview:loadNativeBtn];
     [loadNativeBtn setTitle:@"load Native" forState:UIControlStateNormal];
     //[loadNativeBtn setBackgroundColor:[UIColor blueColor]];
@@ -71,18 +70,14 @@
     [loadNativeBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
     [loadNativeBtn addTarget:self action:@selector(loadNative) forControlEvents:UIControlEventTouchUpInside];
     
-    CGFloat left = ScreenWidth - 150 - 20;
-    UIButton *showNativeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    showNativeBtn.frame = CGRectMake(left, kTopBarSafeHeight+50, 150, 30);
-    [self.view addSubview:showNativeBtn];
-    [showNativeBtn setTitle:@"show Native" forState:UIControlStateNormal];
-    //[showNativeBtn setBackgroundColor:[UIColor blueColor]];
-    [showNativeBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]  forState:UIControlStateNormal];
-    [showNativeBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
-    [showNativeBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
-    [showNativeBtn addTarget:self action:@selector(showNative) forControlEvents:UIControlEventTouchUpInside];
-    showNativeBtn.enabled = NO;
-    self.showNativeBtn = showNativeBtn;
+    [loadNativeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(header.mas_bottom).offset(10);
+        make.centerX.equalTo(self.view);
+        make.width.equalTo(@(120));
+        make.height.equalTo(@(20));
+    }];
+    
+    self.showNativeBtn = loadNativeBtn;
     
      //[self createNativeLayout];    // nativeLayout
      [self createDefaultLayout]; //get default NativeLayout
@@ -134,7 +129,7 @@
 }
 
 - (void)createNativeLayout {
-    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 270)];
+    UIView *adView = [[UIView alloc] init];
     
     [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
     [self.view addSubview:adView];
@@ -142,6 +137,13 @@
     adView.layer.cornerRadius = 10;
     adView.layer.borderWidth = 2;
     self.nativeAdView = adView;
+    
+    [adView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(10);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.height.equalTo(@(270));
+    }];
     
     adView.hidden = YES;
     
@@ -186,8 +188,7 @@
 }
 
 - (void)createDefaultLayout {
-    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 500)];
-    //UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    UIView *adView = [[UIView alloc] init];
         
     [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
     [self.view addSubview:adView];
@@ -195,6 +196,13 @@
     adView.layer.cornerRadius = 10;
     adView.layer.borderWidth = 2;
     self.nativeAdView = adView;
+    
+    [adView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(10);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.height.equalTo(@(470));
+    }];
     
     adView.hidden = YES;
 
@@ -236,7 +244,7 @@
 - (void)txAdNativeAdDidReceiveAd:(TXADNativeAd *)nativeAd {
     NSLog(@"TXADNativeAd txAdNativeAdDidReceiveAd, nativeAd.adUnitId is %@", nativeAd.adUnitId);
     [self showNative];
-    self.showNativeBtn.enabled = YES;
+//    self.showNativeBtn.enabled = YES;
 }
 
 

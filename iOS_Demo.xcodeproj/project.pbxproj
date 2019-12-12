@@ -29,6 +29,7 @@
 		D45FE417237116D600995A0D /* MixViewTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45FE415237116D500995A0D /* MixViewTestViewController.m */; };
 		D45FE41A2371170600995A0D /* MixFullScreenTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45FE4192371170600995A0D /* MixFullScreenTestViewController.m */; };
 		D4C0217D237BA20600ED91C7 /* SplashTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C0217C237BA20500ED91C7 /* SplashTestViewController.m */; };
+		D4C2C7D5238D4518003536CA /* TaurusXAdMediation_DisplayIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C2C7D4238D4518003536CA /* TaurusXAdMediation_DisplayIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		D45FE4192371170600995A0D /* MixFullScreenTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixFullScreenTestViewController.m; sourceTree = "<group>"; };
 		D4C0217B237BA20500ED91C7 /* SplashTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashTestViewController.h; sourceTree = "<group>"; };
 		D4C0217C237BA20500ED91C7 /* SplashTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashTestViewController.m; sourceTree = "<group>"; };
+		D4C2C7D4238D4518003536CA /* TaurusXAdMediation_DisplayIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TaurusXAdMediation_DisplayIO.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C2C7D5238D4518003536CA /* TaurusXAdMediation_DisplayIO.framework in Frameworks */,
 				AD64AE647E3217659E798C19 /* Pods_iOS_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +112,7 @@
 		22FC0EAC236EC736004594C1 /* iOS_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				D4C2C7D4238D4518003536CA /* TaurusXAdMediation_DisplayIO.framework */,
 				D427F6A0237BBD7200FB927A /* util */,
 				22FC0EEF236ECAFC004594C1 /* AdTypeViewController.h */,
 				22FC0EF5236ECAFE004594C1 /* AdTypeViewController.m */,
@@ -467,8 +471,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods",
+					"$(PROJECT_DIR)/iOS_Demo",
 				);
 				INFOPLIST_FILE = iOS_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,8 +505,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods",
+					"$(PROJECT_DIR)/iOS_Demo",
 				);
 				INFOPLIST_FILE = iOS_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
