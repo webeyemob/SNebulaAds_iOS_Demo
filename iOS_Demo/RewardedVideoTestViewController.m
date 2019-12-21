@@ -65,7 +65,6 @@
     [loadRewardBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
     [loadRewardBtn addTarget:self action:@selector(loadReward) forControlEvents:UIControlEventTouchUpInside];
     
-    CGFloat left = ScreenWidth - 150 - 20;
     UIButton *rewardShowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:rewardShowBtn];
     [rewardShowBtn setTitle:@"show Reward" forState:UIControlStateNormal];

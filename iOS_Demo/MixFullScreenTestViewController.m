@@ -67,7 +67,6 @@
     [testloadIntBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
     [testloadIntBtn addTarget:self action:@selector(loadMixFullScreenAd) forControlEvents:UIControlEventTouchUpInside];
     
-    CGFloat left = ScreenWidth - 150 - 20;
     UIButton *testshowIntBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:testshowIntBtn];
     [testshowIntBtn setTitle:@"show mixfullscreen" forState:UIControlStateNormal];
