@@ -1,6 +1,0 @@
-framework module TaurusXAdMediation_DisplayIO {
-  umbrella header "TaurusXAdMediation_DisplayIO.h"
-
-  export *
-  module * { export * }
-}
