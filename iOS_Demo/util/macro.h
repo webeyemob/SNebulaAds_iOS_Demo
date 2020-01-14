@@ -21,4 +21,6 @@
 // 底部安全区域远离高度
 #define kBottomSafeHeight   (CGFloat)(IS_IPHONEX?(34):(0))
 
+#define useAdLoader 1
+
 #endif /* macro_h */

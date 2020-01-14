@@ -12,6 +12,7 @@
 #import "macro.h"
 #import "UIView+Toast.h"
 
+
 @interface BannerTestViewController () <TXADBannerViewDelegate>
 
 @property (nonatomic, strong) TXADBannerView *bannerAd;
@@ -91,25 +92,30 @@
 
 
 - (void)testBanner {
-    if (self.bannerAd == nil) {
-        self.bannerAd = [[TXADBannerView alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
-        self.bannerAd.delegate = self;
+    if (!useAdLoader) {
+        if (self.bannerAd == nil) {
+            self.bannerAd = [[TXADBannerView alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
+            self.bannerAd.delegate = self;
+        }
         
-        
+        [self.bannerAd loadAd];
+    } else {
+        [TXADAdLoader loadBanner:self.adUnitID rootViewController:self withDelegate:self];
     }
-    
-    [self.bannerAd loadAd];
 }
 
 #pragma mark TXADBannerViewDelegate
 - (void)txAdBannerDidReceiveAd:(TXADBannerView *)bannerView{
     NSLog(@"TXADBannerView txAdBannerDidReceiveAd, bannerView.adUnitId is %@", bannerView.adUnitId);
     self.banner.hidden = NO;
-    
-    for (UIView *temp in self.banner.subviews) {
-        [temp removeFromSuperview];
+    if (!useAdLoader) {
+        for (UIView *temp in self.banner.subviews) {
+            [temp removeFromSuperview];
+        }
+        [self.banner addSubview:bannerView];
+    } else {
+        [TXADAdLoader showBanner:self.adUnitID viewContainer:self.banner];
     }
-    [self.banner addSubview:bannerView];
     
 //    CGFloat x = (ScreenWidth-320)/2;
 //    bannerView.frame = CGRectMake(x, 10, 320, 50);

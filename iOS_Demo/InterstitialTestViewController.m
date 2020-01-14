@@ -90,8 +90,6 @@
         make.width.equalTo(@(120));
         make.height.equalTo(@(20));
     }];
-    
-    [self createInterstitial];
 }
 
 - (void) closePage {
@@ -114,15 +112,26 @@
 
 #pragma  mark intersitial
 - (void) loadInteristial {
-    if (self.interstitalAd != nil) {
+    if (!useAdLoader) {
+        if (self.interstitalAd == nil) {
+            [self createInterstitial];
+        }
         [self.interstitalAd loadAd];
+    } else {
+        [TXADAdLoader loadInterstitialAd:self.adUnitID withDelegate:self];
     }
 }
 
 - (void)showInterstitial {
-    if (self.interstitalAd.isReady)
-    {
-        [self.interstitalAd showFromViewController:self];
+    if (!useAdLoader) {
+        if (self.interstitalAd.isReady)
+        {
+            [self.interstitalAd showFromViewController:self];
+        }
+    } else {
+        if ([TXADAdLoader isInterstitialAdReady:self.adUnitID]) {
+            [TXADAdLoader showInterstitialAd:self.adUnitID viewController:self];
+        }
     }
 }
 

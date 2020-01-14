@@ -80,10 +80,16 @@
 
 #pragma  mark intersitial
 - (void) loadSplash {
-    self.splashAd = [[TXADSplashAd alloc] initWithAdUnitId:self.adUnitID uiWindow: [UIApplication sharedApplication].keyWindow ];
-    
-    self.splashAd.delegate = self;
-    [self.splashAd loadAd];
+    if (!useAdLoader) {
+        if (self.splashAd == nil) {
+            self.splashAd = [[TXADSplashAd alloc] initWithAdUnitId:self.adUnitID uiWindow: [UIApplication sharedApplication].keyWindow ];
+            
+            self.splashAd.delegate = self;
+        }
+        [self.splashAd loadAd];
+    } else {
+        [TXADAdLoader loadSplashAd:self.adUnitID uiWindow:[UIApplication sharedApplication].keyWindow withDelegate:self];
+    }
 }
 
 #pragma mark <WECreativeSplashDelegate>

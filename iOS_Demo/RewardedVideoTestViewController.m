@@ -89,9 +89,6 @@
         make.width.equalTo(@(120));
         make.height.equalTo(@(20));
     }];
-    
-    self.rewardAd = [[TXADRewardedVideoAd alloc] initWithAdUnitId:self.adUnitID];
-    self.rewardAd.delegate = self;
 }
 
 - (void) closePage {
@@ -99,12 +96,26 @@
 }
 
 - (void)loadReward {
-    [self.rewardAd loadAd];
+    if (!useAdLoader) {
+        if (self.rewardAd == nil) {
+            self.rewardAd = [[TXADRewardedVideoAd alloc] initWithAdUnitId:self.adUnitID];
+            self.rewardAd.delegate = self;
+        }
+        [self.rewardAd loadAd];
+    } else {
+        [TXADAdLoader loadRewardedVideoAd:self.adUnitID withDelegate:self];
+    }
 }
 
 - (void)showReward {
-    if (self.rewardAd.isReady) {
-        [self.rewardAd showFromViewController:self];
+    if (!useAdLoader) {
+        if (self.rewardAd.isReady) {
+            [self.rewardAd showFromViewController:self];
+        }
+    } else {
+       if ([TXADAdLoader isRewardedVideoAdReady:self.adUnitID]) {
+            [TXADAdLoader showRewardedVideoAd:self.adUnitID viewController:self];
+        }
     }
 }
 

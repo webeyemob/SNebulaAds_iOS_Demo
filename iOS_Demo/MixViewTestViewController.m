@@ -140,26 +140,34 @@
 }
 
 - (void) loadMixView {
-    if (self.mixViewAd == nil) {
-        self.mixViewAd = [[TXADMixViewAd alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
-        self.mixViewAd.delegate = self;
-        [self.mixViewAd setNativeAdLayout:self.nativeLayout];
+    if (!useAdLoader) {
+        if (self.mixViewAd == nil) {
+            self.mixViewAd = [[TXADMixViewAd alloc] initWithAdUnitId:self.adUnitID rootViewController:self];
+            self.mixViewAd.delegate = self;
+            [self.mixViewAd setNativeAdLayout:self.nativeLayout];
+        }
+        [self.mixViewAd loadAd];
+    } else {
+        [TXADAdLoader loadMixViewAd:self.adUnitID rootViewController:self withLayout:self.nativeLayout andDelegate:self];
     }
-    [self.mixViewAd loadAd];
     
 }
 
 - (void)showMixView {
 
     // 布置展示广告素材的 UIViews，可以通过新建 xib 文件或自定义 UIView 的子类
-    UIView *mixView = [self.mixViewAd getAdView];
-    
-    for (UIView *temp in self.adView.subviews) {
-        [temp removeFromSuperview];
+    if (!useAdLoader) {
+        UIView *mixView = [self.mixViewAd getAdView];
+
+        for (UIView *temp in self.adView.subviews) {
+            [temp removeFromSuperview];
+        }
+
+        [self.adView addSubview:mixView];
+        mixView.center= CGPointMake(self.adView.bounds.size.width/2, self.adView.bounds.size.height/2);
+    } else {
+        [TXADAdLoader showMixViewAd:self.adUnitID viewContainer:self.adView];
     }
-    
-    [self.adView addSubview:mixView];
-    mixView.center= CGPointMake(self.adView.bounds.size.width/2, self.adView.bounds.size.height/2);
 }
 
 #pragma mark <TXADMixViewAdDelegate>

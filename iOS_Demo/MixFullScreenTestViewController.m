@@ -94,8 +94,6 @@
     
     //[self createLayout];
     [self createDefaultLayout];
-    
-    [self createMixFullScreenAd];
 }
 
 - (void) closePage {
@@ -149,15 +147,26 @@
 
 #pragma  mark intersitial
 - (void) loadMixFullScreenAd {
-    if (self.mixFullScreenAd != nil) {
+     if (!useAdLoader) {
+        if (self.mixFullScreenAd == nil) {
+            [self createMixFullScreenAd];
+        }
         [self.mixFullScreenAd loadAd];
-    }
+     } else {
+         [TXADAdLoader loadMixFullScreenAd:self.adUnitID withLayout:self.nativeLayout andDelegate:self];
+     }
 }
 
 - (void)showMixFullScreenAd {
-    if (self.mixFullScreenAd.isReady)
-    {
-        [self.mixFullScreenAd showFromViewController:self];
+    if (!useAdLoader) {
+        if (self.mixFullScreenAd.isReady)
+        {
+            [self.mixFullScreenAd showFromViewController:self];
+        }
+    } else {
+        if ([TXADAdLoader isMixFullScreenAdReady:self.adUnitID]) {
+            [TXADAdLoader showMixFullScreenAd:self.adUnitID viewController:self];
+        }
     }
 }
 

@@ -82,8 +82,6 @@
      //[self createNativeLayout];    // nativeLayout
      [self createDefaultLayout]; //get default NativeLayout
     //[self createxibLayout];
-    
-     [self createNative];
 }
 
 - (void) closePage {
@@ -212,30 +210,42 @@
 - (void) createNative {
     self.nativeAd = [[TXADNativeAd alloc] initWithAdUnitId:self.adUnitID];
     self.nativeAd.delegate = self;
-    
+
     TXADNetworkConfigs *configs = [[TXADNetworkConfigs alloc] init];
-    
+
     TXADVungleInFeedConfig *config = [[TXADVungleInFeedConfig alloc] init];
         // 设置宽度充满屏幕，高度固定。
     [config setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 500)];
     [configs addConfig:config];
-    
+
     [self.nativeAd setNetworkConfigs:configs];
     [self.nativeAd setNativeAdLayout:self.nativeLayout];
 }
 
 - (void) loadNative {
-    if(self.nativeAd != nil) {
+    if (!useAdLoader) {
+        if(self.nativeAd == nil) {
+            [self createNative];
+        }
         [self.nativeAd loadAd];
+    } else {
+        [TXADAdLoader loadNativeAd:self.adUnitID withLayout:self.nativeLayout andDelegate:self];
     }
 }
 
 - (void)showNative {
-    if (self.nativeAd.isReady) {
-        UIView *adView = [self.nativeAd getAdView];
-        [self.nativeAdView addSubview:adView];
-                
-        self.nativeAdView.hidden = NO;
+    if (!useAdLoader) {
+        if (self.nativeAd.isReady) {
+            UIView *adView = [self.nativeAd getAdView];
+            [self.nativeAdView addSubview:adView];
+
+            self.nativeAdView.hidden = NO;
+        }
+    } else {
+        if ([TXADAdLoader isNativeAdReady:self.adUnitID] ) {
+            [TXADAdLoader showNativeAd:self.adUnitID viewContainer:self.nativeAdView];
+            self.nativeAdView.hidden = NO;
+        }
     }
 }
 

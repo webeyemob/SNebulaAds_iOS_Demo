@@ -74,6 +74,11 @@
     //[TXAD setGdprConsent:true];
     [TXAD setTestMode:YES];
     [TXAD setLogEnable:YES];
+    
+    TXADSegment *segment = [[TXADSegment alloc] init];
+    segment.channel = @"google";
+    
+    [TXAD setSegment:segment];
 }
 
 - (void) testBase {

@@ -37,5 +37,6 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_UnityAds'
     pod 'TaurusXAdMediation_Vungle'
     pod 'TaurusXAdMediation_GDT'
+    pod 'TaurusXAdMediation_Imobile'
     pod 'DIOSDK'
 end

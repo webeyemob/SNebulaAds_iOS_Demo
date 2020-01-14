@@ -22,7 +22,7 @@
 
 @property (nonatomic, strong) NSTimer *timer;
 
-@property (nonatomic, strong) NSMutableArray<TXADFeed *> *feedArray;
+@property (nonatomic, strong) NSArray<TXADFeed *> *feedArray;
 
 @property (nonatomic, strong) UIView *adContainer;
 
@@ -141,17 +141,19 @@
 }
 
 - (void) loadNative {
-    if (self.feedListAd == nil) {
-        self.feedListAd = [[TXADFeedList alloc] initWithAdUnitId:self.adUnitID];
-        self.feedListAd.delegate = self;
-        [self.feedListAd setCount:3];
+    if (!useAdLoader) {
+        if (self.feedListAd == nil) {
+            self.feedListAd = [[TXADFeedList alloc] initWithAdUnitId:self.adUnitID];
+            self.feedListAd.delegate = self;
+            [self.feedListAd setCount:3];
+        }
+        [self.feedListAd loadAd];
+    } else {
+        [TXADAdLoader loadFeedListAd:self.adUnitID count:3 withDelegate:self];
     }
-    [self.feedListAd loadAd];
-    
 }
 
 - (void)showFeed{
-    
     if (self.currentIndex < self.feedArray.count) {
         TXADFeed *feed = self.feedArray[self.currentIndex];
         // 布置展示广告素材的 UIViews，可以通过新建 xib 文件或自定义 UIView 的子类
@@ -174,7 +176,11 @@
 #pragma mark <TXADInnerNativeAdDelegate>
 - (void)txAdFeedListDidReceiveAd:(TXADFeedList *)feedList {
     NSLog(@"txAdFeedListDidReceiveAd");
-    self.feedArray = [feedList getFeedArray];
+    if (!useAdLoader) {
+        self.feedArray = [feedList getFeedArray];
+    } else {
+        self.feedArray = [TXADAdLoader getFeedListAds:self.adUnitID];
+    }
     self.currentIndex = 0;
     if (self.timer != nil) {
         [self.timer invalidate];
