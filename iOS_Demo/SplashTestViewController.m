@@ -88,7 +88,10 @@
         }
         [self.splashAd loadAd];
     } else {
-        [TXADAdLoader loadSplashAd:self.adUnitID uiWindow:[UIApplication sharedApplication].keyWindow withDelegate:self];
+        TXADSplashAd *ad = [TXADAdLoader getSplashAd:self.adUnitID uiWindow:[UIApplication sharedApplication].keyWindow];
+        ad.delegate = self;
+        
+        [TXADAdLoader loadSplashAd:self.adUnitID uiWindow:[UIApplication sharedApplication].keyWindow];
     }
 }
 

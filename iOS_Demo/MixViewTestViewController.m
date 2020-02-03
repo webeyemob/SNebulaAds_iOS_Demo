@@ -148,7 +148,9 @@
         }
         [self.mixViewAd loadAd];
     } else {
-        [TXADAdLoader loadMixViewAd:self.adUnitID rootViewController:self withLayout:self.nativeLayout andDelegate:self];
+        TXADMixViewAd *ad = [TXADAdLoader getMixViewAd:self.adUnitID rootViewController:self];
+        ad.delegate = self;
+        [TXADAdLoader loadMixViewAd:self.adUnitID rootViewController:self nativeAdLayout:self.nativeLayout];
     }
     
 }
@@ -166,7 +168,7 @@
         [self.adView addSubview:mixView];
         mixView.center= CGPointMake(self.adView.bounds.size.width/2, self.adView.bounds.size.height/2);
     } else {
-        [TXADAdLoader showMixViewAd:self.adUnitID viewContainer:self.adView];
+        [TXADAdLoader showMixViewAd:self.adUnitID container:self.adView];
     }
 }
 

@@ -149,7 +149,10 @@
         }
         [self.feedListAd loadAd];
     } else {
-        [TXADAdLoader loadFeedListAd:self.adUnitID count:3 withDelegate:self];
+        TXADFeedList *ad = [TXADAdLoader getFeedListAd:self.adUnitID];
+        ad.delegate = self;
+        
+        [TXADAdLoader loadFeedListAd:self.adUnitID count:3];
     }
 }
 

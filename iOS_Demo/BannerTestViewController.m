@@ -100,7 +100,9 @@
         
         [self.bannerAd loadAd];
     } else {
-        [TXADAdLoader loadBanner:self.adUnitID rootViewController:self withDelegate:self];
+        TXADBannerView *ad = [TXADAdLoader getBannerAdView:self.adUnitID rootViewController:self];
+        ad.delegate = self;
+        [TXADAdLoader loadBanner:self.adUnitID rootViewController:self];
     }
 }
 
@@ -114,7 +116,7 @@
         }
         [self.banner addSubview:bannerView];
     } else {
-        [TXADAdLoader showBanner:self.adUnitID viewContainer:self.banner];
+        [TXADAdLoader showBanner:self.adUnitID container:self.banner];
     }
     
 //    CGFloat x = (ScreenWidth-320)/2;

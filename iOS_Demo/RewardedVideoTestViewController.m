@@ -103,7 +103,9 @@
         }
         [self.rewardAd loadAd];
     } else {
-        [TXADAdLoader loadRewardedVideoAd:self.adUnitID withDelegate:self];
+        TXADRewardedVideoAd *ad = [TXADAdLoader getRewardedVideoAd:self.adUnitID];
+        ad.delegate = self;
+        [TXADAdLoader loadRewardedVideoAd:self.adUnitID];
     }
 }
 

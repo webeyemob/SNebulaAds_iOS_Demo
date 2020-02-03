@@ -153,7 +153,9 @@
         }
         [self.mixFullScreenAd loadAd];
      } else {
-         [TXADAdLoader loadMixFullScreenAd:self.adUnitID withLayout:self.nativeLayout andDelegate:self];
+         TXADMixFullScreenAd *ad = [TXADAdLoader getMixFullScreenAd:self.adUnitID];
+         ad.delegate = self;
+         [TXADAdLoader loadMixFullScreenAd:self.adUnitID nativeAdLayout:self.nativeLayout];
      }
 }
 

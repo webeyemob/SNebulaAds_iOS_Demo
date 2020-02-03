@@ -118,7 +118,9 @@
         }
         [self.interstitalAd loadAd];
     } else {
-        [TXADAdLoader loadInterstitialAd:self.adUnitID withDelegate:self];
+        TXADInterstitialAd *ad = [TXADAdLoader getInterstitialAd:self.adUnitID];
+        ad.delegate = self;
+        [TXADAdLoader loadInterstitialAd:self.adUnitID];
     }
 }
 

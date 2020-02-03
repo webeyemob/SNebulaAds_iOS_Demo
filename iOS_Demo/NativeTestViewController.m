@@ -229,7 +229,9 @@
         }
         [self.nativeAd loadAd];
     } else {
-        [TXADAdLoader loadNativeAd:self.adUnitID withLayout:self.nativeLayout andDelegate:self];
+        TXADNativeAd *ad = [TXADAdLoader getNativeAd:self.adUnitID];
+        ad.delegate = self;
+        [TXADAdLoader loadNativeAd:self.adUnitID nativeAdLayout:self.nativeLayout];
     }
 }
 
@@ -243,7 +245,7 @@
         }
     } else {
         if ([TXADAdLoader isNativeAdReady:self.adUnitID] ) {
-            [TXADAdLoader showNativeAd:self.adUnitID viewContainer:self.nativeAdView];
+            [TXADAdLoader showNativeAd:self.adUnitID container:self.nativeAdView];
             self.nativeAdView.hidden = NO;
         }
     }
