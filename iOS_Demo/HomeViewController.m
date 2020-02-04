@@ -13,7 +13,6 @@
 #import "NetworkTestViewController.h"
 #import "AdTypeViewController.h"
 @import TaurusXAds;
-@import FLInSight;
 
 
 @interface HomeViewController () <TXADTrackerDelegate>
@@ -81,9 +80,6 @@
     TXADSegment *segment = [[TXADSegment alloc] init];
     segment.channel = @"google";
     
-    [[FLInSightSDK getInstance] start];
-    [[FLInSightSDK getInstance] registerDelegate:self];
-    
     [TXAD setSegment:segment];
 }
 
@@ -109,12 +105,6 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
-- (void)txAdTrackAdCallShow:(TXADTrackerInfo *)trackInfo {
-    TXADAdContentInfo *adInfo = trackInfo.adContentInfo;
-    if (adInfo != nil) {
-        NSLog(@"++++: %@", [adInfo description]);
-    }
-}
 //
 //- (void)txAdTrackAdClicked:(TXADTrackerInfo *)trackInfo {
 //    if (trackInfo.adType == TXAD_ADTYPE_REWARDED_VIDEO || trackInfo.adType == TXAD_ADTYPE_INTERSTITIAL) {
