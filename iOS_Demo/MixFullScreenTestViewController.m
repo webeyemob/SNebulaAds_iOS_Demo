@@ -81,14 +81,14 @@
     [testloadIntBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(header.mas_bottom).offset(10);
         make.left.equalTo(self.view).offset(30);
-        make.width.equalTo(@(120));
+        make.width.equalTo(@(150));
         make.height.equalTo(@(20));
     }];
     
     [testshowIntBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(header.mas_bottom).offset(10);
         make.right.equalTo(self.view).offset(-30);
-        make.width.equalTo(@(120));
+        make.width.equalTo(@(160));
         make.height.equalTo(@(20));
     }];
     
@@ -136,7 +136,7 @@
 }
 
 - (void)createDefaultLayout {
-    self.nativeLayout = [TXADNativeAdLayout getFullLayout1];
+    self.nativeLayout = [TXADNativeAdLayout getFullLayout4];
 }
 
 - (void) createMixFullScreenAd {

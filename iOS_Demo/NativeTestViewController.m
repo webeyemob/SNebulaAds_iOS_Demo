@@ -79,8 +79,8 @@
     
     self.showNativeBtn = loadNativeBtn;
     
-     //[self createNativeLayout];    // nativeLayout
-     [self createDefaultLayout]; //get default NativeLayout
+    [self createNativeLayout];    // nativeLayout
+    //[self createDefaultLayout]; //get default NativeLayout
     //[self createxibLayout];
 }
 
@@ -113,15 +113,26 @@
     
     self.nativeLayout = layout;
     
-    UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(5, kTopBarSafeHeight+80, ScreenWidth-10, 430)];
-    //UIView *adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
-        
+    [layout.rootView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(ScreenWidth));
+        make.height.equalTo(@(620));
+    }];
+    
+    UIView *adView = [[UIView alloc] init];
+    
     [adView setBackgroundColor:[UIColor colorWithRed:206.0/255.0 green:206.0/255.0 blue:206.0/255.0 alpha:1]];
     [self.view addSubview:adView];
     adView.layer.borderColor = [UIColor colorWithRed:36.0/255.0 green:189.0/255.0 blue:155.0/255.0 alpha:1].CGColor;
     adView.layer.cornerRadius = 10;
     adView.layer.borderWidth = 2;
     self.nativeAdView = adView;
+    
+    [adView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(-10);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(10);
+    }];
     
     adView.hidden = YES;
 }
@@ -137,15 +148,20 @@
     self.nativeAdView = adView;
     
     [adView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(10);
+        make.bottom.equalTo(self.view).offset(-10);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.height.equalTo(@(270));
+        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(10);
     }];
     
     adView.hidden = YES;
     
     UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 250)];
+    
+    [rootView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(ScreenWidth-20));
+        make.height.equalTo(@(250));
+    }];
 
     UIView *mediaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 150)];
     [rootView addSubview:mediaView];
@@ -199,12 +215,12 @@
         make.top.equalTo(self.showNativeBtn.mas_bottom).offset(10);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.height.equalTo(@(470));
+        make.bottom.equalTo(self.view);
     }];
     
     adView.hidden = YES;
 
-    self.nativeLayout = [TXADNativeAdLayout getLargeLayout4WithWidth:ScreenWidth-10];
+    self.nativeLayout = [TXADNativeAdLayout getLargeLayout2WithWidth:ScreenWidth-10];
 }
 
 - (void) createNative {
@@ -239,7 +255,19 @@
     if (!useAdLoader) {
         if (self.nativeAd.isReady) {
             UIView *adView = [self.nativeAd getAdView];
+            
+            for (UIView *view in self.nativeAdView.subviews) {
+                [view removeFromSuperview];
+            }
+            
             [self.nativeAdView addSubview:adView];
+            
+            // for default layout
+            [adView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(self.nativeAdView);
+                make.centerY.equalTo(self.nativeAdView);
+            }];
+        
 
             self.nativeAdView.hidden = NO;
         }

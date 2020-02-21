@@ -121,11 +121,11 @@
     
 //    CGFloat x = (ScreenWidth-320)/2;
 //    bannerView.frame = CGRectMake(x, 10, 320, 50);
-    [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.banner);
-        make.width.equalTo(@(300));
-        make.height.equalTo(@(250));
-    }];
+//    [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.banner);
+//        make.width.equalTo(@(300));
+//        make.height.equalTo(@(250));
+//    }];
 }
 
 - (void)txAdBanner:(TXADBannerView *)bannerView didFailToReceiveAdWithError:(TXADAdError *)adError {
