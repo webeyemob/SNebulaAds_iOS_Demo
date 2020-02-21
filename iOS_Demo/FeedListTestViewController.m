@@ -81,7 +81,9 @@
         make.height.equalTo(@(20));
     }];
         
-     [self createFeedList];
+     //[self createFeedList];
+    self.nativeLayout = [TXADNativeAdLayout getLargeLayout4WithWidth:ScreenWidth-10];
+    
     
     UIView *adView = [[UIView alloc] init];
     // 展示广告
@@ -97,7 +99,7 @@
         make.top.equalTo(loadNativeBtn.mas_bottom).offset(10);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.height.equalTo(@(450));
+        make.bottom.equalTo(self.view).offset(-10);
     }];
 }
 
@@ -107,6 +109,12 @@
 
 - (void)createFeedList {
     UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 250)];
+    
+    [rootView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(ScreenWidth));
+        make.height.equalTo(@(250));
+    }];
+
     
     UIView *mediaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 150)];
     [rootView addSubview:mediaView];
@@ -140,6 +148,9 @@
     self.nativeLayout = layout;
 }
 
+
+
+
 - (void) loadNative {
     if (!useAdLoader) {
         if (self.feedListAd == nil) {
@@ -167,6 +178,11 @@
         }
         
         [self.adContainer addSubview:adView];
+        
+        [adView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.adContainer);
+            make.centerY.equalTo(self.adContainer);
+        }];
         
         self.currentIndex++;
         
