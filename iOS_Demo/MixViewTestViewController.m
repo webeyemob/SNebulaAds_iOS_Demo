@@ -89,8 +89,8 @@
     [_adView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(10);
         make.right.equalTo(self.view).offset(-10);
-        make.top.equalTo(loadNativeBtn.mas_bottom).offset(10);
-        make.height.equalTo(@(450));
+        make.bottom.equalTo(self.view).offset(-10);
+        make.top.equalTo(loadNativeBtn.mas_bottom).offset(20);
     }];
 }
 
@@ -166,7 +166,14 @@
         }
 
         [self.adView addSubview:mixView];
-        mixView.center= CGPointMake(self.adView.bounds.size.width/2, self.adView.bounds.size.height/2);
+        
+        [mixView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.adView);
+            make.centerX.equalTo(self.adView);
+        }];
+        
+        
+        
     } else {
         [TXADAdLoader showMixViewAd:self.adUnitID container:self.adView];
     }
