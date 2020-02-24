@@ -101,6 +101,11 @@
 - (void)createLayout {
     UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 250)];
     
+    [rootView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(ScreenWidth-20));
+        make.height.equalTo(@(250));
+    }];
+    
     UIView *mediaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 150)];
     [rootView addSubview:mediaView];
     
@@ -170,9 +175,9 @@
         [mixView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.adView);
             make.centerX.equalTo(self.adView);
+            make.width.equalTo(@(mixView.bounds.size.width));
+            make.height.equalTo(@(mixView.bounds.size.width));
         }];
-        
-        
         
     } else {
         [TXADAdLoader showMixViewAd:self.adUnitID container:self.adView];

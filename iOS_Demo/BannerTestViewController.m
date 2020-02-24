@@ -115,6 +115,12 @@
             [temp removeFromSuperview];
         }
         [self.banner addSubview:bannerView];
+        
+        [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.banner);
+            make.centerY.equalTo(self.banner);
+        }];
+        
     } else {
         [TXADAdLoader showBanner:self.adUnitID container:self.banner];
     }
