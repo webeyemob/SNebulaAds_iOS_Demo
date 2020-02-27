@@ -61,7 +61,7 @@
     
     UIButton *loadNativeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:loadNativeBtn];
-    [loadNativeBtn setTitle:@"load MixView" forState:UIControlStateNormal];
+    [loadNativeBtn setTitle:@"load" forState:UIControlStateNormal];
     //[loadNativeBtn setBackgroundColor:[UIColor blueColor]];
     [loadNativeBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]  forState:UIControlStateNormal];
     [loadNativeBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];

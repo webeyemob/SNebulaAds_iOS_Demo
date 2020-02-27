@@ -59,7 +59,7 @@
     
     UIButton *testBannerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:testBannerBtn];
-    [testBannerBtn setTitle:@"load banner" forState:UIControlStateNormal];
+    [testBannerBtn setTitle:@"load" forState:UIControlStateNormal];
     [testBannerBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     [testBannerBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
     [testBannerBtn setTitleColor:[UIColor lightGrayColor]  forState:UIControlStateDisabled];
@@ -119,6 +119,8 @@
         [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.banner);
             make.centerY.equalTo(self.banner);
+            make.width.equalTo(@(bannerView.bounds.size.width));
+            make.height.equalTo(@(bannerView.bounds.size.height));
         }];
         
     } else {

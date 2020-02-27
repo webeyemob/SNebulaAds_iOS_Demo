@@ -56,7 +56,7 @@
     
     UIButton *splashLoadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [splashLoadBtn setTitle:@"load Splash" forState:UIControlStateNormal];
+    [splashLoadBtn setTitle:@"load" forState:UIControlStateNormal];
     //[splashLoadBtn setBackgroundColor:[UIColor blueColor]];
     [splashLoadBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]  forState:UIControlStateNormal];
     [splashLoadBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];

@@ -63,7 +63,7 @@
     
     UIButton *loadNativeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:loadNativeBtn];
-    [loadNativeBtn setTitle:@"load Native" forState:UIControlStateNormal];
+    [loadNativeBtn setTitle:@"load" forState:UIControlStateNormal];
     //[loadNativeBtn setBackgroundColor:[UIColor blueColor]];
     [loadNativeBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]  forState:UIControlStateNormal];
     [loadNativeBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
@@ -156,11 +156,11 @@
     
     adView.hidden = YES;
     
-    UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 250)];
+    UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 480)];
     
     [rootView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(ScreenWidth-20));
-        make.height.equalTo(@(250));
+        make.height.equalTo(@(480));
     }];
 
     UIView *mediaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 150)];

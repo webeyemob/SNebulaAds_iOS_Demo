@@ -59,7 +59,7 @@
     
     UIButton *testloadIntBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:testloadIntBtn];
-    [testloadIntBtn setTitle:@"load Intersitial" forState:UIControlStateNormal];
+    [testloadIntBtn setTitle:@"load" forState:UIControlStateNormal];
     //[testloadIntBtn setBackgroundColor:[UIColor blueColor]];
     [testloadIntBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]  forState:UIControlStateNormal];
     [testloadIntBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
@@ -68,7 +68,7 @@
     
     UIButton *testshowIntBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:testshowIntBtn];
-    [testshowIntBtn setTitle:@"show Intersitial" forState:UIControlStateNormal];
+    [testshowIntBtn setTitle:@"show" forState:UIControlStateNormal];
     //[testshowIntBtn setBackgroundColor:[UIColor blueColor]];
     [testshowIntBtn setTitleColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]  forState:UIControlStateNormal];
     [testshowIntBtn setTitleColor:[UIColor colorWithRed:135.0/255.0 green:216.0/255.0 blue:80.0/255.0 alpha:1.0] forState:UIControlStateHighlighted];
@@ -80,14 +80,14 @@
     [testloadIntBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(header.mas_bottom).offset(10);
         make.left.equalTo(self.view).offset(30);
-        make.width.equalTo(@(120));
+        make.width.equalTo(@(100));
         make.height.equalTo(@(20));
     }];
     
     [testshowIntBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(header.mas_bottom).offset(10);
         make.right.equalTo(self.view).offset(-30);
-        make.width.equalTo(@(120));
+        make.width.equalTo(@(100));
         make.height.equalTo(@(20));
     }];
 }
