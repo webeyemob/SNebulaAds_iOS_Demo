@@ -43,5 +43,5 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_DisplayIO'
     pod 'TaurusXAdMediation_InMobi'
     #pod 'Bytedance-UnionAD'
-    pod 'FLInSight'
+    pod 'TaurusXAdMediation_Sigmob'
 end
