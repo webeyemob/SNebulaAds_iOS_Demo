@@ -61,6 +61,16 @@
         make.width.equalTo(@(50));
     }];
     
+    UIView *line = [[UIView alloc] init];
+    line.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(header.mas_bottom).offset(1);
+        make.height.equalTo(@1);
+    }];
+       
+    
     UIButton *loadNativeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:loadNativeBtn];
     [loadNativeBtn setTitle:@"load" forState:UIControlStateNormal];
@@ -79,8 +89,8 @@
     
     self.showNativeBtn = loadNativeBtn;
     
-    [self createNativeLayout];    // nativeLayout
-    //[self createDefaultLayout]; //get default NativeLayout
+    //[self createNativeLayout];    // nativeLayout
+    [self createDefaultLayout]; //get default NativeLayout
     //[self createxibLayout];
 }
 
@@ -156,10 +166,10 @@
     
     adView.hidden = YES;
     
-    UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth-20, 480)];
+    UIView *rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 480)];
     
     [rootView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(ScreenWidth-20));
+        make.width.equalTo(@(ScreenWidth));
         make.height.equalTo(@(480));
     }];
 
@@ -220,7 +230,7 @@
     
     adView.hidden = YES;
 
-    self.nativeLayout = [TXADNativeAdLayout getLargeLayout2WithWidth:ScreenWidth-10];
+    self.nativeLayout = [TXADNativeAdLayout getLargeLayout4WithWidth:ScreenWidth-10];
 }
 
 - (void) createNative {

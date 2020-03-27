@@ -100,20 +100,20 @@
     vc.modalPresentationStyle = 0;
     switch (btn.tag) {
         case 0:{
-            NSArray *ads = @[@[@"Banner", @"bb15564d-0e7b-4d47-a696-fba4bced4078"], @[@"Interstitial", @"f90a0a9d-6b9d-4998-995a-2c36566a42f4"], @[@"Native", @"0d1ec6cd-6cdf-411c-87ce-8170eb69005c"], @[@"RewardedVideo", @"aa2d120d-ac81-4f68-9132-0bc8f1ade6d9"]];
+            NSArray *ads = @[@{@"Banner": @[@{@"320*50": @"bb15564d-0e7b-4d47-a696-fba4bced4078"}]}, @{@"Interstitial": @[@{@"interstitial" : @"f90a0a9d-6b9d-4998-995a-2c36566a42f4"}]}, @{@"Native": @[@{@"native": @"0d1ec6cd-6cdf-411c-87ce-8170eb69005c"}]}, @{@"RewardedVideo":@[@{@"RewardedVideo": @"aa2d120d-ac81-4f68-9132-0bc8f1ade6d9"}]}];
             vc.adsDic = ads;
             vc.titleStr = @"Serial Load";
         }
             break;
         case 1: {
-            NSArray *ads = @[@[@"Banner", @"1890ef4f-7e83-4935-b85a-944424e38089"], @[@"Interstitial", @"4c75e459-eb05-4187-9377-1929096f9a6e"], @[@"Native", @"08e9b0ac-9c58-474f-b651-0234c89f40c0"], @[@"RewardedVideo", @"c46c519e-f827-4594-bfa2-356c06f17db2"]];
+            NSArray *ads = @[@{@"Banner": @[@{@"320*50": @"1890ef4f-7e83-4935-b85a-944424e38089"}]}, @{@"Interstitial": @[@{@"interstitial" : @"4c75e459-eb05-4187-9377-1929096f9a6e"}]}, @{@"Native": @[@{@"native": @"08e9b0ac-9c58-474f-b651-0234c89f40c0"}]}, @{@"RewardedVideo":@[@{@"RewardedVideo": @"c46c519e-f827-4594-bfa2-356c06f17db2"}]}];
             vc.adsDic = ads;
             vc.titleStr = @"Parallel Test";
         }
             break;
         case 2:
         default: {
-            NSArray *ads = @[@[@"Banner", @"983bcfe6-9c81-4684-9f01-ba0182a86e9d"], @[@"Interstitial", @"1a44ab67-51a1-4aa0-a323-a1825c29643e"], @[@"Native", @"d3f6afbe-db46-440a-b9b8-654a52f4d59a"], @[@"RewardedVideo", @"3cc5e901-ffac-459e-ab91-c99e347b62ef"]];
+            NSArray *ads = @[@{@"Banner": @[@{@"320*50": @"983bcfe6-9c81-4684-9f01-ba0182a86e9d"}]}, @{@"Interstitial": @[@{@"interstitial" : @"1a44ab67-51a1-4aa0-a323-a1825c29643e"}]}, @{@"Native": @[@{@"native": @"d3f6afbe-db46-440a-b9b8-654a52f4d59a"}]}, @{@"RewardedVideo":@[@{@"RewardedVideo": @"3cc5e901-ffac-459e-ab91-c99e347b62ef"}]}];
             vc.adsDic = ads;
             vc.titleStr = @"Suffle Test";
         }

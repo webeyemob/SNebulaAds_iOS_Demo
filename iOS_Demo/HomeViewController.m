@@ -71,11 +71,13 @@
         make.height.equalTo(@(30));
     }];
     
+    //[TXAD setTestServer:@"http://52.82.15.102/"];
     [TXAD initWithAppId:@"9dc8fab8-32d5-4d6f-b224-8f0a9b55547f"];
-    //[TXAD initWithAppId:@"72ccddb3-46df-4c8f-b2c1-53cc34256fb9"];
+    //[TXAD initWithAppId:@"fd738f25-4c48-4507-ac3f-727542eaed93"]; //for test
     //[TXAD setGdprConsent:true];
     [TXAD setTestMode:YES];
     [TXAD setLogEnable:YES];
+
     
     TXADSegment *segment = [[TXADSegment alloc] init];
     segment.channel = @"google";
@@ -85,8 +87,8 @@
 
 - (void) testBase {
     AdTypeViewController *vc = [[AdTypeViewController alloc] init];
-    NSArray *ads = @[@[@"Banner", @"e935e782-136e-4268-ab89-c06aaf478c9e"], @[@"Interstitial", @"d3688ddf-7af5-4b7b-af4c-9626e98484d7"], @[@"Native", @"2aa89e71-c773-4204-81a1-12fa25785764"], @[@"RewardedVideo", @"b9083cf1-7d41-4659-86de-94223a492094"], @[@"MixView", @"b60d7dfd-7f9e-4948-b372-008065039026"], @[@"MixFullScreen", @"101ee091-3638-4cdf-9083-148179f108c1"],
-        @[@"Splash", @""]];
+    NSArray *ads = @[@{@"Banner": @[@{@"320*50": @"5eb89e74-b9c8-43ca-afee-84255744b012"}, @{@"300*250": @"5eb89e74-b9c8-43ca-afee-84255744b012"}]}, @{@"Interstitial": @[@{@"interstitial" : @"3ed5613b-2854-44c8-9994-893c5c4d6f00"}]}, @{@"Native": @[@{@"native": @"d657a4ac-67b8-4779-ae70-598e14c22bec"}]}, @{@"RewardedVideo":@[@{@"RewardedVideo": @"c81d7147-d0a9-4116-9306-f5b6c6d78167"}]}, @{@"MixView": @[@{@"banner": @"b60d7dfd-7f9e-4948-b372-008065039026"}]}, @{@"MixFullScreen":@[@{@"banner" : @"101ee091-3638-4cdf-9083-148179f108c1"}]}];
+    
     vc.adsDic = ads;
     vc.titleStr = @"Basic Test";
     vc.modalPresentationStyle = 0;
@@ -104,13 +106,6 @@
     vc.modalPresentationStyle = 0;
     [self presentViewController:vc animated:YES completion:nil];
 }
-
-//
-//- (void)txAdTrackAdClicked:(TXADTrackerInfo *)trackInfo {
-//    if (trackInfo.adType == TXAD_ADTYPE_REWARDED_VIDEO || trackInfo.adType == TXAD_ADTYPE_INTERSTITIAL) {
-//        NSLog(@"-----: %@", [trackInfo.adContentInfo description]);
-//    }
-//}
 
 /*
 #pragma mark - Navigation

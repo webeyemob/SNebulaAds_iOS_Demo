@@ -57,6 +57,16 @@
         make.width.equalTo(@(50));
     }];
     
+    UIView *line = [[UIView alloc] init];
+    line.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(header.mas_bottom).offset(1);
+        make.height.equalTo(@1);
+    }];
+       
+    
     UIButton *testloadIntBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:testloadIntBtn];
     [testloadIntBtn setTitle:@"load" forState:UIControlStateNormal];

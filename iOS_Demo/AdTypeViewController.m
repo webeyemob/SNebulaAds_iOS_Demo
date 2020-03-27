@@ -58,6 +58,16 @@
         make.centerY.equalTo(header);
         make.width.equalTo(@(50));
     }];
+    
+    UIView *line = [[UIView alloc] init];
+    line.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(header.mas_bottom).offset(1);
+        make.height.equalTo(@1);
+    }];
+       
        
     UITableView *AdTypeTab = [[UITableView alloc] init];
     AdTypeTab.delegate = self;
@@ -83,98 +93,128 @@
 }
 
 #pragma mark <UITableViewDelegate>
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 20;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _adsDic.count;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_adsDic[section] count];
+}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 20)];
+    
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 2, 150, 16)];
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:15.0];
+    headerLabel.textColor = [UIColor whiteColor];
+    NSDictionary *dic = _adsDic[section];
+    headerLabel.text = dic.allKeys[0];
+    
+    [view addSubview:headerLabel];
+   
+    return view;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"networkCellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] init];
+    
+    tableView.decelerationRate = UIScrollViewDecelerationRateFast;
+    tableView.backgroundColor = [UIColor grayColor];
+    tableView.backgroundView.backgroundColor = [UIColor whiteColor];
+    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = _adsDic[indexPath.row][0];
-    [cell.textLabel setTextColor:[UIColor colorWithRed:28.0/255.0 green:147.0/255.0 blue:243.0/255.0 alpha:1.0]];
+    NSDictionary *ads = _adsDic[indexPath.section];
+    NSArray *adArr = ads.allValues[0];
+    NSDictionary *adunitDic = adArr[indexPath.row];
+    
+    cell.textLabel.text = adunitDic.allKeys[0];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([_adsDic[indexPath.row][0] isEqualToString:@"Banner"]) {
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *ads = _adsDic[indexPath.section];
+    NSString *adType = ads.allKeys[0];
+    NSArray *adArr = ads.allValues[0];
+    
+    if ([adType isEqualToString:@"Banner"]) {
         BannerTestViewController *adsTestVc = [[BannerTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
-        adsTestVc.titleStr = self.titleStr;
+        NSDictionary *adunitDic = adArr[indexPath.row];
+        adsTestVc.titleStr = [NSString stringWithFormat:@"%@ - %@", self.titleStr, adunitDic.allKeys[0]];
+        adsTestVc.adUnitID = adunitDic.allValues[0];
         [self presentViewController:adsTestVc animated:YES completion:nil];
-        
-    } else if ([_adsDic[indexPath.row][0] isEqualToString:@"Interstitial"]) {
+    } else if ([adType isEqualToString:@"Interstitial"]) {
         InterstitialTestViewController *adsTestVc = [[InterstitialTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
-        adsTestVc.titleStr = self.titleStr;
+        NSDictionary *adunitDic = adArr[indexPath.row];
+        adsTestVc.titleStr = [NSString stringWithFormat:@"%@ - %@", self.titleStr, adunitDic.allKeys[0]];
+        adsTestVc.adUnitID = adunitDic.allValues[0];
         [self presentViewController:adsTestVc animated:YES completion:nil];
-        
-    } else if ([_adsDic[indexPath.row][0] isEqualToString:@"Native"]) {
+    } else if ([adType isEqualToString:@"Native"]) {
         NativeTestViewController *adsTestVc = [[NativeTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
-        adsTestVc.titleStr = self.titleStr;
+        NSDictionary *adunitDic = adArr[indexPath.row];
+        adsTestVc.titleStr = [NSString stringWithFormat:@"%@ - %@", self.titleStr, adunitDic.allKeys[0]];
+        adsTestVc.adUnitID = adunitDic.allValues[0];
         [self presentViewController:adsTestVc animated:YES completion:nil];
-        
-    } else if ([_adsDic[indexPath.row][0] isEqualToString:@"RewardedVideo"]) {
+    } else if ([adType isEqualToString:@"RewardedVideo"]) {
         RewardedVideoTestViewController *adsTestVc = [[RewardedVideoTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        adsTestVc.titleStr = self.titleStr;
-        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        NSDictionary *adunitDic = adArr[indexPath.row];
+        adsTestVc.titleStr = [NSString stringWithFormat:@"%@ - %@", self.titleStr, adunitDic.allKeys[0]];
+        adsTestVc.adUnitID = adunitDic.allValues[0];
         [self presentViewController:adsTestVc animated:YES completion:nil];
-        
-    } else if ([_adsDic[indexPath.row][0] isEqualToString:@"FeedList"]) {
-        FeedListTestViewController *adsTestVc = [[FeedListTestViewController alloc] init];
-        adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        adsTestVc.titleStr = self.titleStr;
-        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
-        [self presentViewController:adsTestVc animated:YES completion:nil];
-        
-    } else if ([_adsDic[indexPath.row][0] isEqualToString:@"MixView"]) {
+    } else if ([adType isEqualToString:@"MixView"]) {
         MixViewTestViewController *adsTestVc = [[MixViewTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        adsTestVc.titleStr = self.titleStr;
-        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        NSDictionary *adunitDic = adArr[indexPath.row];
+        adsTestVc.titleStr = [NSString stringWithFormat:@"%@ - %@", self.titleStr, adunitDic.allKeys[0]];
+        adsTestVc.adUnitID = adunitDic.allValues[0];
         [self presentViewController:adsTestVc animated:YES completion:nil];
-    }
-    else if ([_adsDic[indexPath.row][0] isEqualToString:@"MixFullScreen"]) {
+    } else if ([adType isEqualToString:@"MixFullScreen"]) {
         MixFullScreenTestViewController *adsTestVc = [[MixFullScreenTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        adsTestVc.titleStr = self.titleStr;
-        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        NSDictionary *adunitDic = adArr[indexPath.row];
+        adsTestVc.titleStr = [NSString stringWithFormat:@"%@ - %@", self.titleStr, adunitDic.allKeys[0]];
+        adsTestVc.adUnitID = adunitDic.allValues[0];
         [self presentViewController:adsTestVc animated:YES completion:nil];
-    }
-    else if ([_adsDic[indexPath.row][0] isEqualToString:@"Splash"]) {
+    } else if ([adType isEqualToString:@"FeedList"]) {
+        FeedListTestViewController *adsTestVc = [[FeedListTestViewController alloc] init];
+        adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
+        NSDictionary *adunitDic = adArr[indexPath.row];
+        adsTestVc.titleStr = [NSString stringWithFormat:@"%@ - %@", self.titleStr, adunitDic.allKeys[0]];
+        adsTestVc.adUnitID = adunitDic.allValues[0];
+        [self presentViewController:adsTestVc animated:YES completion:nil];
+    } else if ([adType isEqualToString:@"Splash"]) {
         SplashTestViewController *adsTestVc = [[SplashTestViewController alloc] init];
         adsTestVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        adsTestVc.titleStr = self.titleStr;
-        adsTestVc.adUnitID = _adsDic[indexPath.row][1];
+        NSDictionary *adunitDic = adArr[indexPath.row];
+        adsTestVc.titleStr = [NSString stringWithFormat:@"%@ - %@", self.titleStr, adunitDic.allKeys[0]];
+        adsTestVc.adUnitID = adunitDic.allValues[0];
         [self presentViewController:adsTestVc animated:YES completion:nil];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40;
 }
-*/
+
 
 @end

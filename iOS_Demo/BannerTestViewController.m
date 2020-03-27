@@ -57,6 +57,16 @@
         make.width.equalTo(@(50));
     }];
     
+    UIView *line = [[UIView alloc] init];
+    line.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(header.mas_bottom).offset(1);
+        make.height.equalTo(@1);
+    }];
+       
+    
     UIButton *testBannerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:testBannerBtn];
     [testBannerBtn setTitle:@"load" forState:UIControlStateNormal];
@@ -77,9 +87,8 @@
     [self.view addSubview:banner];
     
     [banner mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
+        make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(testBannerBtn.mas_bottom).offset(80);
-        make.height.equalTo(@(250));
     }];
     
     self.banner = banner;

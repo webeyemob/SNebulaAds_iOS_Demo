@@ -31,7 +31,6 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_Fyber'
     pod 'TaurusXAdMediation_KuaiShou'
     pod 'TaurusXAdMediation_MoPub'
-    #pod 'mopub-ios-sdk'
     pod 'TaurusXAdMediation_Mobvista'
     pod 'TaurusXAdMediation_Nend'
     pod 'TaurusXAdMediation_Tapjoy'
@@ -42,6 +41,5 @@ target 'iOS_Demo' do
     pod 'TaurusXAdMediation_Imobile'
     pod 'TaurusXAdMediation_DisplayIO'
     pod 'TaurusXAdMediation_InMobi'
-    #pod 'Bytedance-UnionAD'
     pod 'TaurusXAdMediation_Sigmob'
 end
