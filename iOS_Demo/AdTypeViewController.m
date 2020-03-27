@@ -102,7 +102,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_adsDic[section] count];
+    NSDictionary *ads = _adsDic[section];
+    NSArray *adArr = ads.allValues[0];
+    
+    return [adArr count];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
