@@ -163,6 +163,20 @@
                           @{@"MixView":@[@{@"banner": @"040ec8c9-321d-43e2-b8b4-7dd1a17b8857"}]},
                           @{@"MixFullScreen":@[@{@"native": @"d004fb25-1041-444d-8dd4-7876727ace71"}]},
                           @{@"Splash":@[@{@"splash" : @"7f1d00b6-4b76-4565-8a43-e05414408903"}]}],
+        
+        @"NathAds": @[@{@"Banner": @[@{@"320*50-image": @"4c1c31d2-73af-44ac-a90d-da422a53f157"},
+                                    @{@"300*250-video": @"9d55dc8c-c7e9-4aa7-b92e-eb4fb01ad3e7"}]},
+                      @{@"Interstitial": @[@{@"image" : @"cb458482-1362-4b12-aa3b-add8c78ac083"},
+                                           @{@"video" : @"fd136c8f-b259-4e1d-aa87-baef34b82547"},
+                                           @{@"TestTrack": @"6842921b-f0f0-454d-b7d4-57be26edec7e"}]},
+                      @{@"Native": @[@{@"image": @"3a9b40b5-d835-43a7-bea6-b5f650511de3"},
+                                     @{@"video": @"8029c724-2c66-468f-a3b8-732e6004f32f"}]},
+                      @{@"RewardedVideo":@[@{@"video": @"97386f3d-4781-4673-853a-b312e5bd2a43"}]},
+                      @{@"FeedList":@[@{@"image": @"88176717-0e92-494f-880f-1232f35b64fa"},
+                                      @{@"video": @"8da4e792-01fb-48fa-a2f6-258cc07c9fa9"}]},
+                      @{@"Splash":@[@{@"image" : @"8b0cc2f4-ef47-493a-b573-415960e5ee17"},
+                                    @{@"app" : @"fea8a26a-1216-44a3-b8a0-58dc95452036"}]}],
+
                     
         @"Mopub": @[@{@"Banner": @[@{@"320*50": @"3e6c21ae-efe5-47f1-9118-ac43f9ece5c0"},
                                    @{@"300*250": @"3e6c21ae-efe5-47f1-9118-ac43f9ece5c0"}]},
