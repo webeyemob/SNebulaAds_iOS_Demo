@@ -171,7 +171,7 @@
         @"Tapjoy": @[@{@"Interstitial": @[@{@"interstitial" : @"ba08236a-ea5e-4137-80ac-ee21e86c6a47"}]},
                      @{@"RewardedVideo": @[@{@"rewardedVideo": @"9ec0a0fa-e21b-453b-b052-1d760e8554fc"}]}],
                     
-        @"Tiktok": @[@{@"Banner": @[@{@"320*50": @"f5e34294-4ce4-48fe-a400-6e3f1289c397"},
+        @"TikTok": @[@{@"Banner": @[@{@"320*50": @"f5e34294-4ce4-48fe-a400-6e3f1289c397"},
                                     @{@"300*250": @"f5e34294-4ce4-48fe-a400-6e3f1289c397"}]},
                      @{@"Interstitial": @[@{@"interstitial" : @"f2079959-2b7d-4177-ad75-7a46f35311d8"}]},
                      @{@"Native": @[@{@"native": @"be126dd8-1cea-45dc-876d-0f4a0b3b9c20"}]},
