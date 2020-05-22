@@ -157,7 +157,21 @@
                        @{@"Native": @[@{@"native": @"6f3d1528-4389-4ba4-af70-eb4114143ab0"}]},
                        @{@"RewardedVideo":@[@{@"RewardedVideo": @"8721f6e0-f0ff-41ab-92cc-38ce6c2ec65e"}]},
                        @{@"FeedList":@[@{@"feedList": @"1669a846-9acc-49d2-a977-2f1eb3805d16"}]}],
-                    
+        @"NathAds": @[@{@"Banner": @[@{@"320*50-image": @"4c1c31d2-73af-44ac-a90d-da422a53f157"},
+                                    @{@"300*250-video": @"9d55dc8c-c7e9-4aa7-b92e-eb4fb01ad3e7"}]},
+                      @{@"Interstitial": @[@{@"image" : @"cb458482-1362-4b12-aa3b-add8c78ac083"},
+                                           @{@"模版video" : @"fd136c8f-b259-4e1d-aa87-baef34b82547"},
+                                           @{@"原生video" : @"aab125e8-e121-4864-966c-20724d3992dc"}]},
+                      @{@"Native": @[@{@"image": @"3a9b40b5-d835-43a7-bea6-b5f650511de3"},
+                                     @{@"video": @"8029c724-2c66-468f-a3b8-732e6004f32f"}]},
+                      @{@"RewardedVideo":@[@{@"模版video": @"97386f3d-4781-4673-853a-b312e5bd2a43"},
+                                           @{@"原生video": @"2afa5088-a5eb-448b-af99-2863ab90b275"}]},
+                      @{@"FeedList":@[@{@"image": @"88176717-0e92-494f-880f-1232f35b64fa"},
+                                      @{@"video": @"8da4e792-01fb-48fa-a2f6-258cc07c9fa9"}]},
+                      @{@"Splash":@[@{@"image" : @"8b0cc2f4-ef47-493a-b573-415960e5ee17"},
+                                    @{@"app" : @"fea8a26a-1216-44a3-b8a0-58dc95452036"}]}],
+
+        
         @"Nend": @[@{@"Banner": @[@{@"320*50": @"3c570f15-17e7-49b6-b870-9e99e576d785"},
                                   @{@"300*250": @"3c570f15-17e7-49b6-b870-9e99e576d785"}]},
                    @{@"Interstitial": @[@{@"interstitial" : @"af471689-8f42-4dbb-8af8-8d89419f1e61"}]},
