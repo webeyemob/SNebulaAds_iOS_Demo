@@ -67,7 +67,6 @@
                                      @{@"Express Carousel": @"8858e181-f365-4361-8633-c2d9dd18adc6"},
                                      @{@"Portrait Video": @"ea8d9387-2de9-4fcd-8c5c-91f46dc35f47"}]},
                     @{@"RewardedVideo":@[@{@"RewardedVideo": @"13833c8d-e4f1-4bce-94e6-91c1ba32e3d1"}]},
-                    @{@"FeedList":@[@{@"FeedList": @"e69df2ed-406c-4a87-a791-7045bec52f6d"}]},
                     @{@"MixView": @[@{@"banner320*50": @"6eae4ec7-4255-4a40-8d9a-691acf859e50"}]},
                     @{@"MixFullScreen":@[@{@"banner300*250" : @"0443c180-8414-406b-9b81-373b0fbc5c93"}]},
                     @{@"Splash":@[@{@"splash" : @"9bee7b8b-60c4-4e75-8a49-e6e405bc9893"}]}],
