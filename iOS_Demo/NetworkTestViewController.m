@@ -151,9 +151,11 @@
                          @{@"RewardedVideo": @[@{@"RewardedVideo": @"fe23a332-c86b-4dd9-8d8f-5567d83e489d"}]}],
                     
         @"KuaiShou": @[@{@"Interstitial": @[@{@"Interstitial": @"b6cd35cb-1e86-48cd-a94c-6fc325d04807"}]},
-                       @{@"Native": @[@{@"Native": @"e2738494-f1e0-46ee-8154-1e995c1d61b9"}]},
-                       @{@"FeedList": @[@{@"FeedList": @"86aa7899-ae1d-4b5d-9428-77b6457e9619"}]},
-                       @{@"RewardedVideo": @[@{@"RewardedVideo": @"6e9a103c-eca1-4ce5-bf2e-9e72191762f9"}]}],
+                       @{@"FeedList": @[@{@"Custom": @"5b7254a0-75cb-4164-ae68-61af6e951c66"},
+                                        @{@"Express": @"86aa7899-ae1d-4b5d-9428-77b6457e9619"},
+                                        @{@"Draw": @"aa705fc6-b25a-47e7-8811-98281a4eeeaf"}]},
+                       @{@"RewardedVideo": @[@{@"RewardedVideo": @"6e9a103c-eca1-4ce5-bf2e-9e72191762f9"}]},
+                       @{@"Splash": @[@{@"Splash": @"d2267b66-bc9f-4fbd-9b95-30fa66bd48e5"}]}],
                     
         @"Maio": @[@{@"Interstitial": @[@{@"Interstitial": @"cbf35d4d-622e-4465-8d7a-d803415561b3"}]},
                    @{@"RewardedVideo": @[@{@"RewardedVideo": @"8dc2c295-0663-4c67-906c-30a718a5af9e"}]}],
