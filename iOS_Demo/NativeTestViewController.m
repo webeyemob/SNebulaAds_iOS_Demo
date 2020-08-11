@@ -239,10 +239,10 @@
 
     TXADNetworkConfigs *configs = [[TXADNetworkConfigs alloc] init];
 
-    TXADVungleInFeedConfig *config = [[TXADVungleInFeedConfig alloc] init];
-        // 设置宽度充满屏幕，高度固定。
-    [config setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 500)];
-    [configs addConfig:config];
+//    TXADVungleInFeedConfig *config = [[TXADVungleInFeedConfig alloc] init];
+//        // 设置宽度充满屏幕，高度固定。
+//    [config setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 500)];
+//    [configs addConfig:config];
 
     [self.nativeAd setNetworkConfigs:configs];
     [self.nativeAd setNativeAdLayout:self.nativeLayout];
