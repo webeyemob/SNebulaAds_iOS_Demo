@@ -228,10 +228,15 @@
         @"Tapjoy": @[@{@"Interstitial": @[@{@"Interstitial": @"ba08236a-ea5e-4137-80ac-ee21e86c6a47"}]},
                      @{@"RewardedVideo": @[@{@"RewardedVideo": @"9ec0a0fa-e21b-453b-b052-1d760e8554fc"}]}],
                     
-        @"TikTok": @[@{@"Banner": @[@{@"Normal": @"f5e34294-4ce4-48fe-a400-6e3f1289c397"},
-                                    @{@"Express": @"2dbe0d9b-c462-4f2f-979f-9f21725d38f1"}]},
+        @"TikTok": @[@{@"Banner": @[@{@"Express 320*50": @"2dbe0d9b-c462-4f2f-979f-9f21725d38f1"},
+                                    @{@"Express 320*100": @"13bbeb2a-d5d8-4cbd-badd-3b03e602b407"},
+                                    @{@"Express 300*250": @"573379bf-7442-47f6-9fc9-3463be7c4c2a"},
+                                    @{@"Express 468*60": @"28f657a1-2903-4941-bc65-a7c608ab14c8"},
+                                    @{@"Express 728*90": @"63daee07-9a92-4883-a5d3-ad65ad42bb8b"}]},
                      @{@"Interstitial": @[@{@"Normal": @"f2079959-2b7d-4177-ad75-7a46f35311d8"},
-                                          @{@"Express": @"92456d12-b5ee-42e4-9a51-530e8486624f"},
+                                          @{@"Express Interstitial 2:3": @"92456d12-b5ee-42e4-9a51-530e8486624f"},
+                                          @{@"Express Interstitial 3:2": @"6e7dfa58-8646-4982-813e-b05ad57a671f"},
+                                          @{@"Express Interstitial 1:1": @"71035fbb-1222-44db-bfbe-02088940ff9c"},
                                           @{@"FullScreenVideo": @"760f7930-2800-4a96-81f7-63b8b5d12ea4"},
                                           @{@"Express FullScreenVideo": @"6882e2d0-0dae-468a-b477-d9b1d821758b"}]},
                      @{@"Native": @[@{@"Custom Banner": @"be126dd8-1cea-45dc-876d-0f4a0b3b9c20"},
@@ -262,7 +267,7 @@
     };
     //get all key in dic
      NSArray *keyArray = [_netWorksDic allKeys];
-         
+    
      //order key
     _sortedArray = [keyArray sortedArrayUsingComparator:^NSComparisonResult(id obj1,id obj2) {
              return[obj1 compare:obj2 options:NSNumericSearch];
