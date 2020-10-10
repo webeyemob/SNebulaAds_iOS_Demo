@@ -188,11 +188,13 @@
                           @{@"Splash":@[@{@"Splash": @"7f1d00b6-4b76-4565-8a43-e05414408903"}]}],
                     
         @"MoPub": @[@{@"Banner": @[@{@"320*50": @"3e6c21ae-efe5-47f1-9118-ac43f9ece5c0"},
-                                   @{@"300*250": @"3e6c21ae-efe5-47f1-9118-ac43f9ece5c0"}]},
+                                   @{@"300*250": @"7ccc3fd9-71a0-46c7-a724-0d714a7c6e63"}]},
                     @{@"Interstitial": @[@{@"Interstitial": @"e171e8af-8ad1-4faf-806e-fcb75bd3ed36"}]},
                     @{@"Native": @[@{@"Native": @"dffb5339-7971-41cc-a814-a46f0c4ec4cf"}]},
                     @{@"FeedList": @[@{@"Native": @"02fffe55-a5aa-4aaa-b209-97d4338a8ff4"}]},
-                    @{@"RewardedVideo":@[@{@"RewardedVideo": @"c6abc185-6d96-4168-9690-5356f779770e"}]}],
+                    @{@"RewardedVideo":@[@{@"RewardedVideo": @"c6abc185-6d96-4168-9690-5356f779770e"}]},
+                    @{@"MixView": @[@{@"MixView": @"fdb2077c-cfec-4811-9138-1dd08ade3a7a"}]},
+                    @{@"MixFullScreen":@[@{@"MixFullScreen": @"b1cd9895-b43c-466d-94fa-153064651c0f"}]}],
                     
         @"Mobvista": @[@{@"Banner": @[@{@"320*50": @"c1ba5bb5-ca70-4ff9-9fd6-7022625b8646"},
                                       @{@"320*100": @"bed762fe-574f-47e2-86b3-2855c231e33b"},
