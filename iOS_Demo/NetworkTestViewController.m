@@ -147,7 +147,8 @@
                   @{@"FeedList":@[@{@"Custom 2.0": @"803fea96-4403-44f7-9ec9-7e96a1a91a29"},
                                   @{@"Express": @"505daf24-b197-48c7-b383-905a2d68e47c"},
                                   @{@"Express 2.0": @"e538c7a1-1c09-440c-990f-a69b87173c0e"}]},
-                  @{@"RewardedVideo":@[@{@"RewardedVideo": @"b156abf1-2767-4073-a7a5-bdaf6026f032"}]},
+                  @{@"RewardedVideo":@[@{@"RewardedVideo": @"b156abf1-2767-4073-a7a5-bdaf6026f032"},
+                                       @{@"Express RewardedVideo": @"0086ebae-e709-4181-a1ed-cb86d36dd368"}]},
                   @{@"Splash":@[@{@"Splash": @"cfc8a9ef-0dcd-490c-b093-b1bd9ffb800c"}]}],
         
         @"i-mobile": @[@{@"Banner": @[@{@"320*50": @"789f6106-4271-469f-bdbe-61d570a2dc2f"}]},
