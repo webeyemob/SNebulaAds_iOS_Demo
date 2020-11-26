@@ -195,7 +195,7 @@
 }
 
 #pragma mark <TXADMixViewAdDelegate>
-- (void)txAdMixViewAdDidReceiveAd:(TXADMixViewAd *)mixViewAd {
+- (void)txAdMixViewAd:(TXADMixViewAd *)mixViewAd didReceiveAd:(TXADILineItem *)lineItem {
     NSLog(@"txAdMixViewDidReceiveAd");
     [self showMixView];
 }
@@ -209,17 +209,17 @@
 }
 
 /// 广告展示；如果一次加载多个广告，此回调会触发多次
-- (void)txAdMixViewAdWillPresentScreen:(TXADMixViewAd *)mixViewAd{
+- (void)txAdMixViewAd:(TXADMixViewAd *)mixViewAd willPresentScreen:(TXADILineItem *)lineItem {
     NSLog(@"txAdMixViewWillPresentScreen");
 }
 
 /// 点击广告；如果一次加载多个广告，此回调会触发多次
-- (void)txAdMixViewAdWillLeaveApplication:(TXADMixViewAd *)mixViewAd{
+- (void)txAdMixViewAd:(TXADMixViewAd *)mixViewAd willLeaveApplication:(TXADILineItem *)lineItem {
     NSLog(@"txAdMixViewWillLeaveApplication");
 }
 
 /// 点击广告后关闭落地页
-- (void)txAdmixViewAdDidDismissScreen:(TXADMixViewAd *)mixViewAd{
+- (void)txAdmixViewAd:(TXADMixViewAd *)mixViewAd didDismissScreen:(TXADILineItem *)lineItem {
     NSLog(@"txAdMixViewDidDismissScreen");
 }
 

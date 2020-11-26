@@ -131,7 +131,7 @@
     }
 }
 
-- (void)txAdRewardedVideoDidReceiveAd:(TXADRewardedVideoAd *)rewardedVideoAd {
+- (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didReceiveAd:(TXADILineItem *)lineItem {
     NSLog(@"txAdRewardedVideoDidReceiveAd, adUnitId is %@", rewardedVideoAd.adUnitId);
     self.showRewardBtn.enabled = YES;
 }
@@ -141,32 +141,32 @@
     [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
-- (void)txAdRewardedVideoDidOpen:(TXADRewardedVideoAd *)rewardedVideoAd {
+- (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didOpen:(TXADILineItem *)lineItem {
     NSLog(@"txAdRewardedVideoDidOpen, adUnitId is %@", rewardedVideoAd.adUnitId);
 }
 
-- (void)txAdRewardedVideoWillLeaveApplication:(TXADRewardedVideoAd *)rewardedVideoAd {
+- (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd willLeaveApplication:(TXADILineItem *)lineItem {
     NSLog(@"txAdRewardedVideoWillLeaveApplication, adUnitId is %@", rewardedVideoAd.adUnitId);
 }
 
-- (void)txAdRewardedVideoDidStart:(TXADRewardedVideoAd *)rewardedVideoAd {
+- (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didStart:(TXADILineItem *)lineItem {
     NSLog(@"txAdRewardedVideoDidStart, adUnitId is %@", rewardedVideoAd.adUnitId);
 }
 
-- (void)txAdRewardedVideoDidComplete:(TXADRewardedVideoAd *)rewardedVideoAd {
+- (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didComplete:(TXADILineItem *)lineItem {
     NSLog(@"txAdRewardedVideoDidComplete, adUnitId is %@", rewardedVideoAd.adUnitId);
 }
 
-- (void)txAdRewardedVideoDidClose:(TXADRewardedVideoAd *)rewardedVideoAd{
+- (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didClose:(TXADILineItem *)lineItem {
     NSLog(@"txAdRewardedVideoDidClose, adUnitId is %@", rewardedVideoAd.adUnitId);
     self.showRewardBtn.enabled = NO;
 }
 
-- (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didReward:(TXADRewardItem *)item {
+- (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didReward:(TXADILineItem *)lineItem item:(TXADRewardItem *)item {
     NSLog(@"txAdRewardedVideo didReward, adUnitId is %@, RewardItem is: %@", rewardedVideoAd.adUnitId, item);
 }
 
-- (void)txAdRewardedVideoDidFailedToReward:(TXADRewardedVideoAd *)rewardedVideoAd {
+- (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didFailedToReward:(TXADILineItem *)lineItem {
     NSLog(@"txAdRewardedVideoDidFailedToReward, adUnitId is %@", rewardedVideoAd.adUnitId);
 }
 

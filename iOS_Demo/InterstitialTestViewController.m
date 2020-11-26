@@ -147,8 +147,8 @@
     }
 }
 
-#pragma mark <WECreativeInterstitialDelegate>
-- (void)txAdInterstitialDidReceiveAd:(TXADInterstitialAd *)interstitialAd {
+#pragma mark <TXADInterstitialAdDelegate>
+- (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd didReceiveAd:(TXADILineItem *)lineItem{
     NSLog(@"TXADInterstitialAd txAdInterstitialDidReceiveAd, interstitialAd.adUnitId is %@", interstitialAd.adUnitId);
     self.showIntBtn.enabled = YES;
 }
@@ -158,16 +158,16 @@
     [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
-- (void)txAdInterstitialWillPresentScreen:(TXADInterstitialAd *)interstitialAd {
+- (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd willPresentScreen:(TXADILineItem *)lineItem{
     NSLog(@"TXADInterstitialAd txAdInterstitialWillPresentScreen, interstitialAd adUnitId is %@", interstitialAd.adUnitId);
 }
 
-- (void)txAdInterstitialDidDismissScreen:(TXADInterstitialAd *)interstitialAd {
+- (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd didDismissScreen:(TXADILineItem *)lineItem{
     NSLog(@"TXADInterstitialAd txAdInterstitialDidDismissScreen, interstitialAd adUnitId is %@", interstitialAd.adUnitId);
     self.showIntBtn.enabled = NO;
 }
 
-- (void)txAdInterstitialWillLeaveApplication:(TXADInterstitialAd *)interstitialAd {
+- (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd willLeaveApplication:(TXADILineItem *)lineItem{
     NSLog(@"TXADInterstitialAd txAdInterstitialWillLeaveApplication, interstitialAd adUnitId is %@", interstitialAd.adUnitId);
 }
 

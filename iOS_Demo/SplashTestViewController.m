@@ -106,24 +106,24 @@
 }
 
 #pragma mark <WECreativeSplashDelegate>
-- (void)txAdSplashDidReceiveAd:(TXADSplashAd *)SplashAd {
+- (void)txAdSplash:(TXADSplashAd *)SplashAd didReceiveAd:(TXADILineItem *)lineItem {
     NSLog(@"TXADSplashAd txAdSplashDidReceiveAd, SplashAd.adUnitId is %@", SplashAd.adUnitId);
 }
 
-- (void)txAdSplash:(TXADSplashAd *)SplashAd didFailToReceiveAdWithError:(TXADAdError *)adError{
+- (void)txAdSplash:(TXADSplashAd *)SplashAd didFailToReceiveAdWithError:(TXADAdError *)adError {
     NSLog(@"TXADSplashAd didFailToReceiveAdWithError %d", (int)[adError getCode]);
     [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
-- (void)txAdSplashWillPresentScreen:(TXADSplashAd *)SplashAd {
+- (void)txAdSplash:(TXADSplashAd *)SplashAd willPresentScreen:(TXADILineItem *)lineItem {
     NSLog(@"TXADSplashAd txAdSplashWillPresentScreen, SplashAd adUnitId is %@", SplashAd.adUnitId);
 }
 
-- (void)txAdSplashDidDismissScreen:(TXADSplashAd *)SplashAd {
+- (void)txAdSplash:(TXADSplashAd *)SplashAd didDismissScreen:(TXADILineItem *)lineItem {
     NSLog(@"TXADSplashAd txAdSplashDidDismissScreen, SplashAd adUnitId is %@", SplashAd.adUnitId);
 }
 
-- (void)txAdSplashWillLeaveApplication:(TXADSplashAd *)SplashAd {
+- (void)txAdSplash:(TXADSplashAd *)SplashAd willLeaveApplication:(TXADILineItem *)lineItem {
     NSLog(@"TXADSplashAd txAdSplashWillLeaveApplication, SplashAd adUnitId is %@", SplashAd.adUnitId);
 }
 

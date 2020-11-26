@@ -116,7 +116,7 @@
 }
 
 #pragma mark TXADBannerViewDelegate
-- (void)txAdBannerDidReceiveAd:(TXADBannerView *)bannerView{
+- (void)txAdBanner:(TXADBannerView *)bannerView didReceiveAd:(TXADILineItem *)lineItem {
     NSLog(@"TXADBannerView txAdBannerDidReceiveAd, bannerView.adUnitId is %@", bannerView.adUnitId);
     self.banner.hidden = NO;
     if (!useAdLoader) {
@@ -150,17 +150,17 @@
     [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
-- (void)txAdBannerWillPresentScreen:(TXADBannerView *)bannerView {
+- (void)txAdBanne:(TXADBannerView *)bannerView willPresentScreen:(TXADILineItem *)lineItem {
     NSLog(@"TXADBannerView txAdBannerWillPresentScreen, adUnitId is %@", bannerView.adUnitId);
 
 }
 
-- (void)txAdBannerDidDismissScreen:(TXADBannerView *)bannerView {
+- (void)txAdBanner:(TXADBannerView *)bannerView didDismissScreen:(TXADILineItem *)lineItem {
     NSLog(@"TXADBannerView txAdBannerDidDismissScreen, adUnitId is %@", bannerView.adUnitId);
 }
 
 
-- (void)txAdBannerWillLeaveApplication:(TXADBannerView *)bannerView {
+- (void)txAdBanner:(TXADBannerView *)bannerView willLeaveApplication:(TXADILineItem *)lineItem {
     NSLog(@"TXADBannerView txAdBannerWillLeaveApplication, adUnitId is %@", bannerView.adUnitId);
 }
 

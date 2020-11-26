@@ -205,7 +205,7 @@
 }
 
 #pragma mark <TXADInnerNativeAdDelegate>
-- (void)txAdFeedListDidReceiveAd:(TXADFeedList *)feedList {
+- (void)txAdFeedList:(TXADFeedList *)feedList didReceiveAd:(TXADILineItem *)lineItem{
     NSLog(@"txAdFeedListDidReceiveAd");
     if (!useAdLoader) {
         self.feedArray = [feedList getFeedArray];
@@ -229,17 +229,17 @@
 }
 
 /// 广告展示；如果一次加载多个广告，此回调会触发多次
-- (void)txAdFeedListWillPresentScreen:(TXADFeedList *)feedList feed:(TXADFeed *)feed {
+- (void)txAdFeedList:(TXADFeedList *)feedList willPresentScreen:(TXADILineItem *)lineItem feed:(TXADFeed *)feed {
     NSLog(@"txAdFeedListWillPresentScreen");
 }
 
 /// 点击广告；如果一次加载多个广告，此回调会触发多次
-- (void)txAdFeedListWillLeaveApplication:(TXADFeedList *)feedList feed:(TXADFeed *)feed {
+- (void)txAdFeedList:(TXADFeedList *)feedList willLeaveApplication:(TXADILineItem *)lineItem feed:(TXADFeed *)feed {
     NSLog(@"txAdFeedListWillLeaveApplication");
 }
 
 /// 点击广告后关闭落地页
-- (void)txAdFeedListDidDismissScreen:(TXADFeedList *)feedList feed:(TXADFeed *)feed {
+- (void)txAdFeedList:(TXADFeedList *)feedList didDismissScreen:(TXADILineItem *)lineItem feed:(TXADFeed *)feed {
     NSLog(@"txAdFeedListDidDismissScreen");
 }
 

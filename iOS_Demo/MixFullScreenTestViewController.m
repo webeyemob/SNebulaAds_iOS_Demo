@@ -178,7 +178,7 @@
 }
 
 #pragma mark <WECreativeMixFullScreenAdDelegate>
-- (void)txAdMixFullScreenAdDidReceiveAd:(TXADMixFullScreenAd *)mixFullScreenAd {
+- (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd didReceiveAd:(TXADILineItem *)lineItem {
     NSLog(@"TXADMixFullScreenAdAd txAdMixFullScreenAdDidReceiveAd, mixFullScreenAd.adUnitId is %@", mixFullScreenAd.adUnitId);
     self.showIntBtn.enabled = YES;
 }
@@ -189,16 +189,16 @@
     [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
-- (void)txAdMixFullScreenAdWillPresentScreen:(TXADMixFullScreenAd *)mixFullScreenAd {
+- (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd willPresentScreen:(TXADILineItem *)lineItem {
     NSLog(@"TXADMixFullScreenAdAd txAdMixFullScreenAdWillPresentScreen, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
 }
 
-- (void)txAdMixFullScreenAdDidDismissScreen:(TXADMixFullScreenAd *)mixFullScreenAd {
+- (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd didDismissScreen:(TXADILineItem *)lineItem {
     NSLog(@"TXADMixFullScreenAdAd txAdMixFullScreenAdDidDismissScreen, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
     self.showIntBtn.enabled = NO;
 }
 
-- (void)txAdMixFullScreenAdWillLeaveApplication:(TXADMixFullScreenAd *)mixFullScreenAd {
+- (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd willLeaveApplication:(TXADILineItem *)lineItem {
     NSLog(@"TXADMixFullScreenAdAd txAdMixFullScreenAdWillLeaveApplication, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
 }
 
