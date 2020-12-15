@@ -15,6 +15,9 @@
 @interface SplashTestViewController () <TXADSplashAdDelegate>
 
 @property (nonatomic, strong) TXADSplashAd *splashAd;
+
+@property (nonatomic, strong) UITextField *sceneText;
+
 @end
 
 @implementation SplashTestViewController
@@ -81,6 +84,34 @@
         make.width.equalTo(@(200));
         make.height.equalTo(@(30));
     }];
+    
+    UILabel *sceneId = [[UILabel alloc] init];
+    sceneId.text = @"scene id: ";
+    [self.view addSubview:sceneId];
+        
+    [sceneId mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(splashLoadBtn.mas_bottom).offset(50);
+        make.left.equalTo(self.view).offset(20);
+        make.width.equalTo(@(100));
+        make.height.equalTo(@(40));
+    }];
+    
+    UITextField *textField1 = [[UITextField alloc]init];
+    [self.view addSubview:textField1];
+    textField1.borderStyle = UITextBorderStyleRoundedRect;
+
+    self.sceneText = textField1;
+        
+    [textField1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sceneId);
+        make.left.equalTo(sceneId.mas_right).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.equalTo(@(40));
+    }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 - (void) closePage {
@@ -96,6 +127,7 @@
             
             self.splashAd.delegate = self;
         }
+        [self.splashAd setScene: self.sceneText.text];
         [self.splashAd loadAd];
     } else {
         TXADSplashAd *ad = [TXADAdLoader getSplashAd:self.adUnitID uiWindow:[UIApplication sharedApplication].keyWindow];

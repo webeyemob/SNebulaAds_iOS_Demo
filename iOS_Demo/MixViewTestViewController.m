@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) UIView *adView;
 
+@property (nonatomic, strong) UITextField *sceneText;
+
 @end
 
 @implementation MixViewTestViewController
@@ -84,6 +86,30 @@
         make.width.equalTo(@(200));
         make.height.equalTo(@(20));
     }];
+    
+    UILabel *sceneId = [[UILabel alloc] init];
+    sceneId.text = @"scene id: ";
+    [self.view addSubview:sceneId];
+        
+    [sceneId mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(loadNativeBtn.mas_bottom).offset(30);
+        make.left.equalTo(self.view).offset(20);
+        make.width.equalTo(@(100));
+        make.height.equalTo(@(40));
+    }];
+    
+    UITextField *textField1 = [[UITextField alloc]init];
+    [self.view addSubview:textField1];
+    textField1.borderStyle = UITextBorderStyleRoundedRect;
+
+    self.sceneText = textField1;
+        
+    [textField1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sceneId);
+        make.left.equalTo(sceneId.mas_right).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.equalTo(@(40));
+    }];
         
      //[self createLayout];
     [self createDefaultLayout];
@@ -100,8 +126,12 @@
         make.left.equalTo(self.view).offset(10);
         make.right.equalTo(self.view).offset(-10);
         make.bottom.equalTo(self.view).offset(-10);
-        make.top.equalTo(loadNativeBtn.mas_bottom).offset(20);
+        make.top.equalTo(textField1.mas_bottom).offset(20);
     }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 - (void) closePage {
@@ -174,7 +204,7 @@
 
     // 布置展示广告素材的 UIViews，可以通过新建 xib 文件或自定义 UIView 的子类
     if (!useAdLoader) {
-        UIView *mixView = [self.mixViewAd getAdView];
+        UIView *mixView = [self.mixViewAd getAdViewWithSceneId:self.sceneText.text];
 
         for (UIView *temp in self.adView.subviews) {
             [temp removeFromSuperview];
@@ -190,7 +220,7 @@
         }];
         
     } else {
-        [TXADAdLoader showMixViewAd:self.adUnitID container:self.adView];
+        [TXADAdLoader showMixViewAd:self.adUnitID container:self.adView sceneId:self.sceneText.text];
     }
 }
 

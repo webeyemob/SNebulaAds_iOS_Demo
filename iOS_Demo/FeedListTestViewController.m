@@ -26,6 +26,8 @@
 
 @property (nonatomic, strong) UIView *adContainer;
 
+@property (nonatomic, strong) UITextField *sceneText;
+
 @end
 
 @implementation FeedListTestViewController
@@ -90,8 +92,32 @@
         make.width.equalTo(@(200));
         make.height.equalTo(@(20));
     }];
+    
+    UILabel *sceneId = [[UILabel alloc] init];
+    sceneId.text = @"scene id: ";
+    [self.view addSubview:sceneId];
         
-     //[self createFeedList];
+    [sceneId mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(loadNativeBtn.mas_bottom).offset(50);
+        make.left.equalTo(self.view).offset(20);
+        make.width.equalTo(@(100));
+        make.height.equalTo(@(40));
+    }];
+    
+    UITextField *textField1 = [[UITextField alloc]init];
+    [self.view addSubview:textField1];
+    textField1.borderStyle = UITextBorderStyleRoundedRect;
+
+    self.sceneText = textField1;
+        
+    [textField1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sceneId);
+        make.left.equalTo(sceneId.mas_right).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.equalTo(@(40));
+    }];
+        
+    //[self createFeedList];
     self.nativeLayout = [TXADNativeAdLayout getLargeLayout4WithWidth:ScreenWidth-10];
     
     
@@ -106,11 +132,15 @@
     self.adContainer = adView;
     
     [adView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(loadNativeBtn.mas_bottom).offset(10);
+        make.top.equalTo(textField1.mas_bottom).offset(10);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-10);
     }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 - (void) closePage {
@@ -171,6 +201,7 @@
         [self.feedListAd loadAd];
     } else {
         TXADFeedList *ad = [TXADAdLoader getFeedListAd:self.adUnitID];
+        self.feedListAd = ad;
         ad.delegate = self;
         
         [TXADAdLoader loadFeedListAd:self.adUnitID count:3];
@@ -181,7 +212,8 @@
     if (self.currentIndex < self.feedArray.count) {
         TXADFeed *feed = self.feedArray[self.currentIndex];
         // 布置展示广告素材的 UIViews，可以通过新建 xib 文件或自定义 UIView 的子类
-        UIView *adView = [feed getAdView:self.nativeLayout];
+        NSString *sceneId = [NSString stringWithFormat:@"%@%d", self.sceneText.text, self.currentIndex];
+        UIView *adView = [feed getAdView:self.nativeLayout sceneId:sceneId];
         
         for (UIView *subView in self.adContainer.subviews) {
             [subView removeFromSuperview];
@@ -189,12 +221,14 @@
         
         [self.adContainer addSubview:adView];
         
-        adView.center = self.adContainer.center;
+        //adView.center = self.adContainer.center;
         
-//        [adView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.centerX.equalTo(self.adContainer);
-//            make.centerY.equalTo(self.adContainer);
-//        }];
+        [adView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.adContainer);
+            make.centerY.equalTo(self.adContainer);
+            make.width.equalTo(@(adView.bounds.size.width));
+            make.height.equalTo(@(adView.bounds.size.height));
+        }];
         
         self.currentIndex++;
         
@@ -207,6 +241,9 @@
 #pragma mark <TXADInnerNativeAdDelegate>
 - (void)txAdFeedList:(TXADFeedList *)feedList didReceiveAd:(TXADILineItem *)lineItem{
     NSLog(@"txAdFeedListDidReceiveAd");
+    
+    if ([self.feedListAd isReady]) {
+    }
     if (!useAdLoader) {
         self.feedArray = [feedList getFeedArray];
     } else {
@@ -217,6 +254,7 @@
         [self.timer invalidate];
     }
     // 获取第一个广告并展示
+
     [self showFeed];
 }
 

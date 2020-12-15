@@ -22,6 +22,8 @@
 @property (nonatomic, strong) UIButton *showNativeBtn;
 @property (nonatomic, strong) TXADNativeAdLayout *nativeLayout;
 
+@property (nonatomic, strong) UITextField *sceneText;
+
 @end
 
 @implementation NativeTestViewController
@@ -87,11 +89,39 @@
         make.height.equalTo(@(20));
     }];
     
+    UILabel *sceneId = [[UILabel alloc] init];
+    sceneId.text = @"scene id: ";
+    [self.view addSubview:sceneId];
+        
+    [sceneId mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(loadNativeBtn.mas_bottom).offset(20);
+        make.left.equalTo(self.view).offset(20);
+        make.width.equalTo(@(100));
+        make.height.equalTo(@(40));
+    }];
+    
+    UITextField *textField1 = [[UITextField alloc]init];
+    [self.view addSubview:textField1];
+    textField1.borderStyle = UITextBorderStyleRoundedRect;
+
+    self.sceneText = textField1;
+        
+    [textField1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sceneId);
+        make.left.equalTo(sceneId.mas_right).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.equalTo(@(40));
+    }];
+    
     self.showNativeBtn = loadNativeBtn;
     
     //[self createNativeLayout];    // nativeLayout
     [self createDefaultLayout]; //get default NativeLayout
     //[self createxibLayout];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 - (void) closePage {
@@ -125,7 +155,7 @@
     
     [layout.rootView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(ScreenWidth));
-        make.height.equalTo(@(620));
+        make.height.equalTo(@(550));
     }];
     
     UIView *adView = [[UIView alloc] init];
@@ -141,7 +171,7 @@
         make.bottom.equalTo(self.view).offset(-10);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(10);
+        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(60);
     }];
     
     adView.hidden = YES;
@@ -161,7 +191,7 @@
         make.bottom.equalTo(self.view).offset(-10);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(10);
+        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(80);
     }];
     
     adView.hidden = YES;
@@ -222,7 +252,7 @@
     self.nativeAdView = adView;
     
     [adView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(10);
+        make.top.equalTo(self.showNativeBtn.mas_bottom).offset(80);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.bottom.equalTo(self.view);
@@ -259,7 +289,7 @@
 - (void)showNative {
     if (!useAdLoader) {
         if (self.nativeAd.isReady) {
-            UIView *adView = [self.nativeAd getAdView];
+            UIView *adView = [self.nativeAd getAdView:self.sceneText.text];
             
             for (UIView *view in self.nativeAdView.subviews) {
                 [view removeFromSuperview];
@@ -278,7 +308,7 @@
         }
     } else {
         if ([TXADAdLoader isNativeAdReady:self.adUnitID] ) {
-            [TXADAdLoader showNativeAd:self.adUnitID container:self.nativeAdView];
+            [TXADAdLoader showNativeAd:self.adUnitID container:self.nativeAdView sceneId:self.sceneText.text];
             self.nativeAdView.hidden = NO;
         }
     }

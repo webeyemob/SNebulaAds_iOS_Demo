@@ -17,6 +17,8 @@
 @property (nonatomic, strong) TXADRewardedVideoAd *rewardAd;
 @property (nonatomic, strong) UIButton *showRewardBtn;
 
+@property (nonatomic, strong) UITextField *sceneText;
+
 @end
 
 @implementation RewardedVideoTestViewController
@@ -99,6 +101,34 @@
         make.width.equalTo(@(100));
         make.height.equalTo(@(20));
     }];
+    
+    UILabel *sceneId = [[UILabel alloc] init];
+    sceneId.text = @"scene id: ";
+    [self.view addSubview:sceneId];
+        
+    [sceneId mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(rewardShowBtn.mas_bottom).offset(50);
+        make.left.equalTo(self.view).offset(20);
+        make.width.equalTo(@(100));
+        make.height.equalTo(@(40));
+    }];
+    
+    UITextField *textField1 = [[UITextField alloc]init];
+    [self.view addSubview:textField1];
+    textField1.borderStyle = UITextBorderStyleRoundedRect;
+
+    self.sceneText = textField1;
+        
+    [textField1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sceneId);
+        make.left.equalTo(sceneId.mas_right).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.equalTo(@(40));
+    }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 - (void) closePage {
@@ -122,11 +152,11 @@
 - (void)showReward {
     if (!useAdLoader) {
         if (self.rewardAd.isReady) {
-            [self.rewardAd showFromViewController:self];
+            [self.rewardAd showFromViewController:self sceneId:self.sceneText.text];
         }
     } else {
        if ([TXADAdLoader isRewardedVideoAdReady:self.adUnitID]) {
-            [TXADAdLoader showRewardedVideoAd:self.adUnitID viewController:self];
+            [TXADAdLoader showRewardedVideoAd:self.adUnitID viewController:self sceneId:self.sceneText.text];
         }
     }
 }
