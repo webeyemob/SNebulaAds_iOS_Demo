@@ -13,7 +13,6 @@ target 'iOS_Demo' do
     pod 'Masonry'
     pod 'TaurusXAds'
     pod 'TaurusXAdMediation_GoogleAds'
-    #pod 'Google-Mobile-Ads-SDK'
     pod 'TaurusXAdMediation_Amazon'
     pod 'TaurusXAdMediation_AppLovin'
     pod 'TaurusXAdMediation_AdColony'
