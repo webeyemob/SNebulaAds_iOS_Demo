@@ -232,6 +232,19 @@
     NSLog(@"TXADMixFullScreenAdAd txAdMixFullScreenAdWillLeaveApplication, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
 }
 
+- (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd videoStart:(TXADILineItem *)lineItem {
+    NSLog(@"TXADMixFullScreenAdAd videoStart, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
+}
+
+
+- (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd videoComplete:(TXADILineItem *)lineItem {
+    NSLog(@"TXADMixFullScreenAdAd videoComplete, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
+}
+
+- (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd didReward:(TXADILineItem *)lineItem item:(TXADRewardItem *)item {
+    NSLog(@"TXADMixFullScreenAdAd didReward, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
+}
+
 /*
 #pragma mark - Navigation
 

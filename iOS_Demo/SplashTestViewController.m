@@ -127,7 +127,7 @@
             
             self.splashAd.delegate = self;
         }
-        [self.splashAd setScene: self.sceneText.text];
+        [self.splashAd setSceneId: self.sceneText.text];
         [self.splashAd loadAd];
     } else {
         TXADSplashAd *ad = [TXADAdLoader getSplashAd:self.adUnitID uiWindow:[UIApplication sharedApplication].keyWindow];

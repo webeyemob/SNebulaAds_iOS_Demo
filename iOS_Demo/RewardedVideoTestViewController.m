@@ -164,6 +164,11 @@
 - (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didReceiveAd:(TXADILineItem *)lineItem {
     NSLog(@"txAdRewardedVideoDidReceiveAd, adUnitId is %@", rewardedVideoAd.adUnitId);
     self.showRewardBtn.enabled = YES;
+    
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"txAdRewardedVideoDidReceiveAd+++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 - (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didFailToReceiveAdWithError:(TXADAdError *)adError {
@@ -188,12 +193,12 @@
 }
 
 - (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didClose:(TXADILineItem *)lineItem {
-    NSLog(@"txAdRewardedVideoDidClose, adUnitId is %@", rewardedVideoAd.adUnitId);
+    NSLog(@"txAdRewardedVideoDidClose, adUnitId is %@, TId:%@", rewardedVideoAd.adUnitId,[lineItem getTId]);
     self.showRewardBtn.enabled = NO;
 }
 
 - (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didReward:(TXADILineItem *)lineItem item:(TXADRewardItem *)item {
-    NSLog(@"txAdRewardedVideo didReward, adUnitId is %@, RewardItem is: %@", rewardedVideoAd.adUnitId, item);
+    NSLog(@"txAdRewardedVideo didReward, adUnitId is %@, RewardItem is: %@, TId: %@", rewardedVideoAd.adUnitId, item, [lineItem getTId]);
 }
 
 - (void)txAdRewardedVideo:(TXADRewardedVideoAd *)rewardedVideoAd didFailedToReward:(TXADILineItem *)lineItem {

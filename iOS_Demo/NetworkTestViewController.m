@@ -182,7 +182,8 @@
                                   @{@"Express": @"505daf24-b197-48c7-b383-905a2d68e47c"},
                                   @{@"Express 2.0": @"e538c7a1-1c09-440c-990f-a69b87173c0e"}]},
                   @{@"RewardedVideo":@[@{@"RewardedVideo": @"b156abf1-2767-4073-a7a5-bdaf6026f032"},
-                                       @{@"Express RewardedVideo": @"0086ebae-e709-4181-a1ed-cb86d36dd368"}]},
+                                       @{@"Express RewardedVideo": @"0086ebae-e709-4181-a1ed-cb86d36dd368"},
+                                       @{@"Interstitial RewardedVideo": @"042b77ed-d6b9-495a-bbc1-aea766f30c28"}]},
                   @{@"Splash":@[@{@"Splash": @"cfc8a9ef-0dcd-490c-b093-b1bd9ffb800c"}]},
                   @{@"MixView":@[@{@"Banner 2.0": @"522767ca-3d4f-4399-b654-ada7c06ed904"},
                                 @{@"Custom 2.0 Native": @"54e45182-2b75-49ca-812d-ea3eea7387a3"},
@@ -244,8 +245,10 @@
                           @{@"RewardedVideo":@[@{@"RewardedVideo": @"f939a944-1ebe-491a-91b3-2a40e4828fe4"}]},
                           @{@"Splash":@[@{@"Splash": @"7f1d00b6-4b76-4565-8a43-e05414408903"}]}],
         @"Mobrain": @[@{@"Banner": @[@{@"banner express": @"a2171380-d970-4e3f-a068-34d8f7c9732a"}]},
-                      @{@"Interstitial": @[@{@"Interstitial express": @"aacb6875-2d5f-40df-a34c-bd8f78600888"},@{@"Interstitial fullscreen video": @"fbd37a66-2671-4c33-9e60-ba3ea0a31217"}]},
-                      @{@"FeedList": @[@{@"custom": @"4b181d37-e059-40df-a111-10ed946422b2"},@{@"express": @"e5176bfa-9793-4616-b5df-bf8b43364723"}]}],
+                      @{@"Interstitial": @[@{@"Interstitial express": @"aacb6875-2d5f-40df-a34c-bd8f78600888"},@{@"Interstitial fullscreen video express": @"fbd37a66-2671-4c33-9e60-ba3ea0a31217"}, @{@"new Interstitial": @"76bda2f0-d398-4a6a-b7c3-0a91d0b6acb4"},@{@"new Interstitial fullscreen video": @"558d0a5b-46c8-4c88-ac43-9f9b0d904712"}]},
+                      @{@"RewardedVideo": @[@{@"normal": @"95f86d3e-4979-4a7d-9726-299686951c8b"},@{@"express": @"95f86d3e-4979-4a7d-9726-299686951c8b"}]},
+                      @{@"FeedList": @[@{@"custom": @"4b181d37-e059-40df-a111-10ed946422b2"},@{@"express": @"e5176bfa-9793-4616-b5df-bf8b43364723"}]},
+                      @{@"Splash": @[@{@"normal": @"fe578f57-7445-4ece-90ee-03aee6d55f0e"}]}],
         @"MoPub": @[@{@"Banner": @[@{@"320*50": @"3e6c21ae-efe5-47f1-9118-ac43f9ece5c0"},
                                    @{@"300*250": @"7ccc3fd9-71a0-46c7-a724-0d714a7c6e63"}]},
                     @{@"Interstitial": @[@{@"Interstitial": @"e171e8af-8ad1-4faf-806e-fcb75bd3ed36"}]},
@@ -375,7 +378,9 @@
                      @{@"Interstitial": @[@{@"Interstitial": @"3f5a47fa-57ab-4d7f-a57c-6b53eb11410b"}]},
                      @{@"Native": @[@{@"Native": @"809f33f6-591d-4d47-a669-e7df653ae716"}]},
                      @{@"FeedList": @[@{@"FeedList": @"317244b2-e865-4b80-ac57-853b3eb92180"}]},
-                     @{@"RewardedVideo": @[@{@"RewardedVideo": @"5c4daea1-ea30-419d-a4d5-3f72f1748998"}]}]
+                     @{@"RewardedVideo": @[@{@"RewardedVideo": @"5c4daea1-ea30-419d-a4d5-3f72f1748998"}]}],
+        @"YKY": @[@{@"Interstitial": @[@{@"Interstitial": @"d0ff1430-7d89-4392-93a2-a82547654f0e"}]},
+                  @{@"RewardedVideo": @[@{@"RewardedVideo": @"f9de370d-4f85-4a54-a4a8-316315d3177d"}]},@{@"Splash": @[@{@"Splash": @"b2173f14-6550-475d-affe-f139c98f5c6c"}]}]
     };
     //get all key in dic
      NSArray *keyArray = [_netWorksDic allKeys];

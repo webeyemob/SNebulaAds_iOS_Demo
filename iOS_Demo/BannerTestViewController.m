@@ -119,6 +119,11 @@
 - (void)txAdBanner:(TXADBannerView *)bannerView didReceiveAd:(TXADILineItem *)lineItem {
     NSLog(@"TXADBannerView txAdBannerDidReceiveAd, bannerView.adUnitId is %@", bannerView.adUnitId);
     self.banner.hidden = NO;
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"TXADBannerView txAdBannerDidReceiveAd, +++++++secondary Line: %@", [secLineItem description]);
+    }
+    
     if (!useAdLoader) {
         for (UIView *temp in self.banner.subviews) {
             [temp removeFromSuperview];
@@ -150,18 +155,29 @@
     [self.view makeToast:@"load failed" duration:3.0 position:CSToastPositionCenter];
 }
 
-- (void)txAdBanne:(TXADBannerView *)bannerView willPresentScreen:(TXADILineItem *)lineItem {
+- (void)txAdBanner:(TXADBannerView *)bannerView willPresentScreen:(TXADILineItem *)lineItem {
     NSLog(@"TXADBannerView txAdBannerWillPresentScreen, adUnitId is %@", bannerView.adUnitId);
-
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"TXADBannerView txAdBannerWillPresentScreen, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 - (void)txAdBanner:(TXADBannerView *)bannerView didDismissScreen:(TXADILineItem *)lineItem {
     NSLog(@"TXADBannerView txAdBannerDidDismissScreen, adUnitId is %@", bannerView.adUnitId);
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"TXADBannerView txAdBannerDidDismissScreen, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 
 - (void)txAdBanner:(TXADBannerView *)bannerView willLeaveApplication:(TXADILineItem *)lineItem {
     NSLog(@"TXADBannerView txAdBannerWillLeaveApplication, adUnitId is %@", bannerView.adUnitId);
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"TXADBannerView willLeaveApplication, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 

@@ -181,6 +181,11 @@
 - (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd didReceiveAd:(TXADILineItem *)lineItem{
     NSLog(@"TXADInterstitialAd txAdInterstitialDidReceiveAd, interstitialAd.adUnitId is %@", interstitialAd.adUnitId);
     self.showIntBtn.enabled = YES;
+    
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"TXADInterstitialAd txAdInterstitialDidReceiveAd, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 - (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd didFailToReceiveAdWithError:(TXADAdError *)adError{
@@ -190,11 +195,21 @@
 
 - (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd willPresentScreen:(TXADILineItem *)lineItem{
     NSLog(@"TXADInterstitialAd txAdInterstitialWillPresentScreen, interstitialAd adUnitId is %@", interstitialAd.adUnitId);
+    
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"TXADInterstitialAd txAdInterstitialWillPresentScreen, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 - (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd didDismissScreen:(TXADILineItem *)lineItem{
     NSLog(@"TXADInterstitialAd txAdInterstitialDidDismissScreen, interstitialAd adUnitId is %@", interstitialAd.adUnitId);
     self.showIntBtn.enabled = NO;
+    
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"TXADInterstitialAd txAdInterstitialDidDismissScreen, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 - (void)txAdInterstitial:(TXADInterstitialAd *)interstitialAd willLeaveApplication:(TXADILineItem *)lineItem{
