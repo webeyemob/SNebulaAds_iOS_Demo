@@ -199,6 +199,7 @@
             [self.feedListAd setCount:3];
         }
         [self.feedListAd loadAd];
+        [self.feedListAd enterAdScene:@"loadFeedlist"];
     } else {
         TXADFeedList *ad = [TXADAdLoader getFeedListAd:self.adUnitID];
         self.feedListAd = ad;
@@ -242,7 +243,7 @@
 - (void)txAdFeedList:(TXADFeedList *)feedList didReceiveAd:(TXADILineItem *)lineItem{
     NSLog(@"txAdFeedListDidReceiveAd");
     
-    if ([self.feedListAd isReady]) {
+    if ([self.feedListAd isReady:@"loadFeedlist"]) {
     }
     if (!useAdLoader) {
         self.feedArray = [feedList getFeedArray];
@@ -256,6 +257,11 @@
     // 获取第一个广告并展示
 
     [self showFeed];
+    
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"txAdFeedListDidReceiveAd, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 /// 广告加载失败
@@ -269,11 +275,21 @@
 /// 广告展示；如果一次加载多个广告，此回调会触发多次
 - (void)txAdFeedList:(TXADFeedList *)feedList willPresentScreen:(TXADILineItem *)lineItem feed:(TXADFeed *)feed {
     NSLog(@"txAdFeedListWillPresentScreen");
+    
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"txAdFeedListWillPresentScreen, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 /// 点击广告；如果一次加载多个广告，此回调会触发多次
 - (void)txAdFeedList:(TXADFeedList *)feedList willLeaveApplication:(TXADILineItem *)lineItem feed:(TXADFeed *)feed {
     NSLog(@"txAdFeedListWillLeaveApplication");
+    
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"txAdFeedListWillLeaveApplication, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 /// 点击广告后关闭落地页

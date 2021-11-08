@@ -121,6 +121,7 @@
 
 #pragma  mark intersitial
 - (void) loadSplash {
+    
     if (!useAdLoader) {
         if (self.splashAd == nil) {
             self.splashAd = [[TXADSplashAd alloc] initWithAdUnitId:self.adUnitID uiWindow: [UIApplication sharedApplication].keyWindow ];
@@ -128,10 +129,16 @@
             self.splashAd.delegate = self;
         }
         [self.splashAd setSceneId: self.sceneText.text];
+        self.splashAd.splashTitle = @"Title";
+        self.splashAd.splashDesc = @"哈哈哈哈哈";
         [self.splashAd loadAd];
+        [self.splashAd enterAdScene:@"loadSplash"];
     } else {
         TXADSplashAd *ad = [TXADAdLoader getSplashAd:self.adUnitID uiWindow:[UIApplication sharedApplication].keyWindow];
         ad.delegate = self;
+        
+        //ad.splashTitle = @"Title";
+        ad.splashDesc = @"哈哈哈哈哈";
         
         [TXADAdLoader loadSplashAd:self.adUnitID uiWindow:[UIApplication sharedApplication].keyWindow];
     }

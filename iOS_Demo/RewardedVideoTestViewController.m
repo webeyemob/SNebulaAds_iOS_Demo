@@ -142,6 +142,7 @@
             self.rewardAd.delegate = self;
         }
         [self.rewardAd loadAd];
+        [self.rewardAd enterAdScene:@"loadRewardAd"];
     } else {
         TXADRewardedVideoAd *ad = [TXADAdLoader getRewardedVideoAd:self.adUnitID];
         ad.delegate = self;
@@ -151,7 +152,7 @@
 
 - (void)showReward {
     if (!useAdLoader) {
-        if (self.rewardAd.isReady) {
+        if ([self.rewardAd isReady:@"loadRewardAd"]) {
             [self.rewardAd showFromViewController:self sceneId:self.sceneText.text];
         }
     } else {

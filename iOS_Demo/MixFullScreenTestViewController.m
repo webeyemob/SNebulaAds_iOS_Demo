@@ -187,6 +187,7 @@
             [self createMixFullScreenAd];
         }
         [self.mixFullScreenAd loadAd];
+        [self.mixFullScreenAd enterAdScene:@"loadMixFulScreen"];
      } else {
          TXADMixFullScreenAd *ad = [TXADAdLoader getMixFullScreenAd:self.adUnitID];
          ad.delegate = self;
@@ -196,7 +197,7 @@
 
 - (void)showMixFullScreenAd {
     if (!useAdLoader) {
-        if (self.mixFullScreenAd.isReady)
+        if ([self.mixFullScreenAd isReady:@"loadMixFulScreen"])
         {
             [self.mixFullScreenAd showFromViewController:self sceneId:self.sceneText.text];
         }
@@ -224,7 +225,7 @@
 }
 
 - (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd didDismissScreen:(TXADILineItem *)lineItem {
-    NSLog(@"TXADMixFullScreenAdAd txAdMixFullScreenAdDidDismissScreen, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
+    NSLog(@"TXADMixFullScreenAdAd txAdMixFullScreenAdDidDismissScreen, mixFullScreenAd adUnitId is %@, tid:%@", mixFullScreenAd.adUnitId, [lineItem getTId]);
     self.showIntBtn.enabled = NO;
 }
 
@@ -242,7 +243,7 @@
 }
 
 - (void)txAdMixFullScreenAd:(TXADMixFullScreenAd *)mixFullScreenAd didReward:(TXADILineItem *)lineItem item:(TXADRewardItem *)item {
-    NSLog(@"TXADMixFullScreenAdAd didReward, mixFullScreenAd adUnitId is %@", mixFullScreenAd.adUnitId);
+    NSLog(@"TXADMixFullScreenAdAd didReward, mixFullScreenAd adUnitId is %@, tid:%@", mixFullScreenAd.adUnitId, [lineItem getTId]);
 }
 
 /*

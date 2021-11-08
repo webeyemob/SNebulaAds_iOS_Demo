@@ -157,6 +157,7 @@
             [self createInterstitial];
         }
         [self.interstitalAd loadAd];
+        [self.interstitalAd enterAdScene:@"loadInterstitial"];
     } else {
         TXADInterstitialAd *ad = [TXADAdLoader getInterstitialAd:self.adUnitID];
         ad.delegate = self;
@@ -166,7 +167,7 @@
 
 - (void)showInterstitial {
     if (!useAdLoader) {
-        if (self.interstitalAd.isReady)
+        if ([self.interstitalAd isReady:@"load interstitial"])
         {
             [self.interstitalAd showFromViewController:self sceneId:self.sceneText.text];
         }

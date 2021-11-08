@@ -192,6 +192,7 @@
             [self.mixViewAd setNativeAdLayout:self.nativeLayout];
         }
         [self.mixViewAd loadAd];
+        [self.mixViewAd enterAdScene:@"loadMixViewAd"];
     } else {
         TXADMixViewAd *ad = [TXADAdLoader getMixViewAd:self.adUnitID rootViewController:self];
         ad.delegate = self;
@@ -228,6 +229,11 @@
 - (void)txAdMixViewAd:(TXADMixViewAd *)mixViewAd didReceiveAd:(TXADILineItem *)lineItem {
     NSLog(@"txAdMixViewDidReceiveAd");
     [self showMixView];
+    
+    TXADSecondaryLineItem *secLineItem = [lineItem getSecondaryLineItem];
+    if (secLineItem != nil) {
+        NSLog(@"txAdMixViewAd, +++++++secondary Line: %@", [secLineItem description]);
+    }
 }
 
 /// 广告加载失败

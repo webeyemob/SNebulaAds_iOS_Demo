@@ -289,7 +289,7 @@
 - (void)showNative {
     if (!useAdLoader) {
         if (self.nativeAd.isReady) {
-            UIView *adView = [self.nativeAd getAdView:self.sceneText.text];
+            UIView *adView = [self.nativeAd getAdViewSceneId:self.sceneText.text];
             
             for (UIView *view in self.nativeAdView.subviews) {
                 [view removeFromSuperview];
