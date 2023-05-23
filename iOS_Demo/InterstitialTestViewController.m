@@ -7,11 +7,11 @@
 //
 
 #import "InterstitialTestViewController.h"
-@import TaurusXAds;
+@import SNebulaAds;
 #import "Masonry.h"
 #import "macro.h"
 #import "UIView+Toast.h"
-#import <TaurusXAdMediation_GDT/TaurusXAdMediation_GDT.h>
+#import <SNebulaAdMediation_GDT/SNebulaAdMediation_GDT.h>
 
 @interface InterstitialTestViewController () <TXADInterstitialAdDelegate>
 

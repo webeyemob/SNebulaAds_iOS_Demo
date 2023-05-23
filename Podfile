@@ -1,7 +1,7 @@
 project 'iOS_Demo.xcodeproj'
+source 'https://github.com/CocoaPods/Specs.git'
 
-# Uncomment the next line to define a global platform for your project
-platform :ios, '10.0'
+platform :ios, '12.0'
 
 inhibit_all_warnings!
 install!'cocoapods',:deterministic_uuids=>false
@@ -10,61 +10,23 @@ install!'cocoapods',:deterministic_uuids=>false
 target 'iOS_Demo' do
 
     use_frameworks!
-    
     pod 'Masonry'
-    pod 'TaurusXAds'
-    #pod 'Google-Mobile-Ads-SDK'
-    pod 'TaurusXAdMediation_GoogleAds'
-    pod 'TaurusXAdMediation_Amazon'
-    #pod 'AppLovinSDK'
-    pod 'TaurusXAdMediation_AppLovin'
-    pod 'TaurusXAdMediation_AppLovinMax'
-    pod 'TaurusXAdMediation_AdColony'
-    pod 'TaurusXAdMediation_AdGeneration'
-    #pod 'BaiduMobAdSDK'
-    pod 'TaurusXAdMediation_Baidu'
-    pod 'TaurusXAdMediation_Facebook'
-    #pod 'FBAudienceNetwork'
-    pod 'TaurusXAdMediation_Chartboost'
-    pod 'TaurusXAdMediation_Criteo'
-    #pod 'TaurusXAdMediation_Flurry'
-    #pod 'TaurusXAdMediation_IronSource'
-    pod 'TaurusXAdMediation_Maio'
-    #pod 'TaurusXAdMediation_Flurry'
-    pod 'TaurusXAdMediation_Five'
-    #pod 'TaurusXAdMediation_DUAdPlatform'
-    pod 'TaurusXAdMediation_Fyber'
-    #pod 'KSAdSDK'
-    pod 'TaurusXAdMediation_KuaiShou'
-    pod 'TaurusXAdMediation_MoPub'
-    #pod 'mopub-ios-sdk'
-    pod 'TaurusXAdMediation_Mintegral'
-    pod 'TaurusXAdMediation_Nend'
-    pod 'TaurusXAdMediation_Tapjoy'
-    pod 'TaurusXAdMediation_TikTok'
-    #pod 'Ads-Global'
-    #pod 'Ads-Global/BUAdSDK'
-    #pod 'Ads-Global/Domestic'
-    pod 'TaurusXAdMediation_UnityAds'
-    pod 'TaurusXAdMediation_Vungle'
-    #pod 'GDTMobSDK'
-    pod 'TaurusXAdMediation_GDT'
-    pod 'TaurusXAdMediation_Imobile'
-    pod 'TaurusXAdMediation_DisplayIO'
-    pod 'TaurusXAdMediation_InMobi'
-    #pod 'Probe'
-    pod 'TaurusXAdMediation_Mobrain'
-    pod 'TaurusXAd_Mobrain_TikTok'
-    #pod 'TaurusXAd_Mobrain_GDT'
-    #pod 'TaurusXAd_Mobrain_KuaiShou'
-    #pod 'TaurusXAd_Mobrain_AdMob'
-    #pod 'TaurusXAd_Mobrain_Baidu'
-    #pod 'TaurusXAd_Mobrain_Mintegral'
-    pod 'TaurusXAdMediation_Sigmob'
-    #pod 'NathAds', '= 1.1.1'
-    pod 'IronSourceSDK', '= 6.15.0.1'
-    pod 'EmbededSdk'
-    pod 'GoogleMobileAdsMediationAppLovin'
-    pod 'GoogleMobileAdsMediationAdColony'
-    pod 'TaurusXAdMediation_YKY'
+    pod 'SNebulaAds'
+    pod 'SNebulaAdMediation_GDT'
+    pod 'SNebulaAdMediation_KuaiShou'
+    pod 'SNebulaAdMediation_TikTok_CN'
+    pod 'SNebulaAdMediation_Mobrain'
+    pod 'SNebulaAd_Mobrain_TikTok'
+#    pod 'SNebulaAd_Mobrain_KuaiShou'
+#    pod 'ABUAdGdtAdapter'
+#    pod 'SNebulaAd_Mobrain_GDT'
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+    end
+  end
 end

@@ -12,7 +12,7 @@
 #import "LoadModelViewController.h"
 #import "NetworkTestViewController.h"
 #import "AdTypeViewController.h"
-@import TaurusXAds;
+@import SNebulaAds;
 
 
 @interface HomeViewController () <TXADTrackerDelegate>
@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
     self.modalPresentationStyle = 0;
     

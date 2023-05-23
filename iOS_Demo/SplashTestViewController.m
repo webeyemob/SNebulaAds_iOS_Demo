@@ -7,7 +7,7 @@
 //
 
 #import "SplashTestViewController.h"
-@import TaurusXAds;
+@import SNebulaAds;
 #import "Masonry.h"
 #import "macro.h"
 #import "UIView+Toast.h"

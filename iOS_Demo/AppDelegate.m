@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
-#import <FBAudienceNetwork/FBAudienceNetwork.h>
+//#import <FBAudienceNetwork/FBAudienceNetwork.h>
 @interface AppDelegate ()
 
 @end
@@ -54,7 +54,7 @@
        self.window.rootViewController = vc;
        [self.window makeKeyAndVisible];
     
-    [FBAdSettings setLogLevel:FBAdLogLevelVerbose];
+//    [FBAdSettings setLogLevel:FBAdLogLevelVerbose];
     
     return YES;
 }

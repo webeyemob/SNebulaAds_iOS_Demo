@@ -7,10 +7,10 @@
 //
 
 #import "NativeTestViewController.h"
-@import TaurusXAds;
+@import SNebulaAds;
 #import "Masonry.h"
 #import "macro.h"
-#import <TaurusXAdMediation_Vungle/TaurusXAdMediation_Vungle.h>
+//#import <TaurusXAdMediation_Vungle/TaurusXAdMediation_Vungle.h>
 #import "NativeAdView.h"
 #import "UIView+Toast.h"
 
